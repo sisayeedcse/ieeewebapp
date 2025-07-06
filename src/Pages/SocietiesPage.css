@@ -1,0 +1,134 @@
+.society-page {
+    padding: 100px 20px 60px;
+    background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+    min-height: 100vh;
+    animation: fadeIn 1s ease;
+}
+
+.society-header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeUp 1s ease-in-out;
+}
+
+.society-logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+
+.society-logo:hover {
+    transform: scale(1.05);
+}
+
+.society-header h1 {
+    font-size: 2.7rem;
+    color: #1e3a8a;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.society-header p {
+    color: #475569;
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.society-content {
+    background: white;
+    padding: 50px 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 1.2s ease-in-out;
+}
+
+.society-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.society-content h2 {
+    color: #1e40af;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.society-content h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #3b82f6;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+
+.society-content p,
+.society-content ul {
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.75;
+}
+
+.society-content ul {
+    padding-left: 22px;
+    list-style-type: disc;
+}
+
+.society-content li {
+    padding-left: 4px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.society-content li:hover {
+    color: #1e40af;
+    transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .society-header h1 {
+        font-size: 2.1rem;
+    }
+
+    .society-content {
+        padding: 30px 20px;
+    }
+}
