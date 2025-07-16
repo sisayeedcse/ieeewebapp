@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ieeewebapp/static/css/main.2eeafacc.css",
-    "main.js": "/ieeewebapp/static/js/main.46fd0913.js",
+    "main.css": "/ieeewebapp/static/css/main.6f83e4ba.css",
+    "main.js": "/ieeewebapp/static/js/main.c590904f.js",
     "static/media/event_img_3.png": "/ieeewebapp/static/media/event_img_3.0a7b1c76b056a5bb8694.png",
     "static/media/event_img_1.png": "/ieeewebapp/static/media/event_img_1.6e425be39dfe05e0997b.png",
     "static/media/event_img_2.png": "/ieeewebapp/static/media/event_img_2.211ef5f7a2cd39d15fb7.png",
@@ -18,14 +18,21 @@
     "static/media/exCom_img15.png": "/ieeewebapp/static/media/exCom_img15.fa49c928b0b71df76bfe.png",
     "static/media/exCom_img11.png": "/ieeewebapp/static/media/exCom_img11.c564fa06ccc2a629f805.png",
     "static/media/exCom_img16.png": "/ieeewebapp/static/media/exCom_img16.716fbd0980e5a87413b6.png",
+    "static/media/wie_6.png": "/ieeewebapp/static/media/wie_6.b6529affb306d718f432.png",
     "static/media/dev_1.png": "/ieeewebapp/static/media/dev_1.286cf6666d7d49b4308c.png",
     "static/media/exCom_img7.png": "/ieeewebapp/static/media/exCom_img7.286cf6666d7d49b4308c.png",
     "static/media/exCom_img14.png": "/ieeewebapp/static/media/exCom_img14.b148378345a3ab851ded.png",
+    "static/media/wie_4.png": "/ieeewebapp/static/media/wie_4.9ebcff94d7c70a5fca34.png",
     "static/media/exCom_img6.png": "/ieeewebapp/static/media/exCom_img6.c0303fd6357a9202d74a.png",
     "static/media/dev_5.png": "/ieeewebapp/static/media/dev_5.5b565014ef037fd7aeab.png",
     "static/media/exCom_img1.png": "/ieeewebapp/static/media/exCom_img1.2586cb9ab252e95fbeb4.png",
     "static/media/dev_4.png": "/ieeewebapp/static/media/dev_4.5604481173f9718b4b38.png",
+    "static/media/wie_2.png": "/ieeewebapp/static/media/wie_2.5c6cb00197fe246cf563.png",
+    "static/media/wie_3.png": "/ieeewebapp/static/media/wie_3.6629e66825bfce366fe8.png",
+    "static/media/wie_1.png": "/ieeewebapp/static/media/wie_1.bec988fa3f5d617d5076.png",
+    "static/media/wie_5.png": "/ieeewebapp/static/media/wie_5.99441cec86539f14115e.png",
     "static/media/exCom_img4.png": "/ieeewebapp/static/media/exCom_img4.fe92f526ad914f456e8a.png",
+    "static/media/wie_7.png": "/ieeewebapp/static/media/wie_7.8d4466574e864f86775d.png",
     "static/media/demo.png": "/ieeewebapp/static/media/demo.1f8944c136cbe0167d6a.png",
     "static/media/ras_logo.png": "/ieeewebapp/static/media/ras_logo.a1d59e52632c4efbc02a.png",
     "static/media/pes_logo.png": "/ieeewebapp/static/media/pes_logo.4de2dbcaa360b9c74368.png",
@@ -34,11 +41,11 @@
     "static/media/ieeelogowhite.png": "/ieeewebapp/static/media/ieeelogowhite.c3d9a4075391a5dcab52.png",
     "static/media/cs_logo.png": "/ieeewebapp/static/media/cs_logo.88b596e6619000cc2d91.png",
     "index.html": "/ieeewebapp/index.html",
-    "main.2eeafacc.css.map": "/ieeewebapp/static/css/main.2eeafacc.css.map",
-    "main.46fd0913.js.map": "/ieeewebapp/static/js/main.46fd0913.js.map"
+    "main.6f83e4ba.css.map": "/ieeewebapp/static/css/main.6f83e4ba.css.map",
+    "main.c590904f.js.map": "/ieeewebapp/static/js/main.c590904f.js.map"
   },
   "entrypoints": [
-    "static/css/main.2eeafacc.css",
-    "static/js/main.46fd0913.js"
+    "static/css/main.6f83e4ba.css",
+    "static/js/main.c590904f.js"
   ]
 }
