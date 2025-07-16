@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ieeewebapp/static/css/main.6f83e4ba.css",
+    "main.css": "/ieeewebapp/static/css/main.76960592.css",
     "main.js": "/ieeewebapp/static/js/main.b177550f.js",
     "static/media/event_img_3.png": "/ieeewebapp/static/media/event_img_3.0a7b1c76b056a5bb8694.png",
     "static/media/event_img_1.png": "/ieeewebapp/static/media/event_img_1.6e425be39dfe05e0997b.png",
@@ -41,11 +41,11 @@
     "static/media/ieeelogowhite.png": "/ieeewebapp/static/media/ieeelogowhite.c3d9a4075391a5dcab52.png",
     "static/media/cs_logo.png": "/ieeewebapp/static/media/cs_logo.88b596e6619000cc2d91.png",
     "index.html": "/ieeewebapp/index.html",
-    "main.6f83e4ba.css.map": "/ieeewebapp/static/css/main.6f83e4ba.css.map",
+    "main.76960592.css.map": "/ieeewebapp/static/css/main.76960592.css.map",
     "main.b177550f.js.map": "/ieeewebapp/static/js/main.b177550f.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f83e4ba.css",
+    "static/css/main.76960592.css",
     "static/js/main.b177550f.js"
   ]
 }
