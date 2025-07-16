@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ieeewebapp/static/css/main.76960592.css",
-    "main.js": "/ieeewebapp/static/js/main.b177550f.js",
+    "main.js": "/ieeewebapp/static/js/main.ee04e5a0.js",
     "static/media/event_img_3.png": "/ieeewebapp/static/media/event_img_3.0a7b1c76b056a5bb8694.png",
     "static/media/event_img_1.png": "/ieeewebapp/static/media/event_img_1.6e425be39dfe05e0997b.png",
     "static/media/event_img_2.png": "/ieeewebapp/static/media/event_img_2.211ef5f7a2cd39d15fb7.png",
@@ -22,6 +22,7 @@
     "static/media/dev_1.png": "/ieeewebapp/static/media/dev_1.286cf6666d7d49b4308c.png",
     "static/media/exCom_img7.png": "/ieeewebapp/static/media/exCom_img7.286cf6666d7d49b4308c.png",
     "static/media/exCom_img14.png": "/ieeewebapp/static/media/exCom_img14.b148378345a3ab851ded.png",
+    "static/media/dev_3.png": "/ieeewebapp/static/media/dev_3.d7fd0861d84a6dbb119d.png",
     "static/media/wie_4.png": "/ieeewebapp/static/media/wie_4.9ebcff94d7c70a5fca34.png",
     "static/media/exCom_img6.png": "/ieeewebapp/static/media/exCom_img6.c0303fd6357a9202d74a.png",
     "static/media/dev_5.png": "/ieeewebapp/static/media/dev_5.5b565014ef037fd7aeab.png",
@@ -33,7 +34,6 @@
     "static/media/wie_5.png": "/ieeewebapp/static/media/wie_5.99441cec86539f14115e.png",
     "static/media/exCom_img4.png": "/ieeewebapp/static/media/exCom_img4.fe92f526ad914f456e8a.png",
     "static/media/wie_7.png": "/ieeewebapp/static/media/wie_7.8d4466574e864f86775d.png",
-    "static/media/demo.png": "/ieeewebapp/static/media/demo.1f8944c136cbe0167d6a.png",
     "static/media/ras_logo.png": "/ieeewebapp/static/media/ras_logo.a1d59e52632c4efbc02a.png",
     "static/media/pes_logo.png": "/ieeewebapp/static/media/pes_logo.4de2dbcaa360b9c74368.png",
     "static/media/wie_logo.png": "/ieeewebapp/static/media/wie_logo.e7e6b46aadb0e8754f23.png",
@@ -42,10 +42,10 @@
     "static/media/cs_logo.png": "/ieeewebapp/static/media/cs_logo.88b596e6619000cc2d91.png",
     "index.html": "/ieeewebapp/index.html",
     "main.76960592.css.map": "/ieeewebapp/static/css/main.76960592.css.map",
-    "main.b177550f.js.map": "/ieeewebapp/static/js/main.b177550f.js.map"
+    "main.ee04e5a0.js.map": "/ieeewebapp/static/js/main.ee04e5a0.js.map"
   },
   "entrypoints": [
     "static/css/main.76960592.css",
-    "static/js/main.b177550f.js"
+    "static/js/main.ee04e5a0.js"
   ]
 }
