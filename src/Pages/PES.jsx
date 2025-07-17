@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./SocietiesPage.css";
 const pesLogo =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691508/pes_logo_fhltfa.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691508/pes_logo_fhltfa.png";
 
 const PES = () => {
   return (
