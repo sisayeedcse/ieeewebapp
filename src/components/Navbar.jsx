@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/WEBLOGO.png";
 
+const logo =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691507/IEEEPULOGO_merij4.png";
 const Navbar = ({ variant }) => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,9 +56,9 @@ const Navbar = ({ variant }) => {
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#about">
+              <Link className="nav-link" to="/aboutus">
                 About
-              </a>
+              </Link>
             </li>
 
             {/* Societies Dropdown */}
@@ -124,40 +125,43 @@ const Navbar = ({ variant }) => {
                     IEEE EX.COM Members
                   </Link>
                 </li>
+                <li>
+                  <Link className="dropdown-item" to="/developer">
+                    Developers
+                  </Link>
+                </li>
               </ul>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#activities">
+              <Link className="nav-link" to="/events">
                 Activities
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#achievements">
-                Achievements
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">
+              <Link className="nav-link" to="/contactus">
                 Contact
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item d-lg-none mt-3">
-              <a href="#portal" className="btn btn-light login-btn w-100">
+              <Link
+                to="/portal"
+                className="btn btn-light login-btn rounded-pill px-4 py-2"
+              >
                 IEEE PU SB PORTAL
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
 
         <div className="d-none d-lg-block">
-          <a
-            href="#portal"
+          <Link
+            to="/portal"
             className="btn btn-light login-btn rounded-pill px-4 py-2"
           >
             IEEE PU SB PORTAL
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

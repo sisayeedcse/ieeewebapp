@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import rasLogo from "../assets/ras_logo.png";
+
 import "./SocietiesPage.css";
+const rasLogo =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691509/ras_logo_lxbqcd.png";
 
 const RAS = () => {
   return (

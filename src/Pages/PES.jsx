@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import pesLogo from "../assets/pes_logo.png";
 import "./SocietiesPage.css";
+const pesLogo =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691508/pes_logo_fhltfa.png";
 
 const PES = () => {
   return (

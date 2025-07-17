@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import wie from "../assets/wie_logo.png";
-import cs from "../assets/cs_logo.png";
-import ras from "../assets/ras_logo.png";
-import pes from "../assets/pes_logo.png";
+
+const wie =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691511/wie_logo_ootcui.png",
+  cs =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691512/cs_logo_tswsbw.png",
+  ras =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691509/ras_logo_lxbqcd.png",
+  pes =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691508/pes_logo_fhltfa.png";
 
 const societies = [
   { image: cs, name: "CS", link: "/cs" },

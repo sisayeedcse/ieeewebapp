@@ -1,5 +1,7 @@
 import React from "react";
-import ieeeLogo from "../assets/ieeelogowhite.png";
+
+const ieeeLogo =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691513/ieeelogowhite_t7pn8d.png";
 
 const Vision = () => {
   return (

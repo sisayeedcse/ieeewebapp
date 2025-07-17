@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -32,27 +33,19 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="text-primary">Quick Links</h3>
             <p>
-              <a href="#about" className="text-light text-decoration-none">
-                About Us
-              </a>
+              <Link className="nav-link" to="/aboutus">
+                About
+              </Link>
             </p>
             <p>
-              <a href="#activities" className="text-light text-decoration-none">
+              <Link className="nav-link" to="/events">
                 Activities
-              </a>
+              </Link>
             </p>
             <p>
-              <a
-                href="#achievements"
-                className="text-light text-decoration-none"
-              >
-                Achievements
-              </a>
-            </p>
-            <p>
-              <a href="#contact" className="text-light text-decoration-none">
+              <Link className="nav-link" to="/contactus">
                 Contact
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -64,10 +57,10 @@ const Footer = () => {
               Chittagong, Bangladesh.
             </p>
             <p>
-              <i className="fas fa-envelope me-2"></i> info@ieeePUsb.org
+              <i className="fas fa-envelope me-2"></i> ieeepusb@gmail.com
             </p>
             <p>
-              <i className="fas fa-phone me-2"></i> +880 123 456 789
+              <i className="fas fa-phone me-2"></i> +880-1719142953 (Counselor)
             </p>
           </div>
         </div>

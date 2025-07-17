@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import csLogo from "../assets/cs_logo.png";
 import "./SocietiesPage.css";
+const csLogo =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691512/cs_logo_tswsbw.png";
 
 const CS = () => {
   return (

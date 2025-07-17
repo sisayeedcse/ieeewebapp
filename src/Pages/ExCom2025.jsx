@@ -4,22 +4,38 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./ExCom2025.css";
 
-import img1 from "../assets/Excom2025/exCom_img1.png";
-import img2 from "../assets/Excom2025/exCom_img2.png";
-import img3 from "../assets/Excom2025/exCom_img3.png";
-import img4 from "../assets/Excom2025/exCom_img4.png";
-import img5 from "../assets/Excom2025/exCom_img5.png";
-import img6 from "../assets/Excom2025/exCom_img6.png";
-import img7 from "../assets/Excom2025/exCom_img7.png";
-import img8 from "../assets/Excom2025/exCom_img8.png";
-import img9 from "../assets/Excom2025/exCom_img9.png";
-import img10 from "../assets/Excom2025/exCom_img10.png";
-import img11 from "../assets/Excom2025/exCom_img11.png";
-import img12 from "../assets/Excom2025/exCom_img12.png";
-import img13 from "../assets/Excom2025/exCom_img13.png";
-import img14 from "../assets/Excom2025/exCom_img14.png";
-import img15 from "../assets/Excom2025/exCom_img15.png";
-import img16 from "../assets/Excom2025/exCom_img16.png";
+const img1 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691437/exCom_img1_pwqqum.png",
+  img2 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691437/exCom_img2_nf1git.png",
+  img3 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691438/exCom_img3_jzsazx.png",
+  img4 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691437/exCom_img4_su5rwj.png",
+  img5 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691439/exCom_img5_yfksij.png",
+  img6 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691439/exCom_img6_a5tdly.png",
+  img7 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691441/exCom_img7_bzzets.png",
+  img8 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691441/exCom_img8_fe9xc8.png",
+  img9 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691442/exCom_img9_qbfupr.png",
+  img10 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691442/exCom_img10_qjzsju.png",
+  img11 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691443/exCom_img11_pnicdl.png",
+  img12 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691445/exCom_img12_v78mua.png",
+  img13 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691445/exCom_img13_ilvmuf.png",
+  img14 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691446/exCom_img14_eidlku.png",
+  img15 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691446/exCom_img15_n0comz.png",
+  img16 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691436/exCom_img16_eag879.png";
 
 const members = [
   { img: img1, name: "Dhruba Dey", role: "Chair" },
@@ -34,10 +50,18 @@ const members = [
   { img: img10, name: "Rup Das Gupta", role: "Event & Operation Coordinator" },
   { img: img11, name: "Md. Arman Siddique", role: "Social Media Coordinator" },
   { img: img12, name: "Arnab Das", role: "Graphics Coordinator" },
-  { img: img13, name: "Dhruba Chowdhury", role: "Joint Secretary" },
-  { img: img14, name: "Rup Das Gupta", role: "Event & Operation Coordinator" },
-  { img: img15, name: "Md. Arman Siddique", role: "Social Media Coordinator" },
-  { img: img16, name: "Arnab Das", role: "Graphics Coordinator" },
+  { img: img13, name: "Farhan Iqbal Chowdhury", role: "Logistic Coordinator" },
+  {
+    img: img14,
+    name: "Koshik Das",
+    role: "Communcation & Public Relation Officer",
+  },
+  { img: img15, name: "Bhadon Barua", role: "Workshop Coordinator" },
+  {
+    img: img16,
+    name: "Anup Dipto",
+    role: "Assistant Event & Operation Coordinator",
+  },
 ];
 
 const ExCom = () => {
@@ -70,7 +94,7 @@ const ExCom = () => {
     <>
       <Navbar variant="blue" />
       <section className="excom-section container">
-        <h2 className="section-title text-center">
+        <h2 className="text-center">
           IEEE PU Student Branch Executive Committee
         </h2>
 

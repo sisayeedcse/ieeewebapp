@@ -73,7 +73,7 @@ body {
 
 /* ===== START: Bigger Logo ===== */
 .logo-img {
-    height: 48px;
+    height: 55px;
     transition: height 0.3s ease;
 }
 
@@ -316,6 +316,10 @@ body {
     .about-paragraph {
         text-align: center;
     }
+
+    .stat-label {
+        font-size: 12px;
+    }
 }
 
 /* ==== About Section End ==== */
@@ -368,7 +372,6 @@ body {
 .vision-text {
     font-size: 1.1rem;
     line-height: 1.8;
-    text-align: justify;
     opacity: 0.95;
     font-weight: 400;
     max-width: 600px;
@@ -431,10 +434,10 @@ body {
 }
 
 .activity-icon {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, #0066cc, #004499);
-    border-radius: 20px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -442,7 +445,7 @@ body {
 }
 
 .activity-icon i {
-    font-size: 2rem;
+    font-size: 20px;
     color: white;
 }
 
@@ -602,6 +605,10 @@ body {
     font-weight: 700;
     color: #333;
     margin-bottom: 10px;
+}
+
+.event-title span {
+    color: #0066cc;
 }
 
 .event-underline {

@@ -1,0 +1,444 @@
+/* Enhanced About Us CSS */
+.aboutpage-aboutus-page {
+    background-color: #f8fafc;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.aboutpage-aboutus-hero {
+    position: relative;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+    color: white;
+    padding: 120px 20px 80px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.aboutpage-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.aboutpage-hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+.aboutpage-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 70%);
+}
+
+.aboutpage-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.aboutpage-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 12px 24px;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.aboutpage-ieee-logo {
+    font-weight: 700;
+    color: #60a5fa;
+}
+
+.aboutpage-divider {
+    margin: 0 12px;
+    opacity: 0.6;
+}
+
+.aboutpage-hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.aboutpage-highlight-text {
+    display: block;
+    background: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 0.5rem;
+}
+
+.aboutpage-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aboutpage-hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.aboutpage-stat-item {
+    text-align: center;
+}
+
+.aboutpage-about-stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.aboutpage-about-stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.aboutpage-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mission Section */
+.aboutpage-mission-section {
+    padding: 100px 20px;
+    background: white;
+}
+
+.aboutpage-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.aboutpage-section-heading {
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.aboutpage-section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    border-radius: 2px;
+}
+
+.text-center .aboutpage-section-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.aboutpage-mission-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 2rem;
+}
+
+.aboutpage-mission-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aboutpage-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+    transition: all 0.3s ease;
+}
+
+.aboutpage-feature-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+}
+
+.aboutpage-feature-icon {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.aboutpage-feature-text h4 {
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.aboutpage-feature-text p {
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.aboutpage-mission-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.aboutpage-visual-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.aboutpage-card-header h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.aboutpage-value-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    color: #475569;
+    font-weight: 500;
+}
+
+.aboutpage-value-dot {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* IEEE Bangladesh Section */
+.aboutpage-ieee-bd-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+}
+
+.aboutpage-ieebd-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    animation: fadeInRight 1s ease-out;
+
+}
+
+.aboutpage-bd-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.aboutpage-bd-content .aboutpage-section-heading {
+    color: white;
+}
+
+.aboutpage-bd-content .aboutpage-section-heading::after {
+    background: linear-gradient(135deg, #60a5fa, #93c5fd);
+}
+
+.aboutpage-bd-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.aboutpage-bd-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aboutpage-highlight-item {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.aboutpage-highlight-item h4 {
+    color: #93c5fd;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.aboutpage-highlight-item p {
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.aboutpage-achievement-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.aboutpage-achievement-header h3 {
+    color: white;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.aboutpage-achievement-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aboutpage-achievement-stat {
+    text-align: center;
+}
+
+.aboutpage-stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #93c5fd;
+    margin-bottom: 0.5rem;
+}
+
+.aboutpage-stat-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .aboutpage-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .aboutpage-hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .aboutpage-stat-divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    .aboutpage-mission-grid,
+    .aboutpage-bd-section-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .aboutpage-societies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutpage-vision-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutpage-hero-badge {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+    }
+
+    .aboutpage-section-heading {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutpage-aboutus-hero {
+        padding: 100px 15px 60px;
+    }
+
+    .aboutpage-hero-title {
+        font-size: 2rem;
+    }
+
+    .aboutpage-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .aboutpage-mission-section,
+    .aboutpage-societies-section,
+    .aboutpage-ieee-bd-section,
+    .aboutpage-vision-section {
+        padding: 60px 15px;
+    }
+
+    .aboutpage-section-heading {
+        font-size: 1.8rem;
+    }
+}
