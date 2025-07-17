@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./ContactUs.css";
 
 const ContactUs = () => {
@@ -385,6 +386,7 @@ const ContactUs = () => {
         </section>
       </div>
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

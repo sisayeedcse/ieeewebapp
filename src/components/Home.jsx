@@ -8,6 +8,7 @@ import Achievements from "./Achievements";
 import Events from "./Events";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 const Home = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const Home = () => {
       <Activities />
       <Achievements />
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

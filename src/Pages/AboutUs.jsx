@@ -2,6 +2,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./AboutUs.css";
 const ieeebdLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/v1752734375/ieeebd_logo_ihfuav.png";
@@ -179,6 +180,7 @@ const AboutUs = () => {
         </section>
       </div>
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

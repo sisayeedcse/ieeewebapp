@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./EventPage.css";
 
 const event1 =
@@ -347,6 +348,7 @@ const EventPage = () => {
         </section>
       </div>
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

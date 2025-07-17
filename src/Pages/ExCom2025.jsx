@@ -2,6 +2,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./ExCom2025.css";
 
 const img1 =
@@ -134,6 +135,7 @@ const ExCom2025 = () => {
         </div>
       </section>
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

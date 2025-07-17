@@ -17,6 +17,12 @@ const Navbar = ({ variant }) => {
   const navbarClass = `navbar fixed-top navbar-expand-lg ${
     variant === "blue"
       ? "navbar-blue"
+      : variant === "cs"
+      ? "navbar-cs"
+      : variant === "ras"
+      ? "navbar-ras"
+      : variant === "wie"
+      ? "navbar-wie"
       : scrolled
       ? "navbar-scrolled"
       : "navbar-transparent"
@@ -35,7 +41,13 @@ const Navbar = ({ variant }) => {
 
         <button
           className={`navbar-toggler ${
-            scrolled || variant === "blue" ? "toggler-dark" : "toggler-light"
+            scrolled ||
+            variant === "blue" ||
+            variant === "cs" ||
+            variant === "ras" ||
+            variant === "wie"
+              ? "toggler-dark"
+              : "toggler-light"
           }`}
           type="button"
           data-bs-toggle="collapse"

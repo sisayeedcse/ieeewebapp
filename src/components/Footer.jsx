@@ -1,14 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ variant }) => {
   return (
-    <footer className="footer text-white py-5" id="contact">
+    <footer
+      className={`footer text-white py-5 ${variant ? `footer-${variant}` : ""}`}
+      id="contact"
+    >
       <div className="container">
         <div className="footer-content row mb-4">
           {/* About Section */}
           <div className="footer-section">
-            <h3 className="text-primary">IEEE PU Student Branch</h3>
+            <h3 className={`${variant ? `text-${variant}` : "text-primary"}`}>
+              IEEE PU Student Branch
+            </h3>
             <p>
               Advancing engineering excellence through innovation, learning, and
               leadership. Join us in shaping the future of technology.
@@ -31,7 +36,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="footer-section">
-            <h3 className="text-primary">Quick Links</h3>
+            <h3 className={`${variant ? `text-${variant}` : "text-primary"}`}>
+              Quick Links
+            </h3>
             <p>
               <Link className="nav-link" to="/aboutus">
                 About
@@ -51,7 +58,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="footer-section">
-            <h3 className="text-primary">Contact Info</h3>
+            <h3 className={`${variant ? `text-${variant}` : "text-primary"}`}>
+              Contact Info
+            </h3>
             <p>
               <i className="fas fa-map-marker-alt me-2"></i> Premier University,
               Chittagong, Bangladesh.

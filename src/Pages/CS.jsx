@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./CS.css";
 
 const csLogo =
@@ -25,6 +26,11 @@ const cs_1 =
 const CS = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const stats = [
     { number: "2020", label: "Founded" },
@@ -101,8 +107,8 @@ const CS = () => {
   }, []);
 
   return (
-    <>
-      <Navbar variant="blue" />
+    <div className="cs-page">
+      <Navbar variant="cs" />
 
       {/* Hero Section */}
       <section className="cs-hero">
@@ -254,8 +260,9 @@ const CS = () => {
         </div>
       </section>
 
-      <Footer />
-    </>
+      <Footer variant="cs" />
+      <ScrollToTop variant="cs" />
+    </div>
   );
 };
 

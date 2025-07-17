@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./SocietiesPage.css";
 const pesLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691508/pes_logo_fhltfa.png";
 
 const PES = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar variant="blue" />
@@ -38,6 +44,7 @@ const PES = () => {
           <p>Join PES to shape tomorrow’s energy solutions — today.</p>
         </div>
       </div>
+      <ScrollToTop />
     </>
   );
 };

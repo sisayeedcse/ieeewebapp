@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./RAS.css";
 
 const rasLogo =
@@ -13,6 +14,11 @@ const demoImg =
 const RAS = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const stats = [
     { number: "2023", label: "Founded" },
@@ -89,8 +95,8 @@ const RAS = () => {
   }, []);
 
   return (
-    <>
-      <Navbar variant="blue" />
+    <div className="ras-page">
+      <Navbar variant="ras" />
 
       {/* Hero Section */}
       <section className="ras-hero">
@@ -249,8 +255,9 @@ const RAS = () => {
         </div>
       </section>
 
-      <Footer />
-    </>
+      <Footer variant="ras" />
+      <ScrollToTop variant="ras" />
+    </div>
   );
 };
 

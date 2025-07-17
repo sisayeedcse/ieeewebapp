@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./WIE.css";
 
 const wieLogo =
@@ -23,6 +24,11 @@ const wieLogo =
 const WIE = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const stats = [
     { number: "2023", label: "Founded" },
@@ -92,8 +98,8 @@ const WIE = () => {
   }, []);
 
   return (
-    <>
-      <Navbar variant="blue" />
+    <div className="wie-page">
+      <Navbar variant="wie" />
 
       {/* Hero Section */}
       <section className="wie-hero">
@@ -252,8 +258,9 @@ const WIE = () => {
         </div>
       </section>
 
-      <Footer />
-    </>
+      <Footer variant="wie" />
+      <ScrollToTop variant="wie" />
+    </div>
   );
 };
 

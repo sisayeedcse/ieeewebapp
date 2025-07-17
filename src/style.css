@@ -31,6 +31,40 @@ body {
     border-radius: 4px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background: #004499;
+}
+
+/* CS Page Scrollbar */
+.cs-page ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f39c12, #e67e22) !important;
+    border-radius: 4px;
+}
+
+.cs-page ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #e67e22, #d35400) !important;
+}
+
+/* RAS Page Scrollbar */
+.ras-page ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #7B2D8E, #9B4A9E) !important;
+    border-radius: 4px;
+}
+
+.ras-page ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #9B4A9E, #6A1B6B) !important;
+}
+
+/* WIE Page Scrollbar */
+.wie-page ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6) !important;
+    border-radius: 4px;
+}
+
+.wie-page ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #9b59b6, #7d3c98) !important;
+}
+
 /* End Custom Scrollbar */
 /* ==== Navbar Section Start ==== */
 
@@ -67,6 +101,63 @@ body {
 }
 
 .navbar-blue .dropdown-item:hover {
+    background-color: #e2e8f0;
+}
+
+/* CS variant css */
+.navbar-cs {
+    background-color: #f39c12 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-cs .nav-link,
+.navbar-cs .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-cs .dropdown-menu {
+    background-color: #f8fafc;
+}
+
+.navbar-cs .dropdown-item:hover {
+    background-color: #e2e8f0;
+}
+
+/* RAS variant css */
+.navbar-ras {
+    background-color: #7B2D8E !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-ras .nav-link,
+.navbar-ras .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-ras .dropdown-menu {
+    background-color: #f8fafc;
+}
+
+.navbar-ras .dropdown-item:hover {
+    background-color: #e2e8f0;
+}
+
+/* WIE variant css */
+.navbar-wie {
+    background-color: #8e44ad !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-wie .nav-link,
+.navbar-wie .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-wie .dropdown-menu {
+    background-color: #f8fafc;
+}
+
+.navbar-wie .dropdown-item:hover {
     background-color: #e2e8f0;
 }
 
@@ -717,6 +808,73 @@ body {
 
 .footer-section .text-light:hover {
     color: #0066cc !important
+}
+
+/* CS Footer Theme */
+.footer-cs {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.footer-cs .footer-section h3 {
+    color: #f39c12 !important;
+}
+
+.footer-cs .social-links a {
+    background: #f39c12;
+}
+
+.footer-cs .footer-section .text-light:hover {
+    color: #f39c12 !important;
+}
+
+/* RAS Footer Theme */
+.footer-ras {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.footer-ras .footer-section h3 {
+    color: #c39bd3 !important;
+    /* Lighter purple for better readability */
+}
+
+.footer-ras .social-links a {
+    background: #7B2D8E;
+}
+
+.footer-ras .footer-section .text-light:hover {
+    color: #c39bd3 !important;
+    /* Matching lighter purple for hover */
+}
+
+/* WIE Footer Theme */
+.footer-wie {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.footer-wie .footer-section h3 {
+    color: #8e44ad !important;
+}
+
+.footer-wie .social-links a {
+    background: #8e44ad;
+}
+
+.footer-wie .footer-section .text-light:hover {
+    color: #8e44ad !important;
+}
+
+/* Color classes for themed text */
+.text-cs {
+    color: #f39c12 !important;
+}
+
+.text-ras {
+    color: #c39bd3 !important;
+    /* Lighter purple for better readability */
+}
+
+.text-wie {
+    color: #8e44ad !important;
 }
 
 .social-links {
