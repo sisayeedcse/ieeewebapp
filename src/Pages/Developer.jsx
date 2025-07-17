@@ -5,15 +5,15 @@ import Footer from "../components/Footer";
 import "./Developer.css";
 
 const Azmayn =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691408/dev_1_kkecag.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691408/dev_1_kkecag.png",
   Sayeed =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691408/dev_2_wy06zx.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691408/dev_2_wy06zx.png",
   Hamed =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752692340/dev_3_kewf1m.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752772874/dev_3_hv2yp4.png",
   Arnab =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691407/dev_5_pl6chd.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691407/dev_5_pl6chd.png",
   Rafi =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691408/dev_4_jprzbf.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691408/dev_4_jprzbf.png";
 
 const developers = [
   {

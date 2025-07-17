@@ -33,7 +33,7 @@ const img1 =
   img14 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691446/exCom_img14_eidlku.png",
   img15 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691446/exCom_img15_n0comz.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752764601/exCom_img15_b8augp.png",
   img16 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691436/exCom_img16_eag879.png";
 

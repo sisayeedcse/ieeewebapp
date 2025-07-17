@@ -8,7 +8,7 @@ const rasLogo =
 const demoImg =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
   ras_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760641/RAS_2_mzsqau.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png";
 
 const RAS = () => {
   const [isVisible, setIsVisible] = useState(false);

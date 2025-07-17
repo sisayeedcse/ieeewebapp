@@ -14,7 +14,7 @@ const cs_1 =
   cs_4 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760611/CS_4_wxtucf.png",
   cs_5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760611/CS_5_wxzacc.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752772827/CS_5_yihcwo.png",
   cs_6 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760614/CS_6_wwqqnj.png",
   cs_7 =
