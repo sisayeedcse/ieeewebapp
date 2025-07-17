@@ -22,7 +22,7 @@ const About = () => {
               </h3>
             </div>
             <p className="about-paragraph">
-              Since 2010, IEEE Premier University Student Branch has fostered
+              Since 2019, IEEE Premier University Student Branch has fostered
               innovation, leadership, and community among aspiring engineers.
             </p>
             <p className="about-paragraph">

@@ -107,22 +107,22 @@ const Navbar = ({ variant }) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Members
+                Committiee
               </a>
               <ul className="dropdown-menu" aria-labelledby="membersDropdown">
                 <li>
-                  <a className="dropdown-item" href="#AdvisorsPanel">
-                    Advisors Panel
-                  </a>
+                  <Link className="dropdown-item" to="/advisors">
+                    Advisor Panel
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#alumniPanel">
+                  <Link className="dropdown-item" to="/alumni">
                     Alumni Panel
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link className="dropdown-item" to="/excom">
-                    IEEE EX.COM Members
+                    Executive Panel
                   </Link>
                 </li>
                 <li>

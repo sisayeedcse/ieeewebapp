@@ -4,21 +4,21 @@ import Footer from "../components/Footer";
 import "./WIE.css";
 
 const wieLogo =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691511/wie_logo_ootcui.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691511/wie_logo_ootcui.png",
   wie_1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691471/wie_1_xt2tva.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691471/wie_1_xt2tva.png",
   wie_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691472/wie_2_jme5rm.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691472/wie_2_jme5rm.png",
   wie_3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691474/wie_3_maamln.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691474/wie_3_maamln.png",
   wie_4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691473/wie_4_dexkzv.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691473/wie_4_dexkzv.png",
   wie_5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691474/wie_5_qimipe.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691474/wie_5_qimipe.png",
   wie_6 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691476/wie_6_npasrj.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691476/wie_6_npasrj.png",
   wie_7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691476/wie_7_uerbbz.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691476/wie_7_uerbbz.png";
 
 const WIE = () => {
   const [isVisible, setIsVisible] = useState(false);

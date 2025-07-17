@@ -1,16 +1,10 @@
-.excom-section {
+.alumni-section {
     padding: 100px 20px 60px;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     min-height: 100vh;
 }
 
-.excom-section .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.excom-section h2 {
+.alumni-section h2 {
     font-size: 2.5rem;
     font-weight: 800;
     color: #1e3a8a;
@@ -20,7 +14,7 @@
     text-align: center;
 }
 
-.excom-section .subtitle {
+.alumni-section .subtitle {
     font-size: 1.1rem;
     color: #64748b;
     max-width: 600px;
@@ -29,40 +23,20 @@
     line-height: 1.6;
 }
 
-.excom-grid {
+.alumni-grid {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.excom-row {
+.alumni-row {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 3rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
-.excom-row.single-card {
-    justify-content: center;
-    margin-bottom: 4rem;
-}
-
-.excom-row.triple-cards {
-    justify-content: center;
-    gap: 2.5rem;
-    margin-bottom: 4rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.excom-row.quad-cards {
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.excom-card {
+.alumni-card {
     background: #ffffff;
     border-radius: 24px;
     overflow: hidden;
@@ -74,12 +48,12 @@
     flex-shrink: 0;
 }
 
-.excom-card:hover {
+.alumni-card:hover {
     transform: translateY(-12px) scale(1.02);
     box-shadow: 0 20px 60px rgba(30, 58, 138, 0.15);
 }
 
-.excom-card::before {
+.alumni-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -90,25 +64,25 @@
     border-radius: 24px 24px 0 0;
 }
 
-.excom-img-container {
+.alumni-img-container {
     position: relative;
     overflow: hidden;
-    height: 280px;
+    height: 240px;
     background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
-.excom-img {
+.alumni-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.excom-card:hover .excom-img {
+.alumni-card:hover .alumni-img {
     transform: scale(1.1);
 }
 
-.excom-img-overlay {
+.alumni-img-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -119,32 +93,45 @@
     transition: opacity 0.3s ease;
 }
 
-.excom-card:hover .excom-img-overlay {
+.alumni-card:hover .alumni-img-overlay {
     opacity: 1;
 }
 
-.excom-info {
-    padding: 2rem;
+.alumni-info {
+    padding: 1.5rem;
     text-align: center;
     position: relative;
 }
 
-.member-name {
+.alumni-name {
     font-size: 1.4rem;
     font-weight: 700;
     color: #1e293b;
     margin-bottom: 0.5rem;
 }
 
-.member-role {
+.alumni-title {
     font-size: 1rem;
     font-weight: 600;
     color: #0ea5e9;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.alumni-position {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1rem;
     line-height: 1.4;
 }
 
-.excom-contact {
+.alumni-department {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.alumni-contact {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -179,152 +166,84 @@
     border-radius: 2px;
 }
 
-/* Special styles for featured card (Chair) */
-.excom-card.featured {
-    width: 320px;
-    transform: scale(1.05);
-}
-
-.excom-card.featured:hover {
-    transform: translateY(-12px) scale(1.07);
-    box-shadow: 0 25px 70px rgba(30, 58, 138, 0.2);
-}
-
-.excom-card.featured .excom-info {
-    padding: 2.5rem;
-}
-
-.excom-card.featured .member-name {
-    font-size: 1.6rem;
-}
-
 /* Responsive Design */
-@media (max-width: 1400px) {
-    .excom-section .container {
-        max-width: 1200px;
-    }
-}
-
 @media (max-width: 1200px) {
-    .excom-row.triple-cards {
-        gap: 2rem;
-        max-width: 800px;
+    .alumni-row {
+        gap: 1rem;
     }
 
-    .excom-row.quad-cards {
-        gap: 1.5rem;
-        max-width: 1000px;
-    }
-
-    .excom-card {
+    .alumni-card {
         width: 260px;
     }
 
-    .excom-card.featured {
-        width: 300px;
+    .alumni-img-container {
+        height: 220px;
     }
 
-    .excom-img-container {
-        height: 260px;
-    }
-
-    .excom-info {
-        padding: 1.5rem;
+    .alumni-info {
+        padding: 1.2rem;
     }
 }
 
 @media (max-width: 992px) {
-    .excom-row.triple-cards {
-        gap: 1.5rem;
-        max-width: 700px;
-    }
-
-    .excom-row.quad-cards {
+    .alumni-row {
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 1.5rem;
-        max-width: 900px;
     }
 
-    .excom-card {
-        width: 250px;
-    }
-
-    .excom-card.featured {
+    .alumni-card {
         width: 280px;
     }
 }
 
 @media (max-width: 768px) {
-    .excom-section {
+    .alumni-section {
         padding: 80px 15px 40px;
     }
 
-    .excom-section .container {
-        padding: 0 10px;
-    }
-
-    .excom-section h2 {
+    .alumni-section h2 {
         font-size: 2rem;
     }
 
-    .excom-row {
+    .alumni-row {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
-        margin-bottom: 2rem;
     }
 
-    .excom-row.single-card {
-        margin-bottom: 2.5rem;
-    }
-
-    .excom-row.triple-cards {
-        margin-bottom: 2.5rem;
-    }
-
-    .excom-card {
+    .alumni-card {
         width: 100%;
         max-width: 350px;
     }
 
-    .excom-card.featured {
-        width: 100%;
-        max-width: 350px;
-        transform: none;
-    }
-
-    .excom-img-container {
+    .alumni-img-container {
         height: 240px;
     }
 
-    .excom-info {
+    .alumni-info {
         padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .excom-section h2 {
+    .alumni-section h2 {
         font-size: 1.8rem;
     }
 
-    .excom-section .container {
-        padding: 0 5px;
-    }
-
-    .excom-section .subtitle {
+    .alumni-section .subtitle {
         font-size: 1rem;
         margin-bottom: 3rem;
     }
 
-    .excom-img-container {
+    .alumni-img-container {
         height: 220px;
     }
 
-    .excom-info {
+    .alumni-info {
         padding: 1.2rem;
     }
 
-    .member-name {
+    .alumni-name {
         font-size: 1.2rem;
     }
 

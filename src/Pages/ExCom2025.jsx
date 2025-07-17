@@ -1,41 +1,41 @@
-// src/Pages/ExCom.jsx
+// src/Pages/ExCom2025.jsx
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./ExCom2025.css";
 
 const img1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691437/exCom_img1_pwqqum.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691437/exCom_img1_pwqqum.png",
   img2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691437/exCom_img2_nf1git.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691437/exCom_img2_nf1git.png",
   img3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691438/exCom_img3_jzsazx.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691438/exCom_img3_jzsazx.png",
   img4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691437/exCom_img4_su5rwj.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691437/exCom_img4_su5rwj.png",
   img5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691439/exCom_img5_yfksij.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691439/exCom_img5_yfksij.png",
   img6 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691439/exCom_img6_a5tdly.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691439/exCom_img6_a5tdly.png",
   img7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691441/exCom_img7_bzzets.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691441/exCom_img7_bzzets.png",
   img8 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691441/exCom_img8_fe9xc8.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691441/exCom_img8_fe9xc8.png",
   img9 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691442/exCom_img9_qbfupr.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691442/exCom_img9_qbfupr.png",
   img10 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691442/exCom_img10_qjzsju.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691442/exCom_img10_qjzsju.png",
   img11 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691443/exCom_img11_pnicdl.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691443/exCom_img11_pnicdl.png",
   img12 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691445/exCom_img12_v78mua.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691445/exCom_img12_v78mua.png",
   img13 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691445/exCom_img13_ilvmuf.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691445/exCom_img13_ilvmuf.png",
   img14 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691446/exCom_img14_eidlku.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691446/exCom_img14_eidlku.png",
   img15 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691446/exCom_img15_n0comz.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691446/exCom_img15_n0comz.png",
   img16 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691436/exCom_img16_eag879.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691436/exCom_img16_eag879.png";
 
 const members = [
   { img: img1, name: "Dhruba Dey", role: "Chair" },
@@ -64,25 +64,30 @@ const members = [
   },
 ];
 
-const ExCom = () => {
+const ExCom2025 = () => {
   const chair = members.find((m) => m.role === "Chair");
   const viceChairs = members.filter((m) => m.role.includes("Vice Chair"));
   const rest = members.filter(
     (m) => m.role !== "Chair" && !m.role.includes("Vice Chair")
   );
 
-  const renderMember = (member, index) => (
-    <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-5" key={index}>
-      <div className="excom-card">
-        <div className="excom-img-wrapper">
-          <img src={member.img} alt={member.name} className="excom-img" />
-        </div>
-        <div className="excom-info">
-          <h5 className="member-name">{member.name}</h5>
-          <p className="member-role">{member.role}</p>
-          <div className="social-icons">
+  const renderMember = (member, index, isFeatured = false) => (
+    <div className={`excom-card ${isFeatured ? "featured" : ""}`} key={index}>
+      <div className="excom-img-container">
+        <img src={member.img} alt={member.name} className="excom-img" />
+        <div className="excom-img-overlay"></div>
+      </div>
+      <div className="excom-info">
+        <h3 className="member-name">{member.name}</h3>
+        <p className="member-role">{member.role}</p>
+        <div className="excom-contact">
+          <div className="contact-icon">
             <i className="fab fa-linkedin-in"></i>
+          </div>
+          <div className="contact-icon">
             <i className="fab fa-facebook"></i>
+          </div>
+          <div className="contact-icon">
             <i className="fas fa-envelope"></i>
           </div>
         </div>
@@ -93,27 +98,39 @@ const ExCom = () => {
   return (
     <>
       <Navbar variant="blue" />
-      <section className="excom-section container">
-        <h2 className="text-center">
-          IEEE PU Student Branch Executive Committee
-        </h2>
+      <section className="excom-section">
+        <div className="container">
+          <h2>IEEE PU Student Branch Executive Committee 2025</h2>
+          <p className="subtitle">
+            Meet our dedicated executive committee members who lead and manage
+            various activities and initiatives of IEEE Premier University
+            Student Branch.
+          </p>
 
-        <div className="row justify-content-center">
-          {renderMember(chair, 0)}
-        </div>
+          <div className="section-divider"></div>
 
-        <div className="row justify-content-center">
-          {viceChairs.map((m, i) => renderMember(m, i + 1))}
-        </div>
+          <div className="excom-grid">
+            {/* Chair - Single card */}
+            <div className="excom-row single-card">
+              {renderMember(chair, 0, true)}
+            </div>
 
-        <div className="row justify-content-center">
-          {rest.slice(0, 4).map((m, i) => renderMember(m, i + 4))}
-        </div>
-        <div className="row justify-content-center">
-          {rest.slice(4, 8).map((m, i) => renderMember(m, i + 8))}
-        </div>
-        <div className="row justify-content-center">
-          {rest.slice(8).map((m, i) => renderMember(m, i + 12))}
+            {/* Vice Chairs - 3 cards */}
+            <div className="excom-row triple-cards">
+              {viceChairs.map((m, i) => renderMember(m, i + 1))}
+            </div>
+
+            {/* Other members - 4 cards per row */}
+            <div className="excom-row quad-cards">
+              {rest.slice(0, 4).map((m, i) => renderMember(m, i + 4))}
+            </div>
+            <div className="excom-row quad-cards">
+              {rest.slice(4, 8).map((m, i) => renderMember(m, i + 8))}
+            </div>
+            <div className="excom-row quad-cards">
+              {rest.slice(8).map((m, i) => renderMember(m, i + 12))}
+            </div>
+          </div>
         </div>
       </section>
       <Footer />
@@ -121,4 +138,4 @@ const ExCom = () => {
   );
 };
 
-export default ExCom;
+export default ExCom2025;

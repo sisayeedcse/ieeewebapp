@@ -5,13 +5,13 @@ import Footer from "../components/Footer";
 import "./EventPage.css";
 
 const event1 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691563/event_img_1_boqokz.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png";
 const event2 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691562/event_img_2_afxz21.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png";
 const event3 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691561/event_img_3_uyjcvj.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691561/event_img_3_uyjcvj.png";
 const event4 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691553/event_img_4_lggcqm.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691553/event_img_4_lggcqm.png";
 const eventImages = [event1, event2, event3, event4, event1, event2];
 
 const EventPage = () => {

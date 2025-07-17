@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import "./Hero.css";
 
 const hero1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691563/event_img_1_boqokz.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png",
   hero2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691562/event_img_2_afxz21.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png",
   hero3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691561/event_img_3_uyjcvj.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691561/event_img_3_uyjcvj.png",
   hero4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691553/event_img_4_lggcqm.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691553/event_img_4_lggcqm.png";
 
 const slides = [
   {
