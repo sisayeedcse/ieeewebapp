@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import "./IeeePortal.css";
 
 const IeeePortal = () => {
@@ -10,6 +11,9 @@ const IeeePortal = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+
     setIsLoaded(true);
 
     const handleMouseMove = (e) => {
@@ -153,6 +157,7 @@ const IeeePortal = () => {
         </div>
       </section>
       <Footer />
+      <ScrollToTop />
     </>
   );
 };

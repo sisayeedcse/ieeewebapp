@@ -1,5 +1,5 @@
 // src/Pages/EventInfo.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -73,6 +73,11 @@ Our workshop will feature industry experts, cutting-edge research presentations,
 const EventInfo = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // For demo purposes, use event 1 if no eventId or if eventId doesn't exist
   const event = demoEvents[eventId] || demoEvents[1];

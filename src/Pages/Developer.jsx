@@ -1,5 +1,5 @@
 // src/Pages/Developer.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -85,6 +85,11 @@ const DeveloperCard = ({ dev }) => (
 );
 
 const Developer = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar variant="blue" />

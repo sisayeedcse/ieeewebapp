@@ -1,5 +1,5 @@
 // src/Pages/EventPage.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -17,6 +17,11 @@ const event4 =
 const eventImages = [event1, event2, event3, event4, event1, event2];
 
 const EventPage = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [activeFilter, setActiveFilter] = useState("all");
 
   const featuredEvents = [

@@ -1,5 +1,5 @@
 // src/Pages/AdvisorPanels2025.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -73,6 +73,11 @@ const advisors = [
 ];
 
 const AdvisorPanels2025 = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const renderAdvisor = (advisor, index) => {
     const isFeatured = index === 0; // First advisor is featured
 

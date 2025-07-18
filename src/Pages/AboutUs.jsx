@@ -1,5 +1,5 @@
 // src/Pages/AboutUs.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -8,6 +8,11 @@ const ieeebdLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/v1752734375/ieeebd_logo_ihfuav.png";
 
 const AboutUs = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar variant="blue" />

@@ -18,6 +18,8 @@ import Contact from "./Pages/ContactUs";
 import AdvisorPanels2025 from "./Pages/AdvisorPanels2025";
 import AlumniPanel2025 from "./Pages/AlumniPanel2025";
 import EventInfo from "./Pages/EventInfo";
+import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/contactus" element={<Contact />} />
         <Route path="/events" element={<Events />} />
         <Route path="/event/:eventId" element={<EventInfo />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/portal" element={<IeeePortal />} />
         <Route path="/excom" element={<ExCom />} />
         <Route path="/wie" element={<WIE />} />

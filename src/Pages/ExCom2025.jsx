@@ -1,5 +1,5 @@
 // src/Pages/ExCom2025.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -66,6 +66,11 @@ const members = [
 ];
 
 const ExCom2025 = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const chair = members.find((m) => m.role === "Chair");
   const viceChairs = members.filter((m) => m.role.includes("Vice Chair"));
   const rest = members.filter(

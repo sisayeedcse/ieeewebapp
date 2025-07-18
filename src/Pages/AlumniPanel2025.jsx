@@ -1,5 +1,5 @@
 // src/Pages/AlumniPanel2025.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -46,6 +46,11 @@ const alumni = [
 ];
 
 const AlumniPanel2025 = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const renderAlumni = (alumniMember, index) => {
     return (
       <div className="alumni-card" key={index}>
