@@ -20,14 +20,21 @@ const societies = [
 const Societies = () => {
   return (
     <section id="societies" className="societies-section">
-      <div className="container text-center">
-        <h2 className="societies-title">
-          Our IEEE <span>Societies & Technical Clubs</span>
-        </h2>
-        <p className="societies-desc mb-5">
-          Join our specialized IEEE societies to explore your interests, build
-          skills, and connect with like-minded peers in your field of interest.
-        </p>
+      <div className="container">
+        <div className="societies-header">
+          <div className="societies-badge">
+            <span className="badge-text">Community</span>
+          </div>
+          <h2 className="societies-title">
+            Our IEEE{" "}
+            <span className="gradient-text">Societies & Technical Clubs</span>
+          </h2>
+          <p className="societies-subtitle">
+            Join our specialized IEEE societies to explore your interests, build
+            skills, and connect with like-minded peers in your field of
+            interest.
+          </p>
+        </div>
 
         <div className="row justify-content-center">
           {societies.map((society, index) => (

@@ -4,13 +4,16 @@ const Activities = () => {
   return (
     <section className="activities py-5" id="activities">
       <div className="container">
-        <div className="section-title activities-section-title text-center mb-5">
-          <h2>
-            Why Join <span>IEEE PU?</span>
+        <div className="activities-header">
+          <div className="activities-badge">
+            <span className="badge-text">Programs</span>
+          </div>
+          <h2 className="activities-title">
+            Why Join <span className="gradient-text">IEEE PU?</span>
           </h2>
-          <p>
-            Comprehensive programs designed to <br />
-            enhance technical skills and professional development
+          <p className="activities-subtitle">
+            Comprehensive programs designed to enhance technical skills and
+            professional development
           </p>
         </div>
 

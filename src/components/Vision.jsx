@@ -1,35 +1,80 @@
 import React from "react";
 
-const ieeeLogo =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691513/ieeelogowhite_t7pn8d.png";
-
 const Vision = () => {
   return (
-    <section id="vision" className="vision-section py-5 text-white">
-      <div className="container vision-container d-flex flex-column flex-md-row align-items-center gap-5">
-        <div className="vision-content">
-          <h2 className="vision-title mb-4">Our Vision</h2>
-          <p className="vision-text">
-            To be a leading Student Branch dedicated to the continual
-            advancement of engineering knowledge and skills among students. Our
-            goal is to create a dynamic environment where members can master
-            their technical skills, network, and advance their professional
-            careers.
-            <br />
-            <br />
-            With an unwavering commitment to excellence, we strive to shape the
-            future of engineering for the betterment of humanity by developing a
-            culture of lifelong learning and empowering future leaders.
-            <br />
-            <br />
-            Through collaborative efforts and relentless dedication, we aspire
-            to be at the forefront of engineering education and practice,
-            leaving a lasting impact on society and inspiring future
-            generations.
-          </p>
+    <section id="vision" className="vision-section">
+      <div className="vision-background">
+        <div className="vision-floating-elements">
+          <div className="floating-circle circle-1"></div>
+          <div className="floating-circle circle-2"></div>
+          <div className="floating-circle circle-3"></div>
         </div>
-        <div className="vision-logo">
-          <img src={ieeeLogo} alt="IEEE Logo" className="img-fluid rounded" />
+      </div>
+
+      <div className="container vision-container">
+        <div className="vision-header">
+          <span className="vision-badge">Our Vision & Mission</span>
+          <h2 className="vision-main-title">Shaping Tomorrow's Tech Leaders</h2>
+        </div>
+
+        <div className="vision-grid">
+          <div className="vision-card vision-card">
+            <div className="vision-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="vision-svg"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <h3 className="vision-card-title">Our Vision</h3>
+            <p className="vision-card-text">
+              Empowering students to become global technology leaders through
+              innovation, collaboration, and excellence in engineering
+              education.
+            </p>
+          </div>
+
+          <div className="vision-card mission-card">
+            <h3 className="mission-title">Our Mission</h3>
+            <div className="mission-points">
+              <div className="mission-point">
+                <div className="mission-point-icon">
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <span>
+                  Organize technical workshops, seminars, and competitions to
+                  enhance students' skills
+                </span>
+              </div>
+              <div className="mission-point">
+                <div className="mission-point-icon">
+                  <i className="fas fa-network-wired"></i>
+                </div>
+                <span>
+                  Connect students with industry professionals and global IEEE
+                  network
+                </span>
+              </div>
+              <div className="mission-point">
+                <div className="mission-point-icon">
+                  <i className="fas fa-lightbulb"></i>
+                </div>
+                <span>
+                  Promote research and innovation through project-based learning
+                </span>
+              </div>
+              <div className="mission-point">
+                <div className="mission-point-icon">
+                  <i className="fas fa-user-graduate"></i>
+                </div>
+                <span>
+                  Foster leadership and soft skills development among members
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

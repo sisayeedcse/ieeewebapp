@@ -20,26 +20,41 @@ const achievements = [
 
 const Achievements = () => {
   return (
-    <section className="achievements-section py-5" id="achievements">
-      <div className="section-title container text-center">
-        <h2 className="achievements-title">
-          Our <span>Achievements</span>
-        </h2>
-        <p className="achievements-subtitle mb-5">
-          Recognized excellence in student branch activities and competitions
-        </p>
+    <section className="achievements-section" id="achievements">
+      <div className="container">
+        <div className="achievements-header">
+          <div className="achievements-badge">
+            <span className="badge-text">Recognition</span>
+          </div>
+          <h2 className="achievements-title">
+            Our <span className="gradient-text">Achievements</span>
+          </h2>
+          <p className="achievements-subtitle">
+            Celebrating excellence in innovation, leadership, and technical
+            advancement
+          </p>
+        </div>
 
-        <div className="achieveRow row justify-content-center g-4">
+        <div className="achievements-grid">
           {achievements.map((item, index) => (
-            <div className="col-md-6 col-lg-4" key={index}>
-              <div className="achievement-card h-100 p-4 shadow bg-white rounded text-center">
-                <div className="achievement-icon mb-3">
-                  <div className="icon-circle mx-auto">
-                    <i className={`${item.icon} fa-2x`}></i>
+            <div
+              className={`achievement-card achievement-card-${index + 1}`}
+              key={index}
+            >
+              <div className="achievement-card-inner">
+                <div className="achievement-icon">
+                  <div className="icon-wrapper">
+                    <i className={item.icon}></i>
                   </div>
+                  <div className="icon-glow"></div>
                 </div>
-                <h4 className="achievement-title">{item.title}</h4>
-                <p className="achievement-desc mt-2">{item.desc}</p>
+                <div className="achievement-content">
+                  <h3 className="achievement-title">{item.title}</h3>
+                  <p className="achievement-desc">{item.desc}</p>
+                </div>
+                <div className="achievement-number">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
               </div>
             </div>
           ))}

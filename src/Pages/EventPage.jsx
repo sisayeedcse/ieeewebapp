@@ -136,24 +136,40 @@ const EventPage = () => {
       <Navbar variant="blue" />
       <div className="eventpage-event-page-main">
         {/* Hero Section */}
-        <section className="eventpage-event-page-hero">
-          <div className="eventpage-event-page-hero-background">
-            <div className="eventpage-event-page-hero-pattern"></div>
-            <div className="eventpage-event-page-hero-overlay"></div>
+        <section className="eventpage-hero">
+          <div className="eventpage-hero-background">
+            <div className="eventpage-hero-grid"></div>
+            <div className="eventpage-hero-glow"></div>
           </div>
-          <div className="eventpage-event-page-container eventpage-event-page-hero-content">
-            <h1 className="eventpage-event-page-hero-title">
-              Inspiring Events &
-              <span className="eventpage-event-page-highlight-text">
-                Tech Gatherings
-              </span>
-            </h1>
-            <p className="eventpage-event-page-hero-subtitle">
-              Discover our exciting lineup of technical workshops, innovative
-              summits, competitive programming challenges, and networking
-              opportunities that shape the future of technology and engineering
-              excellence.
-            </p>
+          <div className="eventpage-container">
+            <div className="eventpage-hero-content">
+              <div className="eventpage-hero-badge">
+                <span className="eventpage-badge-icon">✨</span>
+                <span>Premier University IEEE Events</span>
+              </div>
+              <h1 className="eventpage-hero-title">
+                <span className="eventpage-title-main">Inspiring Events &</span>
+                <span className="eventpage-title-highlight">
+                  Tech Gatherings
+                </span>
+              </h1>
+              <p className="eventpage-hero-description">
+                Discover our exciting lineup of technical workshops, innovative
+                summits, competitive programming challenges, and networking
+                opportunities that shape the future of technology and
+                engineering excellence.
+              </p>
+              <div className="eventpage-hero-actions">
+                <button className="eventpage-cta-primary">
+                  <span>Explore Events</span>
+                  <i className="fas fa-arrow-right"></i>
+                </button>
+                <button className="eventpage-cta-secondary">
+                  <i className="fas fa-calendar-plus"></i>
+                  <span>Subscribe</span>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 

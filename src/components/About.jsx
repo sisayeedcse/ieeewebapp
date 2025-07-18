@@ -2,13 +2,16 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="about-section py-5" id="about">
+    <section className="about-section" id="about">
       <div className="container">
-        <div className="section-title text-center mb-5">
-          <h2>
-            About <span>IEEE PU SB</span>
+        <div className="about-header">
+          <div className="about-badge">
+            <span className="badge-text">About Us</span>
+          </div>
+          <h2 className="about-title">
+            About <span className="gradient-text">IEEE PU SB</span>
           </h2>
-          <p>
+          <p className="about-subtitle">
             Leading Student Branch dedicated to the continual advancement of
             engineering knowledge and skills among students.
           </p>
