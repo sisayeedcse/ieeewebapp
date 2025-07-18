@@ -9,7 +9,13 @@ const rasLogo =
 const demoImg =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
   ras_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
+  ras_6 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_6_blmah1.png",
+  ras_7 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830868/RAS_7_qcevze.png",
+  ras_8 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830868/RAS_8_gugltn.png";
 
 const RAS = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -66,21 +72,21 @@ const RAS = () => {
     {
       name: "TASNIA CHOWDHRY",
       position: "TREASURER, IEEE PU RAS 2025",
-      image: demoImg,
+      image: ras_6,
       facebook: "#",
       linkedin: "#",
     },
     {
       name: "CHINMAY BARUA NOBO",
       position: "ORGANIZING SECRETARY, IEEE PU RAS 2025",
-      image: demoImg,
+      image: ras_7,
       facebook: "#",
       linkedin: "#",
     },
     {
       name: "MUBARRAT E ISHMAM",
       position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE PU RAS 2025",
-      image: demoImg,
+      image: ras_8,
       facebook: "#",
       linkedin: "#",
     },

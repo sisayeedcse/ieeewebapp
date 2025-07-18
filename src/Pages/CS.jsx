@@ -19,7 +19,7 @@ const cs_1 =
   cs_6 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760614/CS_6_wwqqnj.png",
   cs_7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830824/CS_8_amwvyl.png",
   cs_8 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760611/CS_8_hjo2vm.png";
 
