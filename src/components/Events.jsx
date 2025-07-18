@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const event1 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png",
@@ -47,10 +48,10 @@ const Events = () => {
                     <div className="event-number">
                       {String(idx + 1).padStart(2, "0")}
                     </div>
-                    <a href={`#event${idx + 1}`} className="event-btn">
+                    <Link to={`/event/${idx + 1}`} className="event-btn">
                       <span>View Event</span>
                       <i className="fas fa-arrow-right"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="event-glow"></div>

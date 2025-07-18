@@ -17,6 +17,7 @@ import Developer from "./Pages/Developer";
 import Contact from "./Pages/ContactUs";
 import AdvisorPanels2025 from "./Pages/AdvisorPanels2025";
 import AlumniPanel2025 from "./Pages/AlumniPanel2025";
+import EventInfo from "./Pages/EventInfo";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/alumni" element={<AlumniPanel2025 />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/event/:eventId" element={<EventInfo />} />
         <Route path="/portal" element={<IeeePortal />} />
         <Route path="/excom" element={<ExCom />} />
         <Route path="/wie" element={<WIE />} />

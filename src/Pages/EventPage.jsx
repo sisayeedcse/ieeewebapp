@@ -1,5 +1,6 @@
 // src/Pages/EventPage.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -253,10 +254,13 @@ const EventPage = () => {
                         {event.attendees} attendees
                       </span>
                     </div>
-                    <button className="eventpage-event-page-event-btn">
+                    <Link
+                      to={`/event/${event.id}`}
+                      className="eventpage-event-page-event-btn"
+                    >
                       <i className="fas fa-arrow-right"></i>
                       Learn More
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -296,9 +300,12 @@ const EventPage = () => {
                   <div className="eventpage-event-page-event-image">
                     <img src={event.image} alt={event.title} />
                     <div className="eventpage-event-page-event-overlay">
-                      <button className="eventpage-event-page-overlay-btn">
+                      <Link
+                        to={`/event/${event.id}`}
+                        className="eventpage-event-page-overlay-btn"
+                      >
                         <i className="fas fa-eye"></i>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   <div className="eventpage-event-content">
@@ -327,9 +334,12 @@ const EventPage = () => {
                           {event.location}
                         </span>
                       </div>
-                      <button className="eventpage-event-btn-small">
+                      <Link
+                        to={`/event/${event.id}`}
+                        className="eventpage-event-btn-small"
+                      >
                         <i className="fas fa-arrow-right"></i>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
