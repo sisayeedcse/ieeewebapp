@@ -8,8 +8,18 @@ const rasLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691509/ras_logo_lxbqcd.png";
 const demoImg =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
+  ras_0 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753026875/RAS_0_y9scmc.png",
+  ras_1 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752859489/RAS_1_gcylyh.png",
   ras_2 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
+  ras_3 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_3_ghqj0l.png",
+  ras_4 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752859489/RAS_4_wy8rzf.png",
+  ras_5 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_5_ohqj0l.png",
   ras_6 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_6_blmah1.png",
   ras_7 =
@@ -35,9 +45,16 @@ const RAS = () => {
 
   const teamMembers = [
     {
+      name: "Tuton Chandra Mallick",
+      position: "Mentor, IEEE PU RAS 2025",
+      image: ras_0,
+      facebook: "#",
+      linkedin: "#",
+    },
+    {
       name: "SHOVON DAS",
       position: "CHAIR, IEEE PU RAS 2025",
-      image: demoImg,
+      image: ras_1,
       facebook: "#",
       linkedin: "#",
     },
@@ -58,7 +75,7 @@ const RAS = () => {
     {
       name: "ANUP DIPTA",
       position: "SECRETARY, IEEE PU RAS 2025",
-      image: demoImg,
+      image: ras_4,
       facebook: "#",
       linkedin: "#",
     },

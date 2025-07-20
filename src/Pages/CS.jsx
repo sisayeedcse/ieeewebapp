@@ -6,10 +6,12 @@ import "./CS.css";
 
 const csLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691512/cs_logo_tswsbw.png";
-const cs_1 =
+const cs_0 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753026871/CS_0_ls3qps.png",
+  cs_1 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760610/CS_1_ve7ec2.png",
   cs_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752849748/CS_2_daepzw.png",
   cs_3 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760612/CS_3_a0rte0.png",
   cs_4 =
@@ -40,6 +42,13 @@ const CS = () => {
   ];
 
   const teamMembers = [
+    {
+      name: "Kingshuk Dhar",
+      position: "Mentor, IEEE CS PU 2025",
+      image: cs_0,
+      facebook: "#",
+      linkedin: "#",
+    },
     {
       name: "MD AZMAYEN",
       position: "CHAIR, IEEE CS PU 2025",
