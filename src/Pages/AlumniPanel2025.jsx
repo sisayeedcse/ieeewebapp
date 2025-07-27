@@ -21,6 +21,8 @@ const alumni = [
     title: "Alumni Advisor",
     position: "Chair, IEEE PU SB '23",
     department: "IEEE Premier University Student Branch",
+    linkedin: "https://www.linkedin.com/in/iamanikbarua/",
+    facebook: "https://www.facebook.com/iamanikbaruaa",
   },
   {
     img: Alumni_2,
@@ -28,6 +30,8 @@ const alumni = [
     title: "Alumni Advisor",
     position: "Chair, IEEE PU SB '24",
     department: "IEEE Premier University Student Branch",
+    linkedin: "https://www.linkedin.com/in/mohiuddin2531/",
+    facebook: "https://www.facebook.com/mohiuddin2531",
   },
   {
     img: Alumni_3,
@@ -35,6 +39,8 @@ const alumni = [
     title: "Alumni Advisor",
     position: "Secretary, IEEE PU SB '24",
     department: "IEEE Premier University Student Branch",
+    linkedin: "https://www.linkedin.com/in/plabonnazzia/",
+    facebook: "https://www.facebook.com/plabonnazzia",
   },
   {
     img: Alumni_4,
@@ -42,11 +48,12 @@ const alumni = [
     title: "Alumni Advisor",
     position: "Vice Chair (Activity), IEEE PU SB '24",
     department: "IEEE Premier University Student Branch",
+    linkedin: "https://www.linkedin.com/in/joy-dey-899192214/",
+    facebook: "https://www.facebook.com/joydey78852/",
   },
 ];
 
 const AlumniPanel2025 = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -70,15 +77,26 @@ const AlumniPanel2025 = () => {
           <p className="alumni-department">{alumniMember.department}</p>
 
           <div className="alumni-contact">
-            <div className="contact-icon">
-              <i className="fas fa-envelope"></i>
-            </div>
-            <div className="contact-icon">
-              <i className="fab fa-linkedin-in"></i>
-            </div>
-            <div className="contact-icon">
-              <i className="fab fa-facebook"></i>
-            </div>
+            {alumniMember.linkedin && (
+              <a
+                href={alumniMember.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-icon"
+              >
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            )}
+            {alumniMember.facebook && (
+              <a
+                href={alumniMember.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-icon"
+              >
+                <i className="fab fa-facebook"></i>
+              </a>
+            )}
           </div>
         </div>
       </div>

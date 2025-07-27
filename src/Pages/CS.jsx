@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import SocietyEvents from "../components/SocietyEvents";
 import "./CS.css";
 
 const csLogo =
@@ -46,64 +47,64 @@ const CS = () => {
       name: "Kingshuk Dhar",
       position: "Mentor, IEEE CS PU 2025",
       image: cs_0,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/kingshuk.dhar/",
+      linkedin: "https://www.linkedin.com/in/kingshuk-dhar-91a326327/",
     },
     {
       name: "MD AZMAYEN",
       position: "CHAIR, IEEE CS PU 2025",
       image: cs_1,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/azmayen.retike",
+      linkedin: "https://www.linkedin.com/in/md-azmayen-a95263269/",
     },
     {
       name: "RAYANUL KADER CHOWDHURY ABID",
       position: "VICE-CHAIR (ACTIVITY), IEEE CS PU 2025",
       image: cs_2,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/profile.php?id=61568304720110",
+      linkedin: "https://www.linkedin.com/in/rayanul-kader-chowdhury/",
     },
     {
       name: "MD MASHRAUUL ISLAM RAFI",
       position: "VICE-CHAIR (TECHNICAL), IEEE CS PU 2025",
       image: cs_3,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/Muhammadrafi.2318",
+      linkedin: "https://www.linkedin.com/in/md-mashruul-islam/",
     },
     {
       name: "SAYEED IBNE SAIF",
       position: "SECRETARY, IEEE CS PU 2025",
       image: cs_4,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/S.I.Sayeed.official/",
+      linkedin: "https://www.linkedin.com/in/sisayeedofficial/",
     },
     {
       name: "MOHAMMOD HAMED HASAN",
       position: "JOINT SECRETARY, IEEE CS PU 2025",
       image: cs_5,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/hamed.hasan.497550",
+      linkedin: "https://www.linkedin.com/in/devhamed/",
     },
     {
       name: "ARNAB SHIKDER",
       position: "TREASURER, IEEE CS PU 2025",
       image: cs_6,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/arnabshikder24",
+      linkedin: "https://www.linkedin.com/in/arnabshikder/",
     },
     {
       name: "MOHAMMED TOWHIDUL ISLAM",
       position: "ORGANIZING SECRETARY, IEEE CS PU 2025",
       image: cs_7,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/MTOWHID0064",
+      linkedin: "https://www.linkedin.com/in/mtowhidulislam06/",
     },
     {
       name: "ANINDITA BARUA",
       position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE CS PU 2025",
       image: cs_8,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/profile.php?id=100091355197426",
+      linkedin: "https://www.linkedin.com/in/anindita-barua-9078a9254/",
     },
   ];
 
@@ -215,6 +216,9 @@ const CS = () => {
           </div>
         </div>
       </section>
+
+      {/* Society Events Section */}
+      <SocietyEvents society="CS" variant="cs" />
 
       {/* Team Section */}
       <section className="cs-team">

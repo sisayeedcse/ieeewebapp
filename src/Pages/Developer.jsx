@@ -39,7 +39,7 @@ const developers = [
     image: Hamed,
     type: "Frontend",
     facebook: "https://www.facebook.com/hamed.hasan.497550",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/devhamed/",
   },
   {
     name: "Mohammad Rafi",

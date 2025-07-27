@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import SocietyEvents from "../components/SocietyEvents";
 import "./WIE.css";
 
 const wieLogo =
@@ -42,50 +43,50 @@ const WIE = () => {
       name: "MONISHA DEY",
       position: "MENTOR, IEEE WIE PU 2025",
       image: wie_1,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "",
+      linkedin: "https://www.linkedin.com/in/monishadey-tusti/",
     },
     {
       name: "SUMAIYA KHANAM",
       position: "CHAIR, IEEE WIE PU 2025",
       image: wie_2,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/sumaiya.meem.01",
+      linkedin: "https://www.linkedin.com/in/sumaiyakhanam/",
     },
     {
       name: "AFRA IBANT",
       position: "VICE CHAIR, IEEE WIE PU 2025",
       image: wie_3,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/afra.ibnat.73997",
+      linkedin: "https://www.linkedin.com/in/afraibnatcreates/",
     },
     {
       name: "SANJIDA SULTANA AKHI",
       position: "SECRETARY, IEEE WIE PU 2025",
       image: wie_4,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/asma.al.aksha",
+      linkedin: "https://www.linkedin.com/in/sanjida-sultana-akhi/",
     },
     {
       name: "SHATABDI BARUA",
       position: "TREASURER, IEEE WIE PU 2025",
       image: wie_5,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/shatabdi.barua.417261",
+      linkedin: "https://www.linkedin.com/in/shatabdi-barua-0a3b6b346/",
     },
     {
       name: "REHNUMA AHMED",
       position: "ACTIVITY COORDINATOR, IEEE WIE PU 2025",
       image: wie_6,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/rehnuma.ahmed.90121",
+      linkedin: "https://www.linkedin.com/in/reh-nu-ma/",
     },
     {
       name: "FAHMIDA SULTANA RIFAT",
       position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE WIE PU 2025",
       image: wie_7,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/fahmida.sultana.r",
+      linkedin: "https://www.linkedin.com/in/fahmida-sultana-rifat/",
     },
   ];
 
@@ -204,6 +205,9 @@ const WIE = () => {
           </div>
         </div>
       </section>
+
+      {/* Society Events Section */}
+      <SocietyEvents society="WIE" variant="wie" />
 
       {/* Team Section */}
       <section className="wie-team">

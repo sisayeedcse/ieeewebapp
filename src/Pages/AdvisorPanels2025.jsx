@@ -27,6 +27,8 @@ const advisors = [
     title: "Advisor",
     position: "Professor & Chairman",
     department: "Department of Computer Science and Engineering",
+    linkedin: "https://www.linkedin.com/in/shahid-asif-iqbal/",
+    facebook: "https://www.facebook.com/asif.iqbal.3705/",
   },
   {
     img: Advisor_2,
@@ -34,6 +36,8 @@ const advisors = [
     title: "Advisor",
     position: "Associate Professor & Chairman",
     department: "Department of Electrical and Electronic Engineering",
+    linkedin: "https://www.linkedin.com/in/tcmallick/",
+    facebook: "https://www.facebook.com/tuton.c.mallick",
   },
   {
     img: Advisor_3,
@@ -41,6 +45,8 @@ const advisors = [
     title: "Counselor",
     position: "Associate Professor",
     department: "Department of Electrical and Electronic Engineering",
+    linkedin: "https://www.linkedin.com/in/mohammed-saifuddin-munna-aab67a10a/",
+    facebook: "https://www.facebook.com/saifuddin.munna.5",
   },
   {
     img: Advisor_4,
@@ -48,6 +54,8 @@ const advisors = [
     title: "Chief Mentor",
     position: "Assistant Professor",
     department: "Department of Computer Science and Engineering",
+    linkedin: "https://www.linkedin.com/in/kingshuk-dhar-91a326327/",
+    facebook: "https://www.facebook.com/kingshuk.dhar/",
   },
   {
     img: Advisor_5,
@@ -55,6 +63,8 @@ const advisors = [
     title: "Mentor",
     position: "Lecturer",
     department: "Department of CSE",
+    linkedin: "https://www.linkedin.com/in/avisheak/",
+    facebook: "https://www.facebook.com/avisheakdasshomrat/",
   },
   {
     img: Advisor_7,
@@ -62,6 +72,8 @@ const advisors = [
     title: "Mentor",
     position: "Lecturer",
     department: "Department of EEE",
+    linkedin: "https://www.linkedin.com/in/monishadey-tusti/",
+    facebook: "",
   },
   {
     img: Advisor_6,
@@ -69,17 +81,18 @@ const advisors = [
     title: "Mentor",
     position: "Lecturer",
     department: "Department of CSE",
+    linkedin: "https://www.linkedin.com/in/tashin-hossain-1b8814160/",
+    facebook: "https://www.facebook.com/tahsin.hossain.59072",
   },
 ];
 
 const AdvisorPanels2025 = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const renderAdvisor = (advisor, index) => {
-    const isFeatured = index === 0; // First advisor is featured
+    const isFeatured = index === 0;
 
     return (
       <div
@@ -98,22 +111,32 @@ const AdvisorPanels2025 = () => {
           <p className="advisor-department">{advisor.department}</p>
 
           <div className="advisor-contact">
-            <div className="contact-icon">
-              <i className="fas fa-envelope"></i>
-            </div>
-            <div className="contact-icon">
-              <i className="fab fa-linkedin-in"></i>
-            </div>
-            <div className="contact-icon">
-              <i className="fab fa-facebook"></i>
-            </div>
+            {advisor.linkedin && (
+              <a
+                href={advisor.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-icon"
+              >
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            )}
+            {advisor.facebook && (
+              <a
+                href={advisor.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-icon"
+              >
+                <i className="fab fa-facebook"></i>
+              </a>
+            )}
           </div>
         </div>
       </div>
     );
   };
 
-  // Split advisors into the 1-3-3 format
   const firstAdvisor = advisors.slice(0, 1);
   const secondRowAdvisors = advisors.slice(1, 4);
   const thirdRowAdvisors = advisors.slice(4, 7);
@@ -133,21 +156,18 @@ const AdvisorPanels2025 = () => {
           <div className="section-divider"></div>
 
           <div className="advisor-grid">
-            {/* First row - 1 card */}
             <div className="advisor-row single-card">
               {firstAdvisor.map((advisor, index) =>
                 renderAdvisor(advisor, index)
               )}
             </div>
 
-            {/* Second row - 3 cards */}
             <div className="advisor-row triple-cards">
               {secondRowAdvisors.map((advisor, index) =>
                 renderAdvisor(advisor, index + 1)
               )}
             </div>
 
-            {/* Third row - 3 cards */}
             <div className="advisor-row triple-cards">
               {thirdRowAdvisors.map((advisor, index) =>
                 renderAdvisor(advisor, index + 4)

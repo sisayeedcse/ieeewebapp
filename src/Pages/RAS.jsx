@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import SocietyEvents from "../components/SocietyEvents";
 import "./RAS.css";
 
 const rasLogo =
@@ -13,13 +14,13 @@ const demoImg =
   ras_1 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752859489/RAS_1_gcylyh.png",
   ras_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753034500/RAS_2_i206si.png",
   ras_3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_3_ghqj0l.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753034506/RAS_3_fryq7p.png",
   ras_4 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752859489/RAS_4_wy8rzf.png",
   ras_5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_5_ohqj0l.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753034500/RAS_5_slhjo6.png",
   ras_6 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_6_blmah1.png",
   ras_7 =
@@ -48,27 +49,28 @@ const RAS = () => {
       name: "Tuton Chandra Mallick",
       position: "Mentor, IEEE PU RAS 2025",
       image: ras_0,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/tuton.c.mallick",
+      linkedin: "https://www.linkedin.com/in/tcmallick/",
     },
     {
       name: "SHOVON DAS",
       position: "CHAIR, IEEE PU RAS 2025",
       image: ras_1,
-      facebook: "#",
+      facebook:
+        "https://www.facebook.com/sho.von.348030?mibextid=wwXIfr&rdid=HBLHzl3QHIIp6681&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DsMjWh7dQ%2F%3Fmibextid%3DwwXIfr",
       linkedin: "#",
     },
     {
-      name: "FAHMIDA SULTANA",
+      name: "Fahmida Aktar Priya",
       position: "VICE-CHAIR (ACTIVITY), IEEE PU RAS 2025",
       image: ras_2,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/fahmida.shikder.833863",
+      linkedin: "",
     },
     {
       name: "VICKY NANDI",
       position: "VICE-CHAIR (TECHNICAL), IEEE PU RAS 2025",
-      image: demoImg,
+      image: ras_3,
       facebook: "#",
       linkedin: "#",
     },
@@ -76,36 +78,39 @@ const RAS = () => {
       name: "ANUP DIPTA",
       position: "SECRETARY, IEEE PU RAS 2025",
       image: ras_4,
-      facebook: "#",
-      linkedin: "#",
+      facebook:
+        "https://www.facebook.com/anupdipta04?mibextid=wwXIfr&rdid=SRUmkGVjGchJVgkK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19Lx6w6CdQ%2F%3Fmibextid%3DwwXIfr",
+      linkedin: "https://www.linkedin.com/in/anup-dipta-0281962a2/",
     },
     {
       name: "ARNOB MAZUMDAR",
       position: "JOINT SECRETARY, IEEE PU RAS 2025",
-      image: demoImg,
-      facebook: "#",
+      image: ras_5,
+      facebook: "https://www.facebook.com/ab.arnob.509",
       linkedin: "#",
     },
     {
       name: "TASNIA CHOWDHRY",
       position: "TREASURER, IEEE PU RAS 2025",
       image: ras_6,
-      facebook: "#",
+      facebook:
+        "https://www.facebook.com/tasnia.chowdhury.350815?mibextid=wwXIfr&rdid=iEfuZXhvifywkivs&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DqDxg3EPU%2F%3Fmibextid%3DwwXIfr",
       linkedin: "#",
     },
     {
       name: "CHINMAY BARUA NOBO",
       position: "ORGANIZING SECRETARY, IEEE PU RAS 2025",
       image: ras_7,
-      facebook: "#",
-      linkedin: "#",
+      facebook: "https://www.facebook.com/chinmaynobo",
+      linkedin: "https://www.linkedin.com/in/chinmaybaruanobo/",
     },
     {
       name: "MUBARRAT E ISHMAM",
       position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE PU RAS 2025",
       image: ras_8,
-      facebook: "#",
-      linkedin: "#",
+      facebook:
+        "https://www.facebook.com/labon.ya.7?mibextid=wwXIfr&rdid=519gKbcRXcZe9AO6&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YQVsyMK7m%2F%3Fmibextid%3DwwXIfr",
+      linkedin: "https://www.linkedin.com/in/mubarrateishmum/",
     },
   ];
 
@@ -224,6 +229,9 @@ const RAS = () => {
           </div>
         </div>
       </section>
+
+      {/* Society Events Section */}
+      <SocietyEvents society="RAS" variant="ras" />
 
       {/* Team Section */}
       <section className="ras-team">

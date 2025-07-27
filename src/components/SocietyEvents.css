@@ -1,0 +1,344 @@
+/* Base Society Events Styles */
+.society-events {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.society-events::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.society-events-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.society-events-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.society-events-badge .badge-text {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+}
+
+.society-events-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.society-events-title .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.society-events-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.society-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.society-event-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.society-event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.society-event-image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.society-event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.society-event-card:hover .society-event-image {
+    transform: scale(1.1);
+}
+
+.society-event-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 8px 15px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.society-event-card:hover .society-event-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.society-event-type {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.society-event-content {
+    padding: 25px;
+}
+
+.society-event-date {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.society-event-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.society-event-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.society-event-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.society-event-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.society-event-btn i {
+    transition: transform 0.3s ease;
+}
+
+.society-event-btn:hover i {
+    transform: translateX(3px);
+}
+
+.society-events-footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.view-all-events-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1e293b;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.view-all-events-btn:hover {
+    background: #1e293b;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(30, 41, 59, 0.3);
+    text-decoration: none;
+}
+
+/* WIE Variant */
+.society-events-wie .society-events-badge {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    border: none;
+}
+
+.society-events-wie .society-events-badge .badge-text {
+    color: white;
+}
+
+.society-events-wie .society-events-title .gradient-text {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.society-events-wie .society-event-btn {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+}
+
+.society-events-wie .society-event-btn:hover {
+    box-shadow: 0 8px 25px rgba(142, 68, 173, 0.4);
+}
+
+.society-events-wie .view-all-events-btn:hover {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    border-color: #8e44ad;
+}
+
+/* RAS Variant */
+.society-events-ras .society-events-badge {
+    background: linear-gradient(45deg, #7B2D8E, #9B4A9E);
+    border: none;
+}
+
+.society-events-ras .society-events-badge .badge-text {
+    color: white;
+}
+
+.society-events-ras .society-events-title .gradient-text {
+    background: linear-gradient(45deg, #7B2D8E, #9B4A9E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.society-events-ras .society-event-btn {
+    background: linear-gradient(45deg, #7B2D8E, #9B4A9E);
+}
+
+.society-events-ras .society-event-btn:hover {
+    box-shadow: 0 8px 25px rgba(123, 45, 142, 0.4);
+}
+
+.society-events-ras .view-all-events-btn:hover {
+    background: linear-gradient(45deg, #7B2D8E, #9B4A9E);
+    border-color: #7B2D8E;
+}
+
+/* CS Variant */
+.society-events-cs .society-events-badge {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    border: none;
+}
+
+.society-events-cs .society-events-badge .badge-text {
+    color: white;
+}
+
+.society-events-cs .society-events-title .gradient-text {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.society-events-cs .society-event-btn {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+}
+
+.society-events-cs .society-event-btn:hover {
+    box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+}
+
+.society-events-cs .view-all-events-btn:hover {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    border-color: #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .society-events {
+        padding: 60px 0;
+    }
+
+    .society-events-title {
+        font-size: 2.5rem;
+    }
+
+    .society-events-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .society-event-card {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .society-events-title {
+        font-size: 2rem;
+    }
+
+    .society-events-subtitle {
+        font-size: 1rem;
+    }
+
+    .society-event-content {
+        padding: 20px;
+    }
+}
