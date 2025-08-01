@@ -62,19 +62,19 @@ const ContactUs = () => {
     {
       icon: "fas fa-phone",
       title: "Call Us",
-      details: ["+880-31-2510796", "+880-31-2510797"],
+      details: ["+880-1719142953", "+880-31-2510797"],
       color: "#10b981",
     },
     {
       icon: "fas fa-envelope",
       title: "Email Us",
-      details: ["ieee@pu.ac.bd", "info.ieee@pu.ac.bd"],
+      details: ["ieeepusb@gmail.com", "info.ieee@pu.ac.bd"],
       color: "#f59e0b",
     },
     {
       icon: "fas fa-clock",
       title: "Office Hours",
-      details: ["Mon - Fri: 9:00 AM - 5:00 PM", "Sat: 9:00 AM - 1:00 PM"],
+      details: ["Saturday - Wednesday", "9:00 AM - 5:00 PM"],
       color: "#8b5cf6",
     },
   ];

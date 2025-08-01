@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const logo =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691507/IEEEPULOGO_merij4.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1754060273/IEEEPULOGO_jyv1x8.png";
 const Navbar = ({ variant }) => {
   const [scrolled, setScrolled] = useState(false);
 

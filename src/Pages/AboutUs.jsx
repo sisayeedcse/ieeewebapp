@@ -40,6 +40,7 @@ const AboutUs = () => {
             <div className="aboutpage-hero-stats">
               <div className="aboutpage-stat-item">
                 <span className="aboutpage-about-stat-number">100+</span>
+                <span className="aboutpage-stat-subtitle">yearly</span>
                 <span className="aboutpage-about-stat-label">
                   Registered Students
                 </span>
@@ -47,6 +48,7 @@ const AboutUs = () => {
               <div className="aboutpage-stat-divider"></div>
               <div className="aboutpage-stat-item">
                 <span className="aboutpage-about-stat-number">4</span>
+                <span className="aboutpage-stat-subtitle">active</span>
                 <span className="aboutpage-about-stat-label">
                   Technical Societies
                 </span>
@@ -54,6 +56,7 @@ const AboutUs = () => {
               <div className="aboutpage-stat-divider"></div>
               <div className="aboutpage-stat-item">
                 <span className="aboutpage-about-stat-number">20+</span>
+                <span className="aboutpage-stat-subtitle">annually</span>
                 <span className="aboutpage-about-stat-label">
                   Event Organized
                 </span>

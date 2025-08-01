@@ -130,6 +130,7 @@
 
 .aboutpage-stat-item {
     text-align: center;
+    position: relative;
 }
 
 .aboutpage-about-stat-number {
@@ -137,7 +138,30 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.aboutpage-stat-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+    text-transform: lowercase;
+    position: relative;
+}
+
+.aboutpage-stat-subtitle::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
 }
 
 .aboutpage-about-stat-label {

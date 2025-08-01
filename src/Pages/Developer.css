@@ -42,6 +42,10 @@
     overflow: hidden;
     transition: all 0.3s ease;
     width: 280px;
+    height: 420px;
+    /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
 }
 
 .dev-showcard:hover {
@@ -76,6 +80,10 @@
 .show-content {
     padding: 1.5rem;
     text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .show-name {
@@ -83,12 +91,20 @@
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #1e293b;
+    min-height: 1.6rem;
+    /* Ensure consistent name height */
 }
 
 .show-role {
     font-size: 0.95rem;
     color: #64748b;
     margin-bottom: 1rem;
+    line-height: 1.4;
+    min-height: 3.5rem;
+    /* Fixed height for role text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .show-meta {
@@ -97,6 +113,8 @@
     align-items: center;
     padding: 0 0.5rem;
     font-size: 0.85rem;
+    margin-top: auto;
+    /* Push to bottom */
 }
 
 .dev-tag {
@@ -140,34 +158,96 @@
 .top-dev {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .bottom-dev {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* default desktop layout */
-    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1280px;
     padding: 0 1rem;
 }
 
 .dev-showcard {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
+    width: 280px;
+    flex-shrink: 0;
 }
 
-/* Tablet Layout: 2 + 2 cards */
-@media (max-width: 1024px) {
+/* Responsive Design */
+@media (min-width: 1281px) {
     .bottom-dev {
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 1400px;
+        gap: 1.5rem;
     }
 }
 
-/* Mobile Layout: all in 1 column */
+@media (max-width: 1280px) {
+    .bottom-dev {
+        max-width: 1200px;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bottom-dev {
+        max-width: 1000px;
+        gap: 0.8rem;
+    }
+
+    .dev-showcard {
+        width: 240px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .bottom-dev {
+        max-width: 800px;
+        gap: 0.5rem;
+    }
+
+    .dev-showcard {
+        width: 190px;
+    }
+}
+
+@media (max-width: 900px) {
+    .bottom-dev {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .dev-showcard {
+        width: 260px;
+    }
+}
+
 @media (max-width: 768px) {
     .bottom-dev {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+        max-width: 320px;
+    }
+
+    .dev-showcard {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .developer-showcase.new-layout {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dev-showcard {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .bottom-dev {
+        padding: 0 0.5rem;
     }
 }

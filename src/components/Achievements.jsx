@@ -3,18 +3,18 @@ import React from "react";
 const achievements = [
   {
     icon: "fas fa-medal",
-    title: "Best Exemplary Student Branch",
-    desc: "IEEE Region 10 award for two consecutive years, recognizing our outstanding contribution to student development.",
+    title: "Excellence Award",
+    desc: "Recognized for outstanding performance and innovation in student activities and technical development.",
   },
   {
     icon: "fas fa-trophy",
-    title: "IEEE R10 Web Contest",
-    desc: "First place winner in the prestigious IEEE Region 10 Web Contest, showcasing our technical excellence.",
+    title: "Web Contest Winner",
+    desc: "First place champion in regional web development competition showcasing technical skills and creativity.",
   },
   {
     icon: "fas fa-star",
-    title: "Leading Student Branch",
-    desc: "Solidified position as one of the best IEEE student branches, setting standards for excellence in engineering education.",
+    title: "Top Student Branch",
+    desc: "Awarded leading status among IEEE student branches for exceptional contributions to engineering education.",
   },
 ];
 
