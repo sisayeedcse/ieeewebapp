@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import SocietyEvents from "../components/SocietyEvents";
+import { csData } from "../data/csData.js";
 import "./CS.css";
 
 const csLogo =
@@ -30,10 +32,32 @@ const CS = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
 
+  // Year selection functionality
+  const { year } = useParams();
+  const navigate = useNavigate();
+  const [selectedYear, setSelectedYear] = useState(year || "2025");
+
+  // Get committee data for selected year
+  const currentCommitteeData = csData[selectedYear] || [];
+
+  // Handle year change
+  const handleYearChange = (event) => {
+    const newYear = event.target.value;
+    setSelectedYear(newYear);
+    navigate(`/cs/${newYear}`);
+  };
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Update selected year when URL parameter changes
+  useEffect(() => {
+    if (year && year !== selectedYear) {
+      setSelectedYear(year);
+    }
+  }, [year, selectedYear]);
 
   const stats = [
     { number: "2020", label: "Founded" },
@@ -231,45 +255,66 @@ const CS = () => {
               The innovative leaders driving our computing excellence
             </p>
           </div>
-          <div className="cs-team-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="cs-team-card">
-                <div className="cs-team-image-container">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="cs-team-image"
-                  />
-                  <div className="cs-team-overlay">
-                    <div className="cs-team-social">
-                      <div className="cs-social-icon">
-                        <a
-                          href={member.facebook}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <i className="fab fa-facebook-f"></i>
-                        </a>
-                      </div>
-                      <div className="cs-social-icon">
-                        <a
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <i className="fab fa-linkedin-in"></i>
-                        </a>
+
+          {/* Year Selector Dropdown */}
+          <div className="cs-year-selector-container">
+            <select
+              className="cs-year-selector"
+              value={selectedYear}
+              onChange={handleYearChange}
+            >
+              <option value="2025">Executive Members 2025</option>
+              <option value="2026">Executive Members 2026</option>
+              <option value="2027">2Executive Members 2027</option>
+            </select>
+          </div>
+          {currentCommitteeData.length > 0 ? (
+            <div className="cs-team-grid">
+              {currentCommitteeData.map((member, index) => (
+                <div key={index} className="cs-team-card">
+                  <div className="cs-team-image-container">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="cs-team-image"
+                    />
+                    <div className="cs-team-overlay">
+                      <div className="cs-team-social">
+                        <div className="cs-social-icon">
+                          <a
+                            href={member.facebook}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-facebook-f"></i>
+                          </a>
+                        </div>
+                        <div className="cs-social-icon">
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-linkedin-in"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div className="cs-team-info">
+                    <h3 className="cs-team-name">{member.name}</h3>
+                    <p className="cs-team-position">{member.position}</p>
+                  </div>
                 </div>
-                <div className="cs-team-info">
-                  <h3 className="cs-team-name">{member.name}</h3>
-                  <p className="cs-team-position">{member.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-members-message">
+              <p>
+                Committee information for {selectedYear} will be updated soon!
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

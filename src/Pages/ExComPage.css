@@ -29,6 +29,58 @@
     line-height: 1.6;
 }
 
+/* Year Selector Dropdown Styles */
+.year-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.year-selector {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.year-selector:hover {
+    border-color: #0ea5e9;
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.15);
+    transform: translateY(-2px);
+}
+
+.year-selector:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.year-selector option {
+    padding: 10px;
+    font-weight: 600;
+}
+
+/* No members message */
+.no-members-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #64748b;
+    font-size: 1.1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 2px dashed #e2e8f0;
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
 .excom-grid {
     margin: 0 auto;
 }
@@ -267,6 +319,19 @@
         font-size: 2rem;
     }
 
+    /* Make year selector full width on mobile */
+    .year-selector-container {
+        margin-bottom: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .year-selector {
+        width: 100%;
+        min-width: unset;
+        font-size: 0.95rem;
+        padding: 14px 16px;
+    }
+
     .excom-row {
         flex-direction: column;
         align-items: center;
@@ -314,6 +379,16 @@
     .excom-section .subtitle {
         font-size: 1rem;
         margin-bottom: 3rem;
+    }
+
+    /* Adjust year selector for small screens */
+    .year-selector-container {
+        padding: 0 5px;
+    }
+
+    .year-selector {
+        font-size: 0.9rem;
+        padding: 12px 14px;
     }
 
     .excom-img-container {

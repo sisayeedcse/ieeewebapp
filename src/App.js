@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import IeeePortal from "./Pages/IeeePortal";
-import ExCom from "./Pages/ExCom2025";
+import ExCom from "./Pages/ExComPage";
 import Home from "./components/Home";
 import AboutUs from "./Pages/AboutUs";
 import WIE from "./Pages/WIE";
@@ -36,10 +36,14 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/portal" element={<IeeePortal />} />
         <Route path="/excom" element={<ExCom />} />
+        <Route path="/excom/:year" element={<ExCom />} />
         <Route path="/wie" element={<WIE />} />
+        <Route path="/wie/:year" element={<WIE />} />
         <Route path="/cs" element={<CS />} />
+        <Route path="/cs/:year" element={<CS />} />
         <Route path="/developer" element={<Developer />} />
         <Route path="/ras" element={<RAS />} />
+        <Route path="/ras/:year" element={<RAS />} />
         <Route path="/pes" element={<PES />} />
       </Routes>
     </>

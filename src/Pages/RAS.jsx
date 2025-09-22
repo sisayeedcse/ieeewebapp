@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import SocietyEvents from "../components/SocietyEvents";
+import { rasData } from "../data/rasData.js";
 import "./RAS.css";
 
 const rasLogo =
@@ -32,10 +34,32 @@ const RAS = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
 
+  // Year selection functionality
+  const { year } = useParams();
+  const navigate = useNavigate();
+  const [selectedYear, setSelectedYear] = useState(year || "2025");
+
+  // Get committee data for selected year
+  const currentCommitteeData = rasData[selectedYear] || [];
+
+  // Handle year change
+  const handleYearChange = (event) => {
+    const newYear = event.target.value;
+    setSelectedYear(newYear);
+    navigate(`/ras/${newYear}`);
+  };
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Update selected year when URL parameter changes
+  useEffect(() => {
+    if (year && year !== selectedYear) {
+      setSelectedYear(year);
+    }
+  }, [year, selectedYear]);
 
   const stats = [
     { number: "2023", label: "Founded" },
@@ -244,45 +268,66 @@ const RAS = () => {
               The innovative minds driving robotics excellence forward
             </p>
           </div>
-          <div className="ras-team-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="ras-team-card">
-                <div className="ras-team-image-container">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="ras-team-image"
-                  />
-                  <div className="ras-team-overlay">
-                    <div className="ras-team-social">
-                      <div className="ras-social-icon">
-                        <a
-                          href={member.facebook}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <i className="fab fa-facebook-f"></i>
-                        </a>
-                      </div>
-                      <div className="ras-social-icon">
-                        <a
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <i className="fab fa-linkedin-in"></i>
-                        </a>
+
+          {/* Year Selector Dropdown */}
+          <div className="ras-year-selector-container">
+            <select
+              className="ras-year-selector"
+              value={selectedYear}
+              onChange={handleYearChange}
+            >
+              <option value="2025">Executive Members 2025</option>
+              <option value="2026">Executive Members 2026</option>
+              <option value="2027">Executive Members 2027</option>
+            </select>
+          </div>
+          {currentCommitteeData.length > 0 ? (
+            <div className="ras-team-grid">
+              {currentCommitteeData.map((member, index) => (
+                <div key={index} className="ras-team-card">
+                  <div className="ras-team-image-container">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="ras-team-image"
+                    />
+                    <div className="ras-team-overlay">
+                      <div className="ras-team-social">
+                        <div className="ras-social-icon">
+                          <a
+                            href={member.facebook}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-facebook-f"></i>
+                          </a>
+                        </div>
+                        <div className="ras-social-icon">
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-linkedin-in"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div className="ras-team-info">
+                    <h3 className="ras-team-name">{member.name}</h3>
+                    <p className="ras-team-position">{member.position}</p>
+                  </div>
                 </div>
-                <div className="ras-team-info">
-                  <h3 className="ras-team-name">{member.name}</h3>
-                  <p className="ras-team-position">{member.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-members-message">
+              <p>
+                Committee information for {selectedYear} will be updated soon!
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

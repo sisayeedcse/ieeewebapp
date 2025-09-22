@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import SocietyEvents from "../components/SocietyEvents";
+import { wieData } from "../data/wieData";
 import "./WIE.css";
 
 const wieLogo =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691511/wie_logo_ootcui.png",
-  wie_1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691471/wie_1_xt2tva.png",
-  wie_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691472/wie_2_jme5rm.png",
-  wie_3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691474/wie_3_maamln.png",
-  wie_4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691473/wie_4_dexkzv.png",
-  wie_5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691474/wie_5_qimipe.png",
-  wie_6 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691476/wie_6_npasrj.png",
-  wie_7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691476/wie_7_uerbbz.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691511/wie_logo_ootcui.png";
 
 const WIE = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
 
+  // Get year from URL params, default to 2025 if not provided
+  const { year } = useParams();
+  const navigate = useNavigate();
+  const selectedYear = year ? parseInt(year) : 2025;
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Handle year change from dropdown
+  // This function updates the URL to reflect the selected year
+  const handleYearChange = (event) => {
+    const newYear = event.target.value;
+    navigate(`/wie/${newYear}`);
+  };
+
+  // Get team members for the selected year
+  // This function returns the appropriate data based on the year selected
+  const getCurrentTeamMembers = () => {
+    return wieData[selectedYear] || [];
+  };
 
   const stats = [
     { number: "2023", label: "Founded" },
@@ -38,57 +44,8 @@ const WIE = () => {
     { number: "100%", label: "Empowerment" },
   ];
 
-  const teamMembers = [
-    {
-      name: "MONISHA DEY",
-      position: "MENTOR, IEEE WIE PU 2025",
-      image: wie_1,
-      facebook: "",
-      linkedin: "https://www.linkedin.com/in/monishadey-tusti/",
-    },
-    {
-      name: "SUMAIYA KHANAM",
-      position: "CHAIR, IEEE WIE PU 2025",
-      image: wie_2,
-      facebook: "https://www.facebook.com/sumaiya.meem.01",
-      linkedin: "https://www.linkedin.com/in/sumaiyakhanam/",
-    },
-    {
-      name: "AFRA IBANT",
-      position: "VICE CHAIR, IEEE WIE PU 2025",
-      image: wie_3,
-      facebook: "https://www.facebook.com/afra.ibnat.73997",
-      linkedin: "https://www.linkedin.com/in/afraibnatcreates/",
-    },
-    {
-      name: "SANJIDA SULTANA AKHI",
-      position: "SECRETARY, IEEE WIE PU 2025",
-      image: wie_4,
-      facebook: "https://www.facebook.com/asma.al.aksha",
-      linkedin: "https://www.linkedin.com/in/sanjida-sultana-akhi/",
-    },
-    {
-      name: "SHATABDI BARUA",
-      position: "TREASURER, IEEE WIE PU 2025",
-      image: wie_5,
-      facebook: "https://www.facebook.com/shatabdi.barua.417261",
-      linkedin: "https://www.linkedin.com/in/shatabdi-barua-0a3b6b346/",
-    },
-    {
-      name: "REHNUMA AHMED",
-      position: "ACTIVITY COORDINATOR, IEEE WIE PU 2025",
-      image: wie_6,
-      facebook: "https://www.facebook.com/rehnuma.ahmed.90121",
-      linkedin: "https://www.linkedin.com/in/reh-nu-ma/",
-    },
-    {
-      name: "FAHMIDA SULTANA RIFAT",
-      position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE WIE PU 2025",
-      image: wie_7,
-      facebook: "https://www.facebook.com/fahmida.sultana.r",
-      linkedin: "https://www.linkedin.com/in/fahmida-sultana-rifat/",
-    },
-  ];
+  // Get current team members based on selected year
+  const teamMembers = getCurrentTeamMembers();
 
   useEffect(() => {
     setIsVisible(true);
@@ -219,46 +176,69 @@ const WIE = () => {
             <p className="wie-team-subtitle">
               The passionate leaders driving our mission forward
             </p>
+
+            {/* Year Selector Dropdown */}
+            {/* This dropdown allows users to switch between different years */}
+            <div className="wie-year-selector-container">
+              <select
+                className="wie-year-selector"
+                value={selectedYear}
+                onChange={handleYearChange}
+                aria-label="Select WIE Committee Year"
+              >
+                <option value={2025}>Executive Members 2025</option>
+                <option value={2026}>Executive Members 2026</option>
+                <option value={2027}>Executive Members 2027</option>
+              </select>
+            </div>
           </div>
-          <div className="wie-team-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="wie-team-card">
-                <div className="wie-team-image-container">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="wie-team-image"
-                  />
-                  <div className="wie-team-overlay">
-                    <div className="wie-team-social">
-                      <div className="wie-social-icon">
-                        <a
-                          href={member.facebook}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <i className="fab fa-facebook-f"></i>
-                        </a>
-                      </div>
-                      <div className="wie-social-icon">
-                        <a
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <i className="fab fa-linkedin-in"></i>
-                        </a>
+
+          {/* Show team members if available for the selected year */}
+          {teamMembers.length > 0 ? (
+            <div className="wie-team-grid">
+              {teamMembers.map((member, index) => (
+                <div key={index} className="wie-team-card">
+                  <div className="wie-team-image-container">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="wie-team-image"
+                    />
+                    <div className="wie-team-overlay">
+                      <div className="wie-team-social">
+                        <div className="wie-social-icon">
+                          <a
+                            href={member.facebook}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-facebook-f"></i>
+                          </a>
+                        </div>
+                        <div className="wie-social-icon">
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-linkedin-in"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div className="wie-team-info">
+                    <h3 className="wie-team-name">{member.name}</h3>
+                    <p className="wie-team-position">{member.position}</p>
+                  </div>
                 </div>
-                <div className="wie-team-info">
-                  <h3 className="wie-team-name">{member.name}</h3>
-                  <p className="wie-team-position">{member.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-members-message">
+              <p>No committee members data available for {selectedYear}.</p>
+            </div>
+          )}
         </div>
       </section>
 

@@ -367,6 +367,59 @@
     font-weight: 500;
 }
 
+/* CS Year Selector Dropdown Styles */
+.cs-year-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.cs-year-selector {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cs-year-selector:hover {
+    border-color: #0064a6;
+    box-shadow: 0 6px 20px rgba(0, 100, 166, 0.15);
+    transform: translateY(-2px);
+}
+
+.cs-year-selector:focus {
+    outline: none;
+    border-color: #0064a6;
+    box-shadow: 0 0 0 3px rgba(0, 100, 166, 0.1);
+}
+
+.cs-year-selector option {
+    padding: 10px;
+    font-weight: 600;
+}
+
+/* No members message */
+.no-members-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #64748b;
+    font-size: 1.1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 2px dashed #e2e8f0;
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
 .cs-team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

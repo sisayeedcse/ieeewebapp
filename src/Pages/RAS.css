@@ -367,6 +367,59 @@
     font-weight: 500;
 }
 
+/* RAS Year Selector Dropdown Styles */
+.ras-year-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.ras-year-selector {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ras-year-selector:hover {
+    border-color: #dc2626;
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.15);
+    transform: translateY(-2px);
+}
+
+.ras-year-selector:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.ras-year-selector option {
+    padding: 10px;
+    font-weight: 600;
+}
+
+/* No members message */
+.no-members-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #64748b;
+    font-size: 1.1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 2px dashed #e2e8f0;
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
 .ras-team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
