@@ -17,6 +17,20 @@ const event4 =
 const eventImages = [event1, event2, event3, event4, event1, event2];
 
 const EventPage = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Simulate fetching data from an API
+    const fetchEvents = async () => {
+      const response = await fetch(`http://localhost:5000/api/event`);
+      const data = await response.json();
+      setEvents(data.data);
+    };
+
+    fetchEvents();
+  }, []);
+
+  console.log(events);
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
