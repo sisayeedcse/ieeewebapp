@@ -39,22 +39,13 @@ const EventPage = () => {
       
       url += `?${params.toString()}`;
       
-      console.log('Fetching URL with all params:', url); // Debug the actual URL being called
-      
       const response = await fetch(url);
       const data = await response.json();
-      
-      console.log('API Response:', data); // Debug the API response structure
-      console.log('Meta object:', data.meta); // Debug the meta object specifically
       
       // Update state with the correct API structure
       setEvents(data.data || []);
       setTotalEvents(data.meta?.total || 0); // Get total from meta object
       setCurrentPage(data.meta?.currentPage || page);
-      
-      // Debug what we're setting
-      console.log('Setting totalEvents to:', data.meta?.total || 0);
-      console.log('Setting currentPage to:', data.meta?.currentPage || page);
     } catch (error) {
       console.error('Error fetching events:', error);
       setEvents([]);
@@ -63,7 +54,6 @@ const EventPage = () => {
       setLoading(false);
     }
   };
-  console.log(events);
   // Initial fetch on component mount
   useEffect(() => {
     fetchEvents();
@@ -90,16 +80,6 @@ const EventPage = () => {
   const totalPages = Math.ceil(totalEvents / eventsPerPage);
   const startIndex = (currentPage - 1) * eventsPerPage + 1;
   const endIndex = Math.min(currentPage * eventsPerPage, totalEvents);
-
-  // Debug pagination values
-  console.log('Pagination Debug:', {
-    totalEvents,
-    eventsPerPage,
-    totalPages,
-    currentPage,
-    startIndex,
-    endIndex
-  });
 
   // Scroll to top when component mounts
   useEffect(() => {
