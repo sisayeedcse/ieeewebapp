@@ -36,7 +36,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/portal" element={<IeeePortal />} />
         <Route path="/excom" element={<ExCom />} />
-        <Route path="/excom/:year" element={<ExCom />} />
+        <Route path="/excom2025" element={<ExCom />} />
+        <Route path="/committee/*" element={<ExCom />} />
         <Route path="/wie" element={<WIE />} />
         <Route path="/wie/:year" element={<WIE />} />
         <Route path="/cs" element={<CS />} />
