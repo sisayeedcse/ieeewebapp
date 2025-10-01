@@ -68,12 +68,22 @@ const EventPage = () => {
 
   // Handle page change
   const handlePageChange = (page) => {
+    // Store current scroll position relative to the events section
+    const eventsSection = document.querySelector('.eventpage-event-page-filter-section');
+    const currentScrollTop = window.pageYOffset;
+    const eventsSectionTop = eventsSection?.offsetTop || 0;
+    
     fetchEvents(activeFilter, page);
-    // Scroll to events section
-    document.querySelector('.eventpage-event-page-filter-section')?.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
-    });
+    
+    // After a small delay (to let the loading state render), maintain scroll position
+    setTimeout(() => {
+      const newEventsSectionTop = eventsSection?.offsetTop || 0;
+      const scrollAdjustment = newEventsSectionTop - eventsSectionTop;
+      window.scrollTo({
+        top: currentScrollTop + scrollAdjustment,
+        behavior: 'instant'
+      });
+    }, 50);
   };
 
   // Calculate pagination info
@@ -289,10 +299,22 @@ const EventPage = () => {
             </div>
             <div className="eventpage-event-page-events-grid">
               {loading ? (
-                <div style={{ textAlign: 'center', padding: '2rem', gridColumn: '1 / -1' }}>
-                  <i className="fas fa-spinner fa-spin" style={{ fontSize: '2rem' }}></i>
-                  <p>Loading events...</p>
-                </div>
+                // Create placeholder cards to maintain grid height during loading
+                Array.from({ length: eventsPerPage }, (_, index) => (
+                  <div key={`loading-${index}`} className="eventpage-event-page-event-card eventpage-loading-card">
+                    <div className="eventpage-event-page-event-image eventpage-loading-skeleton">
+                      <div className="eventpage-loading-placeholder"></div>
+                    </div>
+                    <div className="eventpage-event-content">
+                      <div className="eventpage-loading-skeleton eventpage-loading-title"></div>
+                      <div className="eventpage-loading-skeleton eventpage-loading-description"></div>
+                      <div className="eventpage-loading-skeleton eventpage-loading-description"></div>
+                      <div className="eventpage-event-footer">
+                        <div className="eventpage-loading-skeleton eventpage-loading-footer"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))
               ) : events.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '2rem', gridColumn: '1 / -1' }}>
                   <i className="fas fa-calendar-times" style={{ fontSize: '2rem', marginBottom: '1rem' }}></i>
