@@ -9,32 +9,61 @@ const EventPage = () => {
   const [events, setEvents] = useState([]);
   const [activeFilter, setActiveFilter] = useState("all");
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalEvents, setTotalEvents] = useState(0);
+  const [eventsPerPage] = useState(6); // 6 events per page
 
   // Get base URL from environment variable or fallback
   const BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
-  // Fetch events with optional category filter
-  const fetchEvents = async (category = null) => {
+  // Fetch events with optional category filter and pagination
+  const fetchEvents = async (category = null, page = 1) => {
     try {
       setLoading(true);
       let url = `${BASE_URL}/api/event`;
       
-      // Add category query parameter if not 'all'
+      // Build query parameters using page/pageSize pattern (which your backend prefers)
+      const params = new URLSearchParams();
+      
+      // Add pagination parameters - trying both patterns to see which works
+      params.append('page', page.toString());
+      params.append('pageSize', eventsPerPage.toString());
+      // Also try limit/offset in case the backend prefers that
+      params.append('limit', eventsPerPage.toString());
+      params.append('offset', ((page - 1) * eventsPerPage).toString());
+      
+      // Add category query parameter if not 'all' and not null
       if (category && category !== 'all') {
-        url += `?tag=${category}`;
+        params.append('tags', category);
       }
+      
+      url += `?${params.toString()}`;
+      
+      console.log('Fetching URL with all params:', url); // Debug the actual URL being called
       
       const response = await fetch(url);
       const data = await response.json();
+      
+      console.log('API Response:', data); // Debug the API response structure
+      console.log('Meta object:', data.meta); // Debug the meta object specifically
+      
+      // Update state with the correct API structure
       setEvents(data.data || []);
+      setTotalEvents(data.meta?.total || 0); // Get total from meta object
+      setCurrentPage(data.meta?.currentPage || page);
+      
+      // Debug what we're setting
+      console.log('Setting totalEvents to:', data.meta?.total || 0);
+      console.log('Setting currentPage to:', data.meta?.currentPage || page);
     } catch (error) {
       console.error('Error fetching events:', error);
       setEvents([]);
+      setTotalEvents(0);
     } finally {
       setLoading(false);
     }
   };
-
+  console.log(events);
   // Initial fetch on component mount
   useEffect(() => {
     fetchEvents();
@@ -43,8 +72,34 @@ const EventPage = () => {
   // Handle category filter change
   const handleFilterChange = (categoryId) => {
     setActiveFilter(categoryId);
-    fetchEvents(categoryId);
+    setCurrentPage(1); // Reset to first page when changing category
+    fetchEvents(categoryId, 1);
   };
+
+  // Handle page change
+  const handlePageChange = (page) => {
+    fetchEvents(activeFilter, page);
+    // Scroll to events section
+    document.querySelector('.eventpage-event-page-filter-section')?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
+  // Calculate pagination info
+  const totalPages = Math.ceil(totalEvents / eventsPerPage);
+  const startIndex = (currentPage - 1) * eventsPerPage + 1;
+  const endIndex = Math.min(currentPage * eventsPerPage, totalEvents);
+
+  // Debug pagination values
+  console.log('Pagination Debug:', {
+    totalEvents,
+    eventsPerPage,
+    totalPages,
+    currentPage,
+    startIndex,
+    endIndex
+  });
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -74,9 +129,6 @@ const EventPage = () => {
     const eventDate = new Date(event.date);
     return eventDate >= currentDate;
   }).slice(0, 3); // Take first 3 future events
-
-  // All events (already filtered by API based on activeFilter)
-  const filteredEvents = events || [];
 
   const categories = [
     { id: "all", name: "All Events", icon: "fas fa-calendar-alt" },
@@ -261,13 +313,13 @@ const EventPage = () => {
                   <i className="fas fa-spinner fa-spin" style={{ fontSize: '2rem' }}></i>
                   <p>Loading events...</p>
                 </div>
-              ) : filteredEvents.length === 0 ? (
+              ) : events.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '2rem', gridColumn: '1 / -1' }}>
                   <i className="fas fa-calendar-times" style={{ fontSize: '2rem', marginBottom: '1rem' }}></i>
                   <p>No events found for this category.</p>
                 </div>
               ) : (
-                filteredEvents.map((event) => (
+                events.map((event) => (
                   <div key={event.id} className="eventpage-event-page-event-card">
                     <div className="eventpage-event-page-event-image">
                       <img src={event.image_url} alt={event.title} />
@@ -308,6 +360,88 @@ const EventPage = () => {
                 ))
               )}
             </div>
+
+            {/* Pagination */}
+            {!loading && (
+              <div className="eventpage-pagination">
+                <div className="eventpage-pagination-info">
+                  <span>
+                    Showing {totalEvents > 0 ? startIndex : 0}-{totalEvents > 0 ? endIndex : 0} of {totalEvents} events
+                  </span>
+                </div>
+                {totalPages > 1 && (
+                  <div className="eventpage-pagination-controls">
+                    {/* Previous Button */}
+                    <button
+                      className={`eventpage-pagination-btn ${currentPage === 1 ? 'disabled' : ''}`}
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      <i className="fas fa-chevron-left"></i>
+                      Previous
+                    </button>
+
+                    {/* Page Numbers */}
+                    <div className="eventpage-pagination-numbers">
+                      {/* First page */}
+                      {currentPage > 3 && (
+                        <>
+                          <button
+                            className="eventpage-pagination-number"
+                            onClick={() => handlePageChange(1)}
+                          >
+                            1
+                          </button>
+                          {currentPage > 4 && <span className="eventpage-pagination-dots">...</span>}
+                        </>
+                      )}
+
+                      {/* Pages around current page */}
+                      {Array.from({ length: totalPages }, (_, i) => i + 1)
+                        .filter(page => 
+                          page >= Math.max(1, currentPage - 2) && 
+                          page <= Math.min(totalPages, currentPage + 2)
+                        )
+                        .map(page => (
+                          <button
+                            key={page}
+                            className={`eventpage-pagination-number ${
+                              currentPage === page ? 'active' : ''
+                            }`}
+                            onClick={() => handlePageChange(page)}
+                          >
+                            {page}
+                          </button>
+                        ))
+                      }
+
+                      {/* Last page */}
+                      {currentPage < totalPages - 2 && (
+                        <>
+                          {currentPage < totalPages - 3 && <span className="eventpage-pagination-dots">...</span>}
+                          <button
+                            className="eventpage-pagination-number"
+                            onClick={() => handlePageChange(totalPages)}
+                          >
+                            {totalPages}
+                          </button>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Next Button */}
+                    <button
+                      className={`eventpage-pagination-btn ${currentPage === totalPages ? 'disabled' : ''}`}
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                    >
+                      Next
+                      <i className="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </section>
 
