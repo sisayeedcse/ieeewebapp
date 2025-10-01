@@ -1,4 +1,3 @@
-// src/Pages/EventPage.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -6,142 +5,86 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import "./EventPage.css";
 
-const event1 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png";
-const event2 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png";
-const event3 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691561/event_img_3_uyjcvj.png";
-const event4 =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691553/event_img_4_lggcqm.png";
-const eventImages = [event1, event2, event3, event4, event1, event2];
-
 const EventPage = () => {
   const [events, setEvents] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    // Simulate fetching data from an API
-    const fetchEvents = async () => {
-      const response = await fetch(`http://localhost:5000/api/event`);
+  // Get base URL from environment variable or fallback
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
+  // Fetch events with optional category filter
+  const fetchEvents = async (category = null) => {
+    try {
+      setLoading(true);
+      let url = `${BASE_URL}/api/event`;
+      
+      // Add category query parameter if not 'all'
+      if (category && category !== 'all') {
+        url += `?tag=${category}`;
+      }
+      
+      const response = await fetch(url);
       const data = await response.json();
-      setEvents(data.data);
-    };
+      setEvents(data.data || []);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      setEvents([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  // Initial fetch on component mount
+  useEffect(() => {
     fetchEvents();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log(events);
+  // Handle category filter change
+  const handleFilterChange = (categoryId) => {
+    setActiveFilter(categoryId);
+    fetchEvents(categoryId);
+  };
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [activeFilter, setActiveFilter] = useState("all");
+  // Helper function to format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
 
-  const featuredEvents = [
-    {
-      id: 1,
-      title: "IEEE Technical Workshop 2024",
-      date: "March 15, 2024",
-      time: "10:00 AM - 4:00 PM",
-      location: "Premier University Auditorium",
-      category: "workshop",
-      status: "upcoming",
-      description:
-        "Join us for an intensive technical workshop covering the latest advancements in AI and Machine Learning.",
-      image: eventImages[0],
-      attendees: 150,
-      isFeatured: true,
-    },
-    {
-      id: 2,
-      title: "Innovation Summit 2024",
-      date: "April 20, 2024",
-      time: "9:00 AM - 6:00 PM",
-      location: "Main Campus",
-      category: "summit",
-      status: "upcoming",
-      description:
-        "A flagship event bringing together industry leaders, researchers, and students to discuss emerging technologies.",
-      image: eventImages[1],
-      attendees: 300,
-      isFeatured: true,
-    },
-    {
-      id: 3,
-      title: "Robotics Competition",
-      date: "May 10, 2024",
-      time: "8:00 AM - 5:00 PM",
-      location: "Engineering Lab",
-      category: "competition",
-      status: "upcoming",
-      description:
-        "Annual robotics competition challenging students to design and build autonomous robots.",
-      image: eventImages[2],
-      attendees: 80,
-      isFeatured: true,
-    },
-  ];
+  // Helper function to trim description
+  const trimDescription = (description, maxLength = 100) => {
+    if (!description) return '';
+    if (description.length <= maxLength) return description;
+    return description.substring(0, maxLength) + '...';
+  };
 
-  const recentEvents = [
-    {
-      id: 4,
-      title: "IEEE Day Celebration",
-      date: "October 6, 2023",
-      time: "2:00 PM - 6:00 PM",
-      location: "Student Center",
-      category: "celebration",
-      status: "completed",
-      description:
-        "Annual IEEE Day celebration with networking sessions and technical presentations.",
-      image: eventImages[3],
-      attendees: 200,
-      isFeatured: false,
-    },
-    {
-      id: 5,
-      title: "Code Sprint Challenge",
-      date: "November 18, 2023",
-      time: "10:00 AM - 8:00 PM",
-      location: "Computer Lab",
-      category: "competition",
-      status: "completed",
-      description:
-        "24-hour coding competition testing programming skills and problem-solving abilities.",
-      image: eventImages[4],
-      attendees: 120,
-      isFeatured: false,
-    },
-    {
-      id: 6,
-      title: "Industry Connect Session",
-      date: "December 5, 2023",
-      time: "3:00 PM - 5:00 PM",
-      location: "Conference Hall",
-      category: "networking",
-      status: "completed",
-      description:
-        "Networking session connecting students with industry professionals and alumni.",
-      image: eventImages[5],
-      attendees: 180,
-      isFeatured: false,
-    },
-  ];
+  // Filter events by date - future events for featured section
+  const currentDate = new Date();
+  const featuredEvents = events.filter(event => {
+    const eventDate = new Date(event.date);
+    return eventDate >= currentDate;
+  }).slice(0, 3); // Take first 3 future events
 
-  const allEvents = [...featuredEvents, ...recentEvents];
-
-  const filteredEvents =
-    activeFilter === "all"
-      ? allEvents
-      : allEvents.filter((event) => event.category === activeFilter);
+  // All events (already filtered by API based on activeFilter)
+  const filteredEvents = events || [];
 
   const categories = [
     { id: "all", name: "All Events", icon: "fas fa-calendar-alt" },
-    { id: "workshop", name: "Workshops", icon: "fas fa-tools" },
-    { id: "summit", name: "Summits", icon: "fas fa-mountain" },
-    { id: "competition", name: "Competitions", icon: "fas fa-trophy" },
+    { id: "workshops", name: "Workshops", icon: "fas fa-tools" },
+    { id: "summits", name: "Summits", icon: "fas fa-mountain" },
+    { id: "competitions", name: "Competitions", icon: "fas fa-trophy" },
     { id: "networking", name: "Networking", icon: "fas fa-users" },
-    { id: "celebration", name: "Celebrations", icon: "fas fa-star" },
+    { id: "celebrations", name: "Celebrations", icon: "fas fa-star" },
   ];
 
   const eventStats = [
@@ -237,12 +180,10 @@ const EventPage = () => {
                   }`}
                 >
                   <div className="eventpage-event-page-event-image">
-                    <img src={event.image} alt={event.title} />
+                    <img src={event.image_url} alt={event.title} />
                     <div className="eventpage-event-page-event-status">
-                      <span
-                        className={`eventpage-event-page-status-badge ${event.status}`}
-                      >
-                        {event.status === "upcoming" ? "Upcoming" : "Completed"}
+                      <span className="eventpage-event-page-status-badge upcoming">
+                        Upcoming
                       </span>
                     </div>
                   </div>
@@ -250,11 +191,11 @@ const EventPage = () => {
                     <div className="eventpage-event-page-event-meta">
                       <span className="eventpage-event-page-event-date">
                         <i className="fas fa-calendar"></i>
-                        {event.date}
+                        {formatDate(event.date)}
                       </span>
                       <span className="eventpage-event-page-event-time">
                         <i className="fas fa-clock"></i>
-                        {event.time}
+                        {event.startTime} - {event.endTime}
                       </span>
                     </div>
                     <h3 className="eventpage-event-page-event-title">
@@ -266,11 +207,11 @@ const EventPage = () => {
                     <div className="eventpage-event-page-event-details">
                       <span className="eventpage-event-page-event-location">
                         <i className="fas fa-map-marker-alt"></i>
-                        {event.location}
+                        {event.venue}
                       </span>
                       <span className="eventpage-event-page-event-attendees">
                         <i className="fas fa-users"></i>
-                        {event.attendees} attendees
+                        {event.attendeesCount} attendees
                       </span>
                     </div>
                     <Link
@@ -306,7 +247,8 @@ const EventPage = () => {
                       ? "eventpage-event-page-active"
                       : ""
                   }`}
-                  onClick={() => setActiveFilter(category.id)}
+                  onClick={() => handleFilterChange(category.id)}
+                  disabled={loading}
                 >
                   <i className={category.icon}></i>
                   {category.name}
@@ -314,55 +256,57 @@ const EventPage = () => {
               ))}
             </div>
             <div className="eventpage-event-page-events-grid">
-              {filteredEvents.map((event) => (
-                <div key={event.id} className="eventpage-event-page-event-card">
-                  <div className="eventpage-event-page-event-image">
-                    <img src={event.image} alt={event.title} />
-                    <div className="eventpage-event-page-event-overlay">
-                      <Link
-                        to={`/event/${event.id}`}
-                        className="eventpage-event-page-overlay-btn"
-                      >
-                        <i className="fas fa-eye"></i>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="eventpage-event-content">
-                    <div className="eventpage-event-meta">
-                      <span className="eventpage-event-category">
-                        {event.category}
-                      </span>
-                      <span
-                        className={`eventpage-event-status ${event.status}`}
-                      >
-                        {event.status}
-                      </span>
-                    </div>
-                    <h3 className="eventpage-event-title">{event.title}</h3>
-                    <p className="eventpage-event-description">
-                      {event.description}
-                    </p>
-                    <div className="eventpage-event-footer">
-                      <div className="eventpage-event-info">
-                        <span className="eventpage-event-date">
-                          <i className="fas fa-calendar"></i>
-                          {event.date}
-                        </span>
-                        <span className="eventpage-event-location">
-                          <i className="fas fa-map-marker-alt"></i>
-                          {event.location}
-                        </span>
-                      </div>
-                      <Link
-                        to={`/event/${event.id}`}
-                        className="eventpage-event-btn-small"
-                      >
-                        <i className="fas fa-arrow-right"></i>
-                      </Link>
-                    </div>
-                  </div>
+              {loading ? (
+                <div style={{ textAlign: 'center', padding: '2rem', gridColumn: '1 / -1' }}>
+                  <i className="fas fa-spinner fa-spin" style={{ fontSize: '2rem' }}></i>
+                  <p>Loading events...</p>
                 </div>
-              ))}
+              ) : filteredEvents.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '2rem', gridColumn: '1 / -1' }}>
+                  <i className="fas fa-calendar-times" style={{ fontSize: '2rem', marginBottom: '1rem' }}></i>
+                  <p>No events found for this category.</p>
+                </div>
+              ) : (
+                filteredEvents.map((event) => (
+                  <div key={event.id} className="eventpage-event-page-event-card">
+                    <div className="eventpage-event-page-event-image">
+                      <img src={event.image_url} alt={event.title} />
+                      <div className="eventpage-event-page-event-overlay">
+                        <Link
+                          to={`/event/${event.id}`}
+                          className="eventpage-event-page-overlay-btn"
+                        >
+                          <i className="fas fa-eye"></i>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="eventpage-event-content">
+                      <h3 className="eventpage-event-title">{event.title}</h3>
+                      <p className="eventpage-event-description">
+                        {trimDescription(event.description)}
+                      </p>
+                      <div className="eventpage-event-footer">
+                        <div className="eventpage-event-info">
+                          <span className="eventpage-event-date">
+                            <i className="fas fa-calendar"></i>
+                            {formatDate(event.date)}
+                          </span>
+                          <span className="eventpage-event-location">
+                            <i className="fas fa-map-marker-alt"></i>
+                            {event.venue}
+                          </span>
+                        </div>
+                        <Link
+                          to={`/event/${event.id}`}
+                          className="eventpage-event-btn-small"
+                        >
+                          <i className="fas fa-arrow-right"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </section>
