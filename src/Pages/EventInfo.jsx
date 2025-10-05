@@ -1,86 +1,239 @@
 // src/Pages/EventInfo.jsx
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import "./EventInfo.css";
 
-// Demo event data - this will be replaced with dynamic data later
-const demoEvents = {
-  1: {
-    id: 1,
-    title: "IEEE Technical Workshop 2024: AI & Machine Learning Revolution",
-    subtitle:
-      "Exploring the Future of Artificial Intelligence and Its Applications",
-    image:
-      "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png",
-    date: "March 15, 2024",
-    time: "10:00 AM - 4:00 PM",
-    location: "Premier University Auditorium",
-    category: "Technical Workshop",
-    status: "Upcoming",
-    attendees: 150,
-    organizer: "IEEE PU Student Branch",
-    description: `Join us for an intensive technical workshop covering the latest advancements in Artificial Intelligence and Machine Learning. This comprehensive event is designed to provide participants with hands-on experience and deep insights into the revolutionary technologies that are shaping our future.
-
-Our workshop will feature industry experts, cutting-edge research presentations, and interactive sessions that will enhance your understanding of AI and ML applications across various domains. Whether you're a student, researcher, or professional, this event promises to deliver valuable knowledge and networking opportunities.`,
-    highlights: [
-      "Interactive hands-on sessions with AI/ML tools",
-      "Industry expert speakers and panelists",
-      "Networking opportunities with professionals",
-      "Certificate of participation",
-      "Workshop materials and resources",
-    ],
-    speakers: [
-      {
-        name: "Mohammed Saifuddin Munna",
-        title: "Counselor IEEE PU SB, Premier University",
-        image:
-          "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752752383/Advisor_3_k6xuck.png",
-      },
-      {
-        name: "Dr. Shahid Mohammad Asif Iqbal",
-        title: "Computer Networking Expert, Premier University",
-        image:
-          "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752752390/Advisor_1_pvxhbi.png",
-      },
-    ],
-    agenda: [
-      { time: "10:00 - 10:30", session: "Registration & Welcome" },
-      {
-        time: "10:30 - 12:00",
-        session: "Introduction to AI & ML Fundamentals",
-      },
-      { time: "12:00 - 13:00", session: "Lunch Break" },
-      {
-        time: "13:00 - 14:30",
-        session: "Hands-on Workshop: Building Your First ML Model",
-      },
-      { time: "14:30 - 15:00", session: "Coffee Break" },
-      {
-        time: "15:00 - 16:00",
-        session: "Industry Applications & Future Trends",
-      },
-    ],
-    tags: ["AI", "Machine Learning", "Technology", "Workshop", "Innovation"],
-    registrationLink: "#register",
-    requirements: "Basic programming knowledge preferred but not required",
-    fee: "Free for IEEE Members, 100taka for Non-members",
-  },
-};
-
 const EventInfo = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
+  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [relatedEvents, setRelatedEvents] = useState([]);
+
+  // Get base URL from environment variable or fallback
+  const BASE_URL =
+    process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+
+  // Fetch single event data from API
+  useEffect(() => {
+    const fetchEvent = async () => {
+      if (!eventId) {
+        setError("No event ID provided");
+        setLoading(false);
+        return;
+      }
+
+      try {
+        setLoading(true);
+        setError(null);
+
+        // Try multiple API endpoints for single event
+        const endpoints = [
+          `${BASE_URL}/api/event/${eventId}`,
+          `${BASE_URL}/api/events/${eventId}`,
+        ];
+
+        let eventData = null;
+        let lastError = null;
+
+        for (const url of endpoints) {
+          try {
+            console.log(`🔍 Fetching event from: ${url}`);
+            const response = await fetch(url);
+
+            if (response.ok) {
+              const responseData = await response.json();
+              console.log("✅ Event API Response:", responseData);
+
+              // Handle different API response structures
+              if (responseData.data) {
+                eventData = responseData.data;
+              } else if (responseData.event) {
+                eventData = responseData.event;
+              } else {
+                eventData = responseData;
+              }
+
+              if (eventData && eventData.id) {
+                console.log(
+                  `✅ Successfully fetched event: ${eventData.title}`
+                );
+                break; // Success, exit the loop
+              }
+            } else {
+              lastError = `HTTP ${response.status}: ${response.statusText}`;
+            }
+          } catch (endpointError) {
+            lastError = endpointError.message;
+            console.warn(`⚠️ Endpoint ${url} failed:`, endpointError.message);
+          }
+        }
+
+        if (eventData && eventData.id) {
+          setEvent(eventData);
+        } else {
+          throw new Error(lastError || "Event not found");
+        }
+      } catch (error) {
+        console.error("❌ Error fetching event:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvent();
+  }, [eventId, BASE_URL]);
+
+  // Fetch related events
+  useEffect(() => {
+    const fetchRelatedEvents = async () => {
+      try {
+        const endpoints = [
+          `${BASE_URL}/api/event?limit=3`,
+          `${BASE_URL}/api/events?limit=3`,
+        ];
+
+        for (const url of endpoints) {
+          try {
+            const response = await fetch(url);
+            if (response.ok) {
+              const responseData = await response.json();
+              let eventsData = [];
+
+              if (responseData.data && Array.isArray(responseData.data)) {
+                eventsData = responseData.data;
+              } else if (Array.isArray(responseData)) {
+                eventsData = responseData;
+              }
+
+              // Filter out current event and take first 2
+              const filtered = eventsData
+                .filter((e) => e.id !== parseInt(eventId))
+                .slice(0, 2);
+              setRelatedEvents(filtered);
+              break;
+            }
+          } catch (error) {
+            console.warn("Could not fetch related events:", error);
+          }
+        }
+      } catch (error) {
+        console.warn("Error fetching related events:", error);
+      }
+    };
+
+    if (eventId) {
+      fetchRelatedEvents();
+    }
+  }, [eventId, BASE_URL]);
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // For demo purposes, use event 1 if no eventId or if eventId doesn't exist
-  const event = demoEvents[eventId] || demoEvents[1];
+  // Helper function to format date
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  // Helper function to format time
+  const formatTime = (timeString) => {
+    if (!timeString) return "";
+    return timeString;
+  };
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="event-info-page">
+        <Navbar />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "60vh",
+            flexDirection: "column",
+          }}
+        >
+          <div
+            style={{
+              width: "60px",
+              height: "60px",
+              border: "4px solid #f1f5f9",
+              borderTop: "4px solid #3b82f6",
+              borderRadius: "50%",
+              animation: "spin 1s linear infinite",
+              marginBottom: "20px",
+            }}
+          ></div>
+          <p style={{ color: "#64748b", fontSize: "1.1rem" }}>
+            Loading event details...
+          </p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  // Error state
+  if (error || !event) {
+    return (
+      <div className="event-info-page">
+        <Navbar />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "60vh",
+            flexDirection: "column",
+            textAlign: "center",
+            padding: "20px",
+          }}
+        >
+          <i
+            className="fas fa-exclamation-triangle"
+            style={{ fontSize: "4rem", color: "#f59e0b", marginBottom: "20px" }}
+          ></i>
+          <h2 style={{ color: "#374151", marginBottom: "10px" }}>
+            Event Not Found
+          </h2>
+          <p style={{ color: "#64748b", marginBottom: "30px" }}>
+            {error || "The requested event could not be found."}
+          </p>
+          <button
+            onClick={() => navigate("/events")}
+            style={{
+              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              color: "white",
+              border: "none",
+              padding: "12px 24px",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontSize: "1rem",
+            }}
+          >
+            <i className="fas fa-arrow-left" style={{ marginRight: "8px" }}></i>
+            Back to Events
+          </button>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   const handleRegister = () => {
     // This will be connected to actual registration system later
@@ -116,7 +269,14 @@ const EventInfo = () => {
       {/* Hero Section */}
       <section className="event-info-hero">
         <div className="event-info-hero-bg">
-          <img src={event.image} alt={event.title} />
+          <img
+            src={
+              event.image_url ||
+              event.image ||
+              "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png"
+            }
+            alt={event.title}
+          />
           <div className="event-info-hero-overlay"></div>
         </div>
         <div className="event-info-hero-content">
@@ -138,26 +298,37 @@ const EventInfo = () => {
             <div className="event-info-hero-text">
               <div className="event-info-category-badge">
                 <i className="fas fa-calendar"></i>
-                {event.category}
+                {event.category || "Event"}
               </div>
               <h1 className="event-info-title">{event.title}</h1>
-              <p className="event-info-subtitle">{event.subtitle}</p>
+              <p className="event-info-subtitle">
+                {event.subtitle ||
+                  event.description?.substring(0, 150) + "..." ||
+                  "Join us for this exciting event!"}
+              </p>
               <div className="event-info-meta">
                 <div className="meta-item">
                   <i className="fas fa-calendar-alt"></i>
-                  <span>{event.date}</span>
+                  <span>
+                    {formatDate(event.date) || event.date || "Date TBA"}
+                  </span>
                 </div>
                 <div className="meta-item">
                   <i className="fas fa-clock"></i>
-                  <span>{event.time}</span>
+                  <span>
+                    {formatTime(event.time) || event.time || "Time TBA"}
+                  </span>
                 </div>
                 <div className="meta-item">
                   <i className="fas fa-map-marker-alt"></i>
-                  <span>{event.location}</span>
+                  <span>{event.location || event.venue || "Venue TBA"}</span>
                 </div>
                 <div className="meta-item">
                   <i className="fas fa-users"></i>
-                  <span>{event.attendees} attendees</span>
+                  <span>
+                    {event.attendees || event.max_attendees || "Open"}{" "}
+                    {event.attendees ? "attendees" : ""}
+                  </span>
                 </div>
               </div>
             </div>
@@ -179,10 +350,15 @@ const EventInfo = () => {
                     </div>
                     <div className="author-details">
                       <span className="author-name">
-                        Organized by {event.organizer}
+                        Organized by{" "}
+                        {event.organizer ||
+                          event.organized_by ||
+                          "IEEE PU Student Branch"}
                       </span>
                       <span className="publish-date">
-                        Published on {new Date().toLocaleDateString()}
+                        Published on{" "}
+                        {formatDate(event.created_at) ||
+                          new Date().toLocaleDateString()}
                       </span>
                     </div>
                   </div>
@@ -220,55 +396,95 @@ const EventInfo = () => {
                 <div className="content-section">
                   <h2>About This Event</h2>
                   <div className="content-text">
-                    {event.description.split("\n\n").map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
-                    ))}
+                    {event.description ? (
+                      event.description
+                        .split("\n\n")
+                        .map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))
+                    ) : (
+                      <p>Event description will be updated soon.</p>
+                    )}
                   </div>
                 </div>
 
-                <div className="content-section">
-                  <h2>Event Highlights</h2>
-                  <ul className="highlights-list">
-                    {event.highlights.map((highlight, index) => (
-                      <li key={index}>
-                        <i className="fas fa-check-circle"></i>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {event.highlights &&
+                  Array.isArray(event.highlights) &&
+                  event.highlights.length > 0 && (
+                    <div className="content-section">
+                      <h2>Event Highlights</h2>
+                      <ul className="highlights-list">
+                        {event.highlights.map((highlight, index) => (
+                          <li key={index}>
+                            <i className="fas fa-check-circle"></i>
+                            {typeof highlight === "string"
+                              ? highlight
+                              : highlight.text ||
+                                highlight.title ||
+                                "Highlight"}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-                <div className="content-section">
-                  <h2>Featured Speakers</h2>
-                  <div className="speakers-grid">
-                    {event.speakers.map((speaker, index) => (
-                      <div key={index} className="speaker-card">
-                        <div className="speaker-image">
-                          <img src={speaker.image} alt={speaker.name} />
-                        </div>
-                        <div className="speaker-info">
-                          <h4>{speaker.name}</h4>
-                          <p>{speaker.title}</p>
-                        </div>
+                {event.speakers &&
+                  Array.isArray(event.speakers) &&
+                  event.speakers.length > 0 && (
+                    <div className="content-section">
+                      <h2>Featured Speakers</h2>
+                      <div className="speakers-grid">
+                        {event.speakers.map((speaker, index) => (
+                          <div key={index} className="speaker-card">
+                            <div className="speaker-image">
+                              <img
+                                src={
+                                  speaker.image ||
+                                  speaker.image_url ||
+                                  "https://via.placeholder.com/150x150?text=Speaker"
+                                }
+                                alt={speaker.name || "Speaker"}
+                              />
+                            </div>
+                            <div className="speaker-info">
+                              <h4>{speaker.name || "Speaker Name"}</h4>
+                              <p>
+                                {speaker.title ||
+                                  speaker.designation ||
+                                  "Speaker"}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
+                    </div>
+                  )}
 
-                <div className="content-section">
-                  <h2>Event Agenda</h2>
-                  <div className="agenda-timeline">
-                    {event.agenda.map((item, index) => (
-                      <div key={index} className="agenda-item">
-                        <div className="agenda-time">{item.time}</div>
-                        <div className="agenda-content">
-                          <div className="agenda-dot"></div>
-                          <h4>{item.session}</h4>
-                        </div>
+                {event.agenda &&
+                  Array.isArray(event.agenda) &&
+                  event.agenda.length > 0 && (
+                    <div className="content-section">
+                      <h2>Event Agenda</h2>
+                      <div className="agenda-timeline">
+                        {event.agenda.map((item, index) => (
+                          <div key={index} className="agenda-item">
+                            <div className="agenda-time">
+                              {item.time || "TBA"}
+                            </div>
+                            <div className="agenda-content">
+                              <div className="agenda-dot"></div>
+                              <h4>
+                                {item.session ||
+                                  item.title ||
+                                  item.description ||
+                                  "Session"}
+                              </h4>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
+                    </div>
+                  )}
 
                 <div className="content-section">
                   <h2>Requirements & Information</h2>
@@ -276,26 +492,36 @@ const EventInfo = () => {
                     <div className="info-card">
                       <i className="fas fa-graduation-cap"></i>
                       <h4>Prerequisites</h4>
-                      <p>{event.requirements}</p>
+                      <p>
+                        {event.requirements ||
+                          event.prerequisites ||
+                          "No specific requirements"}
+                      </p>
                     </div>
                     <div className="info-card">
                       <i className="fa-solid fa-bangladeshi-taka-sign"></i>
                       <h4>Registration Fee</h4>
-                      <p>{event.fee}</p>
+                      <p>{event.fee || event.registration_fee || "Free"}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="content-section">
-                  <h2>Tags</h2>
-                  <div className="tags-container">
-                    {event.tags.map((tag, index) => (
-                      <span key={index} className="tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                {event.tags &&
+                  Array.isArray(event.tags) &&
+                  event.tags.length > 0 && (
+                    <div className="content-section">
+                      <h2>Tags</h2>
+                      <div className="tags-container">
+                        {event.tags.map((tag, index) => (
+                          <span key={index} className="tag">
+                            {typeof tag === "string"
+                              ? tag
+                              : tag.text || tag.name || tag.title || "Tag"}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
               </div>
             </article>
 
@@ -308,36 +534,46 @@ const EventInfo = () => {
                     <i className="fas fa-calendar-alt"></i>
                     <div>
                       <strong>Date</strong>
-                      <span>{event.date}</span>
+                      <span>
+                        {formatDate(event.date) || event.date || "Date TBA"}
+                      </span>
                     </div>
                   </div>
                   <div className="quick-info-item">
                     <i className="fas fa-clock"></i>
                     <div>
                       <strong>Time</strong>
-                      <span>{event.time}</span>
+                      <span>
+                        {formatTime(event.time) || event.time || "Time TBA"}
+                      </span>
                     </div>
                   </div>
                   <div className="quick-info-item">
                     <i className="fas fa-map-marker-alt"></i>
                     <div>
                       <strong>Venue</strong>
-                      <span>{event.location}</span>
+                      <span>
+                        {event.location || event.venue || "Venue TBA"}
+                      </span>
                     </div>
                   </div>
                   <div className="quick-info-item">
                     <i className="fas fa-tag"></i>
                     <div>
                       <strong>Category</strong>
-                      <span>{event.category}</span>
+                      <span>{event.category || "Event"}</span>
                     </div>
                   </div>
                   <div className="quick-info-item">
                     <i className="fas fa-info-circle"></i>
                     <div>
                       <strong>Status</strong>
-                      <span className={`status ${event.status.toLowerCase()}`}>
-                        {event.status}
+                      <span
+                        className={`status ${(
+                          event.status || "upcoming"
+                        ).toLowerCase()}`}
+                      >
+                        {event.status || "Upcoming"}
                       </span>
                     </div>
                   </div>
@@ -350,30 +586,46 @@ const EventInfo = () => {
 
                 <div className="related-events">
                   <h3>Related Events</h3>
-                  <div className="related-event-item">
-                    <div className="related-event-image">
-                      <img
-                        src="https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png"
-                        alt="Related Event"
-                      />
+                  {relatedEvents.length > 0 ? (
+                    relatedEvents.map((relatedEvent, index) => (
+                      <div
+                        key={relatedEvent.id || index}
+                        className="related-event-item"
+                        onClick={() => navigate(`/event/${relatedEvent.id}`)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <div className="related-event-image">
+                          <img
+                            src={
+                              relatedEvent.image_url ||
+                              relatedEvent.image ||
+                              "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png"
+                            }
+                            alt={relatedEvent.title}
+                          />
+                        </div>
+                        <div className="related-event-info">
+                          <h4>{relatedEvent.title}</h4>
+                          <span>
+                            {formatDate(relatedEvent.date) || relatedEvent.date}
+                          </span>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="related-event-item">
+                      <div className="related-event-image">
+                        <img
+                          src="https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png"
+                          alt="Related Event"
+                        />
+                      </div>
+                      <div className="related-event-info">
+                        <h4>More Events Coming Soon</h4>
+                        <span>Stay tuned!</span>
+                      </div>
                     </div>
-                    <div className="related-event-info">
-                      <h4>Innovation Summit 2024</h4>
-                      <span>April 20, 2024</span>
-                    </div>
-                  </div>
-                  <div className="related-event-item">
-                    <div className="related-event-image">
-                      <img
-                        src="https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691561/event_img_3_uyjcvj.png"
-                        alt="Related Event"
-                      />
-                    </div>
-                    <div className="related-event-info">
-                      <h4>Tech Conference 2024</h4>
-                      <span>May 15, 2024</span>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </aside>

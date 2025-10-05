@@ -16,7 +16,59 @@ const wie_6 =
 const wie_7 =
   "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691476/wie_7_uerbbz.png";
 
+const wie1_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759675188/wie_1_2024_i3kvvg.png";
+const wie2_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759675189/wie_2_2024_alxvbl.png";
+const wie3_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759675212/wie_3_2024_gajksj.png";
+const wie4_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691472/wie_2_jme5rm.png";
+const wie5_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759675212/wie_4_2024_crcvwz.png";
+const wie6_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759675356/wie_6_2024_bqsgd7.png";
+const wie7_2024 =
+  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759675188/wie_5_2024_ogvqso.png";
+
 export const wieData = {
+  2024: [
+    {
+      name: "ADIBA IBNAT HOSSAIN",
+      position: "MENTOR, IEEE WIE PU 2024",
+      image: wie1_2024,
+    },
+    {
+      name: "SAJEDA HOQUE",
+      position: "CHAIR, IEEE WIE PU 2024",
+      image: wie2_2024,
+    },
+    {
+      name: "JERIN SINGH RAY",
+      position: "VICE CHAIR, IEEE WIE PU 2024",
+      image: wie3_2024,
+    },
+    {
+      name: "SUMAIYA KHANAM",
+      position: "General SECRETARY, IEEE WIE PU 2024",
+      image: wie4_2024,
+    },
+    {
+      name: "JANNATUL ASH SHEPA",
+      position: "TREASURER, IEEE WIE PU 2024",
+      image: wie5_2024,
+    },
+    {
+      name: "ANAMIKA ROY",
+      position: "ACTIVITY COORDINATOR, IEEE WIE PU 2024",
+      image: wie6_2024,
+    },
+    {
+      name: "RUBAIYA SADRIN",
+      position: "SOCIAL MEDIA & GRAPHICS CO-ORDINATOR, IEEE WIE PU 2024",
+      image: wie7_2024,
+    },
+  ],
   2025: [
     {
       name: "MONISHA DEY",
@@ -41,7 +93,7 @@ export const wieData = {
     },
     {
       name: "SANJIDA SULTANA AKHI",
-      position: "SECRETARY, IEEE WIE PU 2025",
+      position: "GENERAL SECRETARY, IEEE WIE PU 2025",
       image: wie_4,
       facebook: "https://www.facebook.com/asma.al.aksha",
       linkedin: "https://www.linkedin.com/in/sanjida-sultana-akhi/",
@@ -61,64 +113,9 @@ export const wieData = {
       linkedin: "https://www.linkedin.com/in/rehnuma-ahmed/",
     },
     {
-      name: "FATEMA TUZ ZUHRA",
-      position: "CONTENT CREATOR, IEEE WIE PU 2025",
+      name: "FAHMIDA SULTANA RIFAT",
+      position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE WIE PU 2025",
       image: wie_7,
-      facebook: "https://www.facebook.com/fatemash.zuhra",
-      linkedin: "https://www.linkedin.com/in/fatema-tuz-zuhra/",
-    },
-  ],
-  2026: [
-    // Sample 2026 WIE committee data - replace with actual data when available
-    {
-      name: "Sample Mentor 2026",
-      position: "MENTOR, IEEE WIE PU 2026",
-      image: wie_1,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Chair 2026",
-      position: "CHAIR, IEEE WIE PU 2026",
-      image: wie_2,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Vice Chair 2026",
-      position: "VICE CHAIR, IEEE WIE PU 2026",
-      image: wie_3,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Secretary 2024",
-      position: "SECRETARY, IEEE WIE PU 2024",
-      image: wie_4,
-      facebook: "",
-      linkedin: "",
-    },
-  ],
-  2027: [
-    // Sample 2027 WIE committee data - replace with actual data when available
-    {
-      name: "Sample Mentor 2027",
-      position: "MENTOR, IEEE WIE PU 2027",
-      image: wie_1,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Chair 2027",
-      position: "CHAIR, IEEE WIE PU 2027",
-      image: wie_2,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Vice Chair 2027",
-      position: "VICE CHAIR, IEEE WIE PU 2027",
-      image: wie_3,
       facebook: "",
       linkedin: "",
     },

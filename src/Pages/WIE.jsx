@@ -8,16 +8,21 @@ import { wieData } from "../data/wieData";
 import "./WIE.css";
 
 const wieLogo =
-  "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691511/wie_logo_ootcui.png";
+  "https://res.cloudinary.com/dknflcbt1/image/upload/v1759670627/WIE_LOGO_TRANS_bdfbia.png";
 
 const WIE = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStat, setCurrentStat] = useState(0);
 
-  // Get year from URL params, default to 2025 if not provided
+  // Get available years from wieData dynamically
+  const availableYears = Object.keys(wieData)
+    .map((year) => parseInt(year))
+    .sort((a, b) => b - a); // Sort in descending order (newest first)
+
+  // Get year from URL params, default to latest available year if not provided
   const { year } = useParams();
   const navigate = useNavigate();
-  const selectedYear = year ? parseInt(year) : 2025;
+  const selectedYear = year ? parseInt(year) : availableYears[0] || 2025;
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -25,14 +30,12 @@ const WIE = () => {
   }, []);
 
   // Handle year change from dropdown
-  // This function updates the URL to reflect the selected year
   const handleYearChange = (event) => {
     const newYear = event.target.value;
     navigate(`/wie/${newYear}`);
   };
 
-  // Get team members for the selected year
-  // This function returns the appropriate data based on the year selected
+  // Get team members for the selected year from imported data
   const getCurrentTeamMembers = () => {
     return wieData[selectedYear] || [];
   };
@@ -178,7 +181,6 @@ const WIE = () => {
             </p>
 
             {/* Year Selector Dropdown */}
-            {/* This dropdown allows users to switch between different years */}
             <div className="wie-year-selector-container">
               <select
                 className="wie-year-selector"
@@ -186,9 +188,11 @@ const WIE = () => {
                 onChange={handleYearChange}
                 aria-label="Select WIE Committee Year"
               >
-                <option value={2025}>Executive Members 2025</option>
-                <option value={2026}>Executive Members 2026</option>
-                <option value={2027}>Executive Members 2027</option>
+                {availableYears.map((year) => (
+                  <option key={year} value={year}>
+                    Executive Members {year}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -206,24 +210,28 @@ const WIE = () => {
                     />
                     <div className="wie-team-overlay">
                       <div className="wie-team-social">
-                        <div className="wie-social-icon">
-                          <a
-                            href={member.facebook}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <i className="fab fa-facebook-f"></i>
-                          </a>
-                        </div>
-                        <div className="wie-social-icon">
-                          <a
-                            href={member.linkedin}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <i className="fab fa-linkedin-in"></i>
-                          </a>
-                        </div>
+                        {member.facebook && (
+                          <div className="wie-social-icon">
+                            <a
+                              href={member.facebook}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <i className="fab fa-facebook-f"></i>
+                            </a>
+                          </div>
+                        )}
+                        {member.linkedin && (
+                          <div className="wie-social-icon">
+                            <a
+                              href={member.linkedin}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <i className="fab fa-linkedin-in"></i>
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

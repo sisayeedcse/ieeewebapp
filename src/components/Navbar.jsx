@@ -92,6 +92,11 @@ const Navbar = ({ variant }) => {
                   </Link>
                 </li>
                 <li>
+                  <Link className="dropdown-item" to="/cs">
+                    IEEE PU - CS SB
+                  </Link>
+                </li>
+                <li>
                   <Link className="dropdown-item" to="/ras">
                     IEEE PU - RAS SB
                   </Link>
@@ -99,11 +104,6 @@ const Navbar = ({ variant }) => {
                 <li>
                   <Link className="dropdown-item" to="/pes">
                     IEEE PU - PES SB
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/cs">
-                    IEEE PU - CS SB
                   </Link>
                 </li>
               </ul>

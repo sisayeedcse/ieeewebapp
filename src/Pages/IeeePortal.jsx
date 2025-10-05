@@ -1,6 +1,5 @@
 // src/Pages/IeeePortal.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -125,27 +124,6 @@ const IeeePortal = () => {
                 <div className="portalpage-pill-icon">🚀</div>
                 <span>Career Growth</span>
               </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="portalpage-actions">
-              <Link
-                to="/login"
-                className="portalpage-action-btn portalpage-primary-btn"
-              >
-                <span className="portalpage-btn-text">Log In</span>
-                <div className="portalpage-btn-glow"></div>
-                <div className="portalpage-btn-particles"></div>
-              </Link>
-
-              <Link
-                to="/signup"
-                className="portalpage-action-btn portalpage-secondary-btn"
-              >
-                <span className="portalpage-btn-text">Sign Up</span>
-                <div className="portalpage-btn-border"></div>
-                <div className="portalpage-btn-shine"></div>
-              </Link>
             </div>
           </div>
         </div>

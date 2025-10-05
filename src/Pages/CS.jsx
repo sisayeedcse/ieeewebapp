@@ -265,7 +265,7 @@ const CS = () => {
             >
               <option value="2025">Executive Members 2025</option>
               <option value="2026">Executive Members 2026</option>
-              <option value="2027">2Executive Members 2027</option>
+              <option value="2027">Executive Members 2027</option>
             </select>
           </div>
           {currentCommitteeData.length > 0 ? (

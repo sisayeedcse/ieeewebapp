@@ -41,6 +41,12 @@ const ExCom2025 = () => {
     return (
       <div className="committee-nav">
         <Link
+          to="/committee/2023"
+          className={`committee-nav-link ${isActive("2023") ? "active" : ""}`}
+        >
+          2023
+        </Link>
+        <Link
           to="/committee/2024"
           className={`committee-nav-link ${isActive("2024") ? "active" : ""}`}
         >
@@ -51,12 +57,6 @@ const ExCom2025 = () => {
           className={`committee-nav-link ${isActive("2025") ? "active" : ""}`}
         >
           2025
-        </Link>
-        <Link
-          to="/committee/2026"
-          className={`committee-nav-link ${isActive("2026") ? "active" : ""}`}
-        >
-          2026
         </Link>
       </div>
     );

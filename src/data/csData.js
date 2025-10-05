@@ -52,7 +52,7 @@ export const csData = {
     },
     {
       name: "SAYEED IBNE SAIF",
-      position: "SECRETARY, IEEE CS PU 2025",
+      position: "GENERAL SECRETARY, IEEE CS PU 2025",
       image: cs_4,
       facebook: "https://www.facebook.com/S.I.Sayeed.official/",
       linkedin: "https://www.linkedin.com/in/sisayeedofficial/",
@@ -73,70 +73,15 @@ export const csData = {
     },
     {
       name: "MOHAMMED TOWHIDUL ISLAM",
-      position: "ACTIVITY COORDINATOR, IEEE CS PU 2025",
+      position: "ORGANIGING SECRETARY, IEEE CS PU 2025",
       image: cs_7,
       facebook: "https://www.facebook.com/towhidul.islam.775/",
       linkedin: "https://www.linkedin.com/in/mohammed-towhidul-islam/",
     },
     {
-      name: "MOST. SADIA SULTANA",
-      position: "CONTENT CREATOR, IEEE CS PU 2025",
+      name: "Anindita Barua",
+      position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE CS PU 2025",
       image: cs_8,
-      facebook: "https://www.facebook.com/sadia.sultana.90475",
-      linkedin: "https://www.linkedin.com/in/most-sadia-sultana/",
-    },
-  ],
-  2026: [
-    // Sample 2026 CS committee data - replace with actual data when available
-    {
-      name: "Sample Mentor 2026",
-      position: "Mentor, IEEE CS PU 2026",
-      image: cs_0,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Chair 2026",
-      position: "CHAIR, IEEE CS PU 2026",
-      image: cs_1,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Vice Chair 2026",
-      position: "VICE-CHAIR (ACTIVITY), IEEE CS PU 2026",
-      image: cs_2,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Secretary 2024",
-      position: "SECRETARY, IEEE CS PU 2024",
-      image: cs_4,
-      facebook: "",
-      linkedin: "",
-    },
-  ],
-  2027: [
-    // Sample 2027 CS committee data - replace with actual data when available
-    {
-      name: "Sample Mentor 2027",
-      position: "Mentor, IEEE CS PU 2027",
-      image: cs_0,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Chair 2027",
-      position: "CHAIR, IEEE CS PU 2027",
-      image: cs_1,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Vice Chair 2027",
-      position: "VICE-CHAIR (ACTIVITY), IEEE CS PU 2027",
-      image: cs_2,
       facebook: "",
       linkedin: "",
     },

@@ -34,14 +34,6 @@ const developers = [
     linkedin: "https://www.linkedin.com/in/sisayeedofficial/",
   },
   {
-    name: "Hamed Hasan",
-    role: "Frontend Developer & Joint Secretary, IEEE CS PU SB 2025",
-    image: Hamed,
-    type: "Frontend",
-    facebook: "https://www.facebook.com/hamed.hasan.497550",
-    linkedin: "https://www.linkedin.com/in/devhamed/",
-  },
-  {
     name: "Mohammad Rafi",
     role: "Backend Developer & Vice-chair (Technical), IEEE CS PU SB 2025",
     image: Rafi,

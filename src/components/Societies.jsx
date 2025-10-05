@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const wie =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691511/wie_logo_ootcui.png",
+    "https://res.cloudinary.com/dknflcbt1/image/upload/v1759670627/WIE_LOGO_TRANS_bdfbia.png",
   cs =
     "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691512/cs_logo_tswsbw.png",
   ras =
@@ -11,10 +11,10 @@ const wie =
     "https://res.cloudinary.com/dknflcbt1/image/upload/v1752691508/pes_logo_fhltfa.png";
 
 const societies = [
-  { image: cs, name: "CS", link: "/cs" },
-  { image: pes, name: "PES", link: "/pes" },
-  { image: ras, name: "RAS", link: "/ras" },
   { image: wie, name: "WIE", link: "/wie" },
+  { image: cs, name: "CS", link: "/cs" },
+  { image: ras, name: "RAS", link: "/ras" },
+  { image: pes, name: "PES", link: "/pes" },
 ];
 
 const Societies = () => {

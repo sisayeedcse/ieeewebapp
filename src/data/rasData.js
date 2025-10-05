@@ -53,7 +53,7 @@ export const rasData = {
     },
     {
       name: "ANUP DIPTA",
-      position: "SECRETARY, IEEE PU RAS 2025",
+      position: "GENERAL SECRETARY, IEEE PU RAS 2025",
       image: ras_4,
       facebook:
         "https://www.facebook.com/anupdipta04?mibextid=wwXIfr&rdid=SRUmkGVjGchJVgkK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19Lx6w6CdQ%2F%3Fmibextid%3DwwXIfr",
@@ -74,73 +74,18 @@ export const rasData = {
       linkedin: "https://www.linkedin.com/in/tasnia-chowdhury/",
     },
     {
-      name: "FAHMIN FAYSAL",
-      position: "ACTIVITY COORDINATOR, IEEE PU RAS 2025",
+      name: "Chinmay Barua Nobo",
+      position: "Organizing Secretary, IEEE PU RAS 2025",
       image: ras_7,
       facebook: "https://www.facebook.com/fahmin.faysal.9/",
       linkedin: "https://www.linkedin.com/in/fahmin-faysal/",
     },
     {
-      name: "RIDOY AHMED",
-      position: "CONTENT CREATOR, IEEE PU RAS 2025",
+      name: "Mubarrat E Ishmun",
+      position: "Social Media & Graphics Coordinator, IEEE PU RAS 2025",
       image: ras_8,
       facebook: "https://www.facebook.com/ridoy.ahmed.921230/",
       linkedin: "https://www.linkedin.com/in/ridoy-ahmed/",
-    },
-  ],
-  2026: [
-    // Sample 2026 RAS committee data - replace with actual data when available
-    {
-      name: "Sample Mentor 2026",
-      position: "Mentor, IEEE PU RAS 2026",
-      image: ras_0,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Chair 2026",
-      position: "CHAIR, IEEE PU RAS 2026",
-      image: ras_1,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Vice Chair 2026",
-      position: "VICE-CHAIR (ACTIVITY), IEEE PU RAS 2026",
-      image: ras_2,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Secretary 2024",
-      position: "SECRETARY, IEEE PU RAS 2024",
-      image: ras_4,
-      facebook: "",
-      linkedin: "",
-    },
-  ],
-  2027: [
-    // Sample 2027 RAS committee data - replace with actual data when available
-    {
-      name: "Sample Mentor 2027",
-      position: "Mentor, IEEE PU RAS 2027",
-      image: ras_0,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Chair 2027",
-      position: "CHAIR, IEEE PU RAS 2027",
-      image: ras_1,
-      facebook: "",
-      linkedin: "",
-    },
-    {
-      name: "Sample Vice Chair 2027",
-      position: "VICE-CHAIR (ACTIVITY), IEEE PU RAS 2027",
-      image: ras_2,
-      facebook: "",
-      linkedin: "",
     },
   ],
 };

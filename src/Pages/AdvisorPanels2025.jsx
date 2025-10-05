@@ -18,17 +18,28 @@ const Advisor_1 =
   Advisor_6 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752752385/Advisor_6_g1fckm.png",
   Advisor_7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752752392/Advisor_7_zbtxig.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752752392/Advisor_7_zbtxig.png",
+  Advisor_8 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1759671679/Advisor_8_rny7dz.png";
 
 const advisors = [
   {
     img: Advisor_1,
     name: "Dr. Shahid Md. Asif Iqbal",
     title: "Advisor",
-    position: "Professor & Chairman",
+    position: "Assosiate Dean & Professor",
     department: "Department of Computer Science and Engineering",
     linkedin: "https://www.linkedin.com/in/shahid-asif-iqbal/",
     facebook: "https://www.facebook.com/asif.iqbal.3705/",
+  },
+  {
+    img: Advisor_8,
+    name: "Syed Md. Minhaz Hossain",
+    title: "Advisor",
+    position: " Associate Professor & Chairman",
+    department: "Department of Computer Science and Engineering",
+    linkedin: "https://www.linkedin.com/in/",
+    facebook: "https://www.facebook.com/minhaz.hossain.90/",
   },
   {
     img: Advisor_2,
@@ -105,10 +116,12 @@ const AdvisorPanels2025 = () => {
         </div>
 
         <div className="advisor-info">
-          <h3 className="advisor-name">{advisor.name}</h3>
-          <p className="advisor-title">{advisor.title}</p>
-          <p className="advisor-position">{advisor.position}</p>
-          <p className="advisor-department">{advisor.department}</p>
+          <div className="advisor-info-content">
+            <h3 className="advisor-name">{advisor.name}</h3>
+            <p className="advisor-title">{advisor.title}</p>
+            <p className="advisor-position">{advisor.position}</p>
+            <p className="advisor-department">{advisor.department}</p>
+          </div>
 
           <div className="advisor-contact">
             {advisor.linkedin && (
@@ -137,9 +150,15 @@ const AdvisorPanels2025 = () => {
     );
   };
 
-  const firstAdvisor = advisors.slice(0, 1);
-  const secondRowAdvisors = advisors.slice(1, 4);
-  const thirdRowAdvisors = advisors.slice(4, 7);
+  // Group advisors by their roles
+  const topAdvisors = advisors.filter((advisor) => advisor.title === "Advisor"); // 3 advisors
+  const middleAdvisors = advisors.filter(
+    (advisor) =>
+      advisor.title === "Counselor" || advisor.title === "Chief Mentor"
+  ); // Counselor and Chief Mentor
+  const bottomMentors = advisors.filter(
+    (advisor) => advisor.title === "Mentor"
+  ); // 3 mentors
 
   return (
     <>
@@ -156,21 +175,21 @@ const AdvisorPanels2025 = () => {
           <div className="section-divider"></div>
 
           <div className="advisor-grid">
-            <div className="advisor-row single-card">
-              {firstAdvisor.map((advisor, index) =>
+            <div className="advisor-row triple-cards">
+              {topAdvisors.map((advisor, index) =>
+                renderAdvisor(advisor, index)
+              )}
+            </div>
+
+            <div className="advisor-row double-cards">
+              {middleAdvisors.map((advisor, index) =>
                 renderAdvisor(advisor, index)
               )}
             </div>
 
             <div className="advisor-row triple-cards">
-              {secondRowAdvisors.map((advisor, index) =>
-                renderAdvisor(advisor, index + 1)
-              )}
-            </div>
-
-            <div className="advisor-row triple-cards">
-              {thirdRowAdvisors.map((advisor, index) =>
-                renderAdvisor(advisor, index + 4)
+              {bottomMentors.map((advisor, index) =>
+                renderAdvisor(advisor, index)
               )}
             </div>
           </div>
