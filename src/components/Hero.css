@@ -19,14 +19,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 6%;
     overflow: hidden;
 }
 
 .slide-bg {
     position: absolute;
-    width: 105%;
-    height: 105%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     z-index: 1;
