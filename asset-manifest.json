@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ieeewebapp/static/css/main.63b8ad86.css",
-    "main.js": "/ieeewebapp/static/js/main.f24cf1d5.js",
+    "main.css": "/ieeewebapp/static/css/main.fc316876.css",
+    "main.js": "/ieeewebapp/static/js/main.d0af061a.js",
     "index.html": "/ieeewebapp/index.html",
-    "main.63b8ad86.css.map": "/ieeewebapp/static/css/main.63b8ad86.css.map",
-    "main.f24cf1d5.js.map": "/ieeewebapp/static/js/main.f24cf1d5.js.map"
+    "main.fc316876.css.map": "/ieeewebapp/static/css/main.fc316876.css.map",
+    "main.d0af061a.js.map": "/ieeewebapp/static/js/main.d0af061a.js.map"
   },
   "entrypoints": [
-    "static/css/main.63b8ad86.css",
-    "static/js/main.f24cf1d5.js"
+    "static/css/main.fc316876.css",
+    "static/js/main.d0af061a.js"
   ]
 }
