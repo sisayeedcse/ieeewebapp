@@ -450,7 +450,6 @@
 
 .cs-social-facebook {
     background: linear-gradient(135deg, #4267B2 0%, #365899 100%);
-    color: white;
 }
 
 .cs-social-facebook:hover {
@@ -461,7 +460,6 @@
 
 .cs-social-linkedin {
     background: linear-gradient(135deg, #0077B5 0%, #005885 100%);
-    color: white;
 }
 
 .cs-social-linkedin:hover {
@@ -483,6 +481,7 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    color: white;
 }
 
 .cs-social-label {
