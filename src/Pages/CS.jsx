@@ -171,7 +171,7 @@ const CS = () => {
           <div className="cs-social-content">
             <div className="cs-social-platform">
               <a
-                href="https://www.facebook.com/ieee.cs.pu"
+                href="https://www.facebook.com/IEEECS.PUSBC/"
                 target="_blank"
                 rel="noreferrer"
                 className="cs-social-button cs-social-facebook"
@@ -186,7 +186,7 @@ const CS = () => {
 
             <div className="cs-social-platform">
               <a
-                href="https://www.linkedin.com/company/ieee-cs-pu"
+                href="https://www.linkedin.com/company/ieee-cs-pusbc"
                 target="_blank"
                 rel="noreferrer"
                 className="cs-social-button cs-social-linkedin"

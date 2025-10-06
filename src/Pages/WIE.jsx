@@ -180,7 +180,7 @@ const WIE = () => {
           <div className="wie-social-content">
             <div className="wie-social-platform">
               <a
-                href="https://www.facebook.com/ieee.wie.pu"
+                href="https://www.facebook.com/IEEE.PU.WIE"
                 target="_blank"
                 rel="noreferrer"
                 className="wie-social-button wie-social-facebook"
@@ -195,7 +195,7 @@ const WIE = () => {
 
             <div className="wie-social-platform">
               <a
-                href="https://www.linkedin.com/company/ieee-wie-pu"
+                href="https://www.linkedin.com/company/ieee-premier-university-student-branch-wie-affinity-group"
                 target="_blank"
                 rel="noreferrer"
                 className="wie-social-button wie-social-linkedin"

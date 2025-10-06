@@ -178,7 +178,7 @@ const RAS = () => {
           <div className="ras-social-content">
             <div className="ras-social-platform">
               <a
-                href="https://www.facebook.com/ieee.ras.pu"
+                href="https://www.facebook.com/IEEERAS.PUSBC"
                 target="_blank"
                 rel="noreferrer"
                 className="ras-social-button ras-social-facebook"
@@ -193,7 +193,7 @@ const RAS = () => {
 
             <div className="ras-social-platform">
               <a
-                href="https://www.linkedin.com/company/ieee-ras-pu"
+                href="https://www.linkedin.com/company/ieee-ras-pusbc/"
                 target="_blank"
                 rel="noreferrer"
                 className="ras-social-button ras-social-linkedin"
