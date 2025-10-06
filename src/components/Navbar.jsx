@@ -23,6 +23,8 @@ const Navbar = ({ variant }) => {
       ? "navbar-ras"
       : variant === "wie"
       ? "navbar-wie"
+      : variant === "pes"
+      ? "navbar-pes"
       : scrolled
       ? "navbar-scrolled"
       : "navbar-transparent"
@@ -45,7 +47,8 @@ const Navbar = ({ variant }) => {
             variant === "blue" ||
             variant === "cs" ||
             variant === "ras" ||
-            variant === "wie"
+            variant === "wie" ||
+            variant === "pes"
               ? "toggler-dark"
               : "toggler-light"
           }`}

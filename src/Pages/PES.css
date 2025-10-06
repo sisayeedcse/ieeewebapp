@@ -6,7 +6,7 @@
 }
 
 /* Hero Section */
-.cs-hero {
+.pes-hero {
     min-height: 100vh;
     position: relative;
     display: flex;
@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 
-.cs-hero-background {
+.pes-hero-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,21 +25,21 @@
     overflow: hidden;
 }
 
-.cs-floating-elements {
+.pes-floating-elements {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.cs-circle {
+.pes-circle {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     opacity: 0.1;
     animation: float 6s ease-in-out infinite;
 }
 
-.cs-circle-1 {
+.pes-circle-1 {
     width: 300px;
     height: 300px;
     top: 20%;
@@ -47,7 +47,7 @@
     animation-delay: 0s;
 }
 
-.cs-circle-2 {
+.pes-circle-2 {
     width: 200px;
     height: 200px;
     top: 60%;
@@ -55,7 +55,7 @@
     animation-delay: 2s;
 }
 
-.cs-circle-3 {
+.pes-circle-3 {
     width: 150px;
     height: 150px;
     bottom: 20%;
@@ -63,7 +63,7 @@
     animation-delay: 4s;
 }
 
-.cs-hero-content {
+.pes-hero-content {
     display: flex;
     align-items: center;
     gap: 60px;
@@ -74,28 +74,28 @@
     position: relative;
 }
 
-.cs-hero-logo {
+.pes-hero-logo {
     flex: 0 0 auto;
     animation: slideInLeft 1s ease-out;
 }
 
-.cs-logo-main {
+.pes-logo-main {
     width: 280px;
     height: auto;
-    filter: drop-shadow(0 20px 40px rgba(243, 156, 18, 0.3));
+    filter: drop-shadow(0 20px 40px rgba(110, 149, 56, 0.3));
     transition: transform 0.3s ease;
 }
 
-.cs-logo-main:hover {
+.pes-logo-main:hover {
     transform: scale(1.05);
 }
 
-.cs-hero-text {
+.pes-hero-text {
     flex: 1;
     animation: slideInRight 1s ease-out;
 }
 
-.cs-main-title {
+.pes-main-title {
     font-size: 4rem;
     font-weight: 800;
     color: #2c3e50;
@@ -103,25 +103,25 @@
     line-height: 1.1;
 }
 
-.cs-title-line {
+.pes-title-line {
     display: block;
     opacity: 0;
     animation: titleReveal 0.8s ease-out forwards;
 }
 
-.cs-title-line:nth-child(1) {
+.pes-title-line:nth-child(1) {
     animation-delay: 0.3s;
 }
 
-.cs-title-emphasis {
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+.pes-title-emphasis {
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation-delay: 0.6s;
 }
 
-.cs-hero-subtitle {
+.pes-hero-subtitle {
     font-size: 1.2rem;
     color: #7f8c8d;
     margin-bottom: 30px;
@@ -129,15 +129,15 @@
     animation: fadeInUp 0.8s ease-out 0.9s both;
 }
 
-.cs-hero-tagline {
+.pes-hero-tagline {
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.8s ease-out 1.2s both;
 }
 
-.cs-tagline-text {
+.pes-tagline-text {
     font-size: 1.1rem;
-    color: #f39c12;
+    color: #6e9538;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -145,18 +145,18 @@
     z-index: 1;
 }
 
-.cs-tagline-text::before {
+.pes-tagline-text::before {
     content: '';
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     animation: underlineExpand 2s ease-out 1.5s both;
 }
 
-.cs-scroll-indicator {
+.pes-scroll-indicator {
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -164,21 +164,21 @@
     animation: bounce 2s infinite;
 }
 
-.cs-scroll-line {
+.pes-scroll-line {
     width: 2px;
     height: 40px;
-    background: linear-gradient(to bottom, #f39c12, transparent);
+    background: linear-gradient(to bottom, #6e9538, transparent);
     margin: 0 auto;
 }
 
 /* Stats Section */
-.cs-stats {
+.pes-stats {
     padding: 80px 0;
-    background: linear-gradient(135deg, #f39c12, #e67e22);
+    background: linear-gradient(135deg, #6e9538, #5a7a2d);
     position: relative;
 }
 
-.cs-stats-grid {
+.pes-stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
@@ -186,7 +186,7 @@
     margin: 0 auto;
 }
 
-.cs-stat-item {
+.pes-stat-item {
     text-align: center;
     color: white;
     padding: 20px;
@@ -197,7 +197,7 @@
     overflow: hidden;
 }
 
-.cs-stat-item::before {
+.pes-stat-item::before {
     content: '';
     position: absolute;
     top: 0;
@@ -209,12 +209,12 @@
     transition: transform 0.3s ease;
 }
 
-.cs-stat-item:hover::before,
-.cs-stat-active::before {
+.pes-stat-item:hover::before,
+.pes-stat-active::before {
     transform: translateX(0);
 }
 
-.cs-stat-number {
+.pes-stat-number {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 10px;
@@ -222,7 +222,7 @@
     z-index: 1;
 }
 
-.cs-stat-label {
+.pes-stat-label {
     font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -232,19 +232,19 @@
 }
 
 /* Mission Section */
-.cs-mission {
+.pes-mission {
     padding: 120px 0;
     background: #ffffff;
 }
 
-.cs-mission-content {
+.pes-mission-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
 }
 
-.cs-section-title {
+.pes-section-title {
     font-size: 2.5rem;
     font-weight: 700;
     color: #2c3e50;
@@ -252,41 +252,41 @@
     position: relative;
 }
 
-.cs-team-section-title {
+.pes-team-section-title {
     font-size: 2.5rem;
     font-weight: 700;
     color: #2c3e50;
     position: relative;
 }
 
-.cs-team-section-title span {
-    color: #f39c12;
+.pes-team-section-title span {
+    color: #6e9538;
 }
 
-.cs-section-title::after {
+.pes-section-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
 }
 
-.cs-mission-description {
+.pes-mission-description {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
     margin-bottom: 40px;
 }
 
-.cs-mission-highlights {
+.pes-mission-highlights {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.cs-highlight {
+.pes-highlight {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -295,40 +295,40 @@
     transition: all 0.3s ease;
 }
 
-.cs-highlight:hover {
-    border-left-color: #f39c12;
+.pes-highlight:hover {
+    border-left-color: #6e9538;
     padding-left: 20px;
 }
 
-.cs-highlight-icon {
+.pes-highlight-icon {
     font-size: 1.5rem;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     border-radius: 50%;
     color: white;
 }
 
-.cs-mission-visual {
+.pes-mission-visual {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.cs-geometric-shape {
+.pes-geometric-shape {
     width: 300px;
     height: 300px;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     transform: rotate(45deg);
     border-radius: 30px;
     position: relative;
     animation: rotate 20s linear infinite;
 }
 
-.cs-shape-inner {
+.pes-shape-inner {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -343,33 +343,33 @@
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.cs-shape-logo {
+.pes-shape-logo {
     width: 200px;
     height: auto;
-    filter: drop-shadow(0 10px 20px rgba(243, 156, 18, 0.3));
+    filter: drop-shadow(0 10px 20px rgba(110, 149, 56, 0.3));
 }
 
 /* Social Section */
-.cs-social {
+.pes-social {
     padding: 100px 0;
     background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 50%, #f8f9fb 100%);
     position: relative;
     overflow: hidden;
 }
 
-.cs-social::before {
+.pes-social::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 30% 20%, rgba(243, 156, 18, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(230, 126, 34, 0.03) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 20%, rgba(110, 149, 56, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(90, 122, 45, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
-.cs-social-container {
+.pes-social-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -377,12 +377,12 @@
     z-index: 2;
 }
 
-.cs-social-header {
+.pes-social-header {
     text-align: center;
     margin-bottom: 80px;
 }
 
-.cs-social-title {
+.pes-social-title {
     font-size: 2.8rem;
     font-weight: 700;
     color: #2c3e50;
@@ -391,7 +391,7 @@
     display: inline-block;
 }
 
-.cs-social-title::after {
+.pes-social-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -399,11 +399,11 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     border-radius: 2px;
 }
 
-.cs-social-subtitle {
+.pes-social-subtitle {
     font-size: 1.3rem;
     color: #7f8c8d;
     font-weight: 500;
@@ -412,7 +412,7 @@
     line-height: 1.6;
 }
 
-.cs-social-content {
+.pes-social-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -420,17 +420,17 @@
     flex-wrap: wrap;
 }
 
-.cs-social-platform {
+.pes-social-platform {
     position: relative;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
 }
 
-.cs-social-platform:hover {
+.pes-social-platform:hover {
     transform: translateY(-8px);
 }
 
-.cs-social-button {
+.pes-social-button {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -448,54 +448,54 @@
     border: 2px solid transparent;
 }
 
-.cs-social-facebook {
+.pes-social-facebook {
     background: linear-gradient(135deg, #4267B2 0%, #365899 100%);
     color: white;
 }
 
-.cs-social-facebook:hover {
+.pes-social-facebook:hover {
     background: linear-gradient(135deg, #365899 0%, #2d4373 100%);
     box-shadow: 0 15px 40px rgba(66, 103, 178, 0.4);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.cs-social-linkedin {
+.pes-social-linkedin {
     background: linear-gradient(135deg, #0077B5 0%, #005885 100%);
     color: white;
 }
 
-.cs-social-linkedin:hover {
+.pes-social-linkedin:hover {
     background: linear-gradient(135deg, #005885 0%, #004066 100%);
     box-shadow: 0 15px 40px rgba(0, 119, 181, 0.4);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.cs-social-icon {
+.pes-social-icon {
     font-size: 1.8rem;
     transition: transform 0.3s ease;
 }
 
-.cs-social-platform:hover .cs-social-icon {
+.pes-social-platform:hover .pes-social-icon {
     transform: scale(1.2) rotate(5deg);
 }
 
-.cs-social-text {
+.pes-social-text {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.cs-social-label {
+.pes-social-label {
     font-size: 1rem;
     opacity: 0.9;
 }
 
-.cs-social-name {
+.pes-social-name {
     font-size: 1.2rem;
     font-weight: 700;
 }
 
-.cs-social-button::before {
+.pes-social-button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -506,28 +506,28 @@
     transition: left 0.5s ease;
 }
 
-.cs-social-platform:hover .cs-social-button::before {
+.pes-social-platform:hover .pes-social-button::before {
     left: 100%;
 }
 
 /* Floating decorative elements */
-.cs-social-decoration {
+.pes-social-decoration {
     position: absolute;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
     opacity: 0.05;
     animation: float 8s ease-in-out infinite;
 }
 
-.cs-social-decoration:nth-child(1) {
+.pes-social-decoration:nth-child(1) {
     top: 20%;
     left: 10%;
     animation-delay: 0s;
 }
 
-.cs-social-decoration:nth-child(2) {
+.pes-social-decoration:nth-child(2) {
     top: 60%;
     right: 15%;
     animation-delay: 3s;
@@ -535,7 +535,7 @@
     height: 40px;
 }
 
-.cs-social-decoration:nth-child(3) {
+.pes-social-decoration:nth-child(3) {
     bottom: 30%;
     left: 20%;
     animation-delay: 6s;
@@ -544,17 +544,17 @@
 }
 
 /* Team Section */
-.cs-team {
+.pes-team {
     padding: 120px 0;
     background: linear-gradient(135deg, #f8f9fb 0%, #e9ecef 100%);
 }
 
-.cs-team-header {
+.pes-team-header {
     text-align: center;
     margin-bottom: 80px;
 }
 
-.cs-team-subtitle {
+.pes-team-subtitle {
     font-size: 1.2rem;
     color: #7f8c8d;
     margin-top: 20px;
@@ -562,14 +562,14 @@
 }
 
 /* CS Year Selector Dropdown Styles */
-.cs-year-selector-container {
+.pes-year-selector-container {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 4rem;
 }
 
-.cs-year-selector {
+.pes-year-selector {
     background: #ffffff;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
@@ -584,19 +584,19 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.cs-year-selector:hover {
+.pes-year-selector:hover {
     border-color: #0064a6;
     box-shadow: 0 6px 20px rgba(0, 100, 166, 0.15);
     transform: translateY(-2px);
 }
 
-.cs-year-selector:focus {
+.pes-year-selector:focus {
     outline: none;
     border-color: #0064a6;
     box-shadow: 0 0 0 3px rgba(0, 100, 166, 0.1);
 }
 
-.cs-year-selector option {
+.pes-year-selector option {
     padding: 10px;
     font-weight: 600;
 }
@@ -614,7 +614,7 @@
     max-width: 400px;
 }
 
-.cs-team-grid {
+.pes-team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
@@ -622,7 +622,7 @@
     margin: 0 auto;
 }
 
-.cs-team-card {
+.pes-team-card {
     background: white;
     border-radius: 20px;
     padding: 30px;
@@ -633,22 +633,22 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.cs-team-card:hover {
+.pes-team-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(243, 156, 18, 0.2);
+    box-shadow: 0 20px 40px rgba(110, 149, 56, 0.2);
 }
 
-.cs-team-card::before {
+.pes-team-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, #6e9538, #5a7a2d);
 }
 
-.cs-team-image-container {
+.pes-team-image-container {
     position: relative;
     width: 120px;
     height: 120px;
@@ -659,20 +659,20 @@
     transition: all 0.3s ease;
 }
 
-.cs-team-image {
+.pes-team-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.cs-team-overlay {
+.pes-team-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(243, 156, 18, 0.9), rgba(230, 126, 34, 0.9));
+    background: linear-gradient(45deg, rgba(110, 149, 56, 0.9), rgba(90, 122, 45, 0.9));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -680,20 +680,20 @@
     transition: opacity 0.3s ease;
 }
 
-.cs-team-card:hover .cs-team-overlay {
+.pes-team-card:hover .pes-team-overlay {
     opacity: 1;
 }
 
-.cs-team-card:hover .cs-team-image {
+.pes-team-card:hover .pes-team-image {
     transform: scale(1.1);
 }
 
-.cs-team-social {
+.pes-team-social {
     display: flex;
     gap: 15px;
 }
 
-.cs-social-icon {
+.pes-social-icon {
     width: 40px;
     height: 40px;
     background: white;
@@ -706,15 +706,15 @@
     transition: transform 0.3s ease;
 }
 
-.cs-social-icon:hover {
+.pes-social-icon:hover {
     transform: scale(1.1);
 }
 
-.cs-team-info {
+.pes-team-info {
     margin-top: 20px;
 }
 
-.cs-team-name {
+.pes-team-name {
     font-size: 1.3rem;
     font-weight: 700;
     color: #2c3e50;
@@ -722,9 +722,9 @@
     letter-spacing: 0.5px;
 }
 
-.cs-team-position {
+.pes-team-position {
     font-size: 0.9rem;
-    color: #f39c12;
+    color: #6e9538;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -833,131 +833,131 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .cs-hero-content {
+    .pes-hero-content {
         gap: 40px;
     }
 
-    .cs-logo-main {
+    .pes-logo-main {
         width: 240px;
     }
 
-    .cs-main-title {
+    .pes-main-title {
         font-size: 3rem;
     }
 
-    .cs-mission-content {
+    .pes-mission-content {
         gap: 50px;
     }
 
-    .cs-team-grid {
+    .pes-team-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .cs-hero-content {
+    .pes-hero-content {
         flex-direction: column;
         text-align: center;
         gap: 40px;
     }
 
-    .cs-main-title {
+    .pes-main-title {
         font-size: 2.5rem;
     }
 
-    .cs-mission-content {
+    .pes-mission-content {
         grid-template-columns: 1fr;
         gap: 60px;
     }
 
-    .cs-mission-visual {
+    .pes-mission-visual {
         order: -1;
     }
 
-    .cs-geometric-shape {
+    .pes-geometric-shape {
         width: 200px;
         height: 200px;
     }
 
-    .cs-shape-logo {
+    .pes-shape-logo {
         width: 120px;
     }
 
-    .cs-team-grid {
+    .pes-team-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
     }
 
-    .cs-team-card {
+    .pes-team-card {
         padding: 25px;
     }
 
-    .cs-social-content {
+    .pes-social-content {
         gap: 40px;
     }
 
-    .cs-social-button {
+    .pes-social-button {
         padding: 22px 35px;
     }
 }
 
 @media (max-width: 480px) {
-    .cs-hero {
+    .pes-hero {
         padding: 0 15px;
     }
 
-    .cs-main-title {
+    .pes-main-title {
         font-size: 2rem;
     }
 
-    .cs-section-title {
+    .pes-section-title {
         font-size: 2rem;
     }
 
-    .cs-stats-grid {
+    .pes-stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
-    .cs-stat-number {
+    .pes-stat-number {
         font-size: 2rem;
     }
 
-    .cs-mission,
-    .cs-team {
+    .pes-mission,
+    .pes-team {
         padding: 80px 0;
     }
 
-    .cs-team-grid {
+    .pes-team-grid {
         grid-template-columns: 1fr;
     }
 
-    .cs-team-card {
+    .pes-team-card {
         padding: 20px;
     }
 
-    .cs-team-image-container {
+    .pes-team-image-container {
         width: 100px;
         height: 100px;
     }
 
-    .cs-team-name {
+    .pes-team-name {
         font-size: 1.1rem;
     }
 
-    .cs-team-position {
+    .pes-team-position {
         font-size: 0.8rem;
     }
 
-    .cs-social-title {
+    .pes-social-title {
         font-size: 2rem;
     }
 
-    .cs-social-content {
+    .pes-social-content {
         gap: 30px;
     }
 
-    .cs-social-button {
+    .pes-social-button {
         padding: 20px 30px;
         font-size: 1rem;
     }

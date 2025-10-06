@@ -13,10 +13,81 @@ const EventInfo = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [relatedEvents, setRelatedEvents] = useState([]);
+  const [societyTheme, setSocietyTheme] = useState("default");
 
   // Get base URL from environment variable or fallback
   const BASE_URL =
     process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+
+  // Helper function to determine society theme based on tags
+  const getSocietyTheme = (tags) => {
+    if (!tags || !Array.isArray(tags)) return "default";
+
+    const tagStrings = tags.map((tag) =>
+      typeof tag === "string"
+        ? tag.toLowerCase()
+        : (tag.text || tag.name || tag.title || "").toLowerCase()
+    );
+
+    // Check for CS (Computer Society) tags
+    if (
+      tagStrings.some(
+        (tag) =>
+          tag.includes("cs") ||
+          tag.includes("computer") ||
+          tag.includes("software") ||
+          tag.includes("programming") ||
+          tag.includes("coding")
+      )
+    ) {
+      return "cs";
+    }
+
+    // Check for WIE (Women in Engineering) tags
+    if (
+      tagStrings.some(
+        (tag) =>
+          tag.includes("wie") ||
+          tag.includes("women") ||
+          tag.includes("female") ||
+          tag.includes("diversity")
+      )
+    ) {
+      return "wie";
+    }
+
+    // Check for RAS (Robotics and Automation Society) tags
+    if (
+      tagStrings.some(
+        (tag) =>
+          tag.includes("ras") ||
+          tag.includes("robotics") ||
+          tag.includes("automation") ||
+          tag.includes("robot") ||
+          tag.includes("ai") ||
+          tag.includes("artificial intelligence")
+      )
+    ) {
+      return "ras";
+    }
+
+    // Check for PES (Power and Energy Society) tags
+    if (
+      tagStrings.some(
+        (tag) =>
+          tag.includes("pes") ||
+          tag.includes("power") ||
+          tag.includes("energy") ||
+          tag.includes("electrical") ||
+          tag.includes("grid") ||
+          tag.includes("renewable")
+      )
+    ) {
+      return "pes";
+    }
+
+    return "default";
+  };
 
   // Fetch single event data from API
   useEffect(() => {
@@ -75,6 +146,15 @@ const EventInfo = () => {
 
         if (eventData && eventData.id) {
           setEvent(eventData);
+          // Set the society theme based on event tags
+          const theme = getSocietyTheme(eventData.tags);
+          setSocietyTheme(theme);
+          console.log(
+            "🎨 Event society theme:",
+            theme,
+            "based on tags:",
+            eventData.tags
+          );
         } else {
           throw new Error(lastError || "Event not found");
         }
@@ -149,15 +229,30 @@ const EventInfo = () => {
   };
 
   // Helper function to format time
-  const formatTime = (timeString) => {
-    if (!timeString) return "";
-    return timeString;
+  const formatTime = (event) => {
+    // Check if event has startTime and endTime
+    if (event?.startTime && event?.endTime) {
+      return `${event.startTime} - ${event.endTime}`;
+    }
+    // Check for individual time properties
+    if (event?.startTime) {
+      return event.startTime;
+    }
+    // Fallback to original time field
+    if (event?.time) {
+      return event.time;
+    }
+    return "Time TBA";
   };
 
   // Loading state
   if (loading) {
     return (
-      <div className="event-info-page">
+      <div
+        className={`event-info-page ${
+          societyTheme !== "default" ? `theme-${societyTheme}` : ""
+        }`}
+      >
         <Navbar />
         <div
           style={{
@@ -169,11 +264,12 @@ const EventInfo = () => {
           }}
         >
           <div
+            className="loading-spinner"
             style={{
               width: "60px",
               height: "60px",
               border: "4px solid #f1f5f9",
-              borderTop: "4px solid #3b82f6",
+              borderTop: `4px solid var(--primary-color, #3b82f6)`,
               borderRadius: "50%",
               animation: "spin 1s linear infinite",
               marginBottom: "20px",
@@ -191,7 +287,11 @@ const EventInfo = () => {
   // Error state
   if (error || !event) {
     return (
-      <div className="event-info-page">
+      <div
+        className={`event-info-page ${
+          societyTheme !== "default" ? `theme-${societyTheme}` : ""
+        }`}
+      >
         <Navbar />
         <div
           style={{
@@ -216,8 +316,9 @@ const EventInfo = () => {
           </p>
           <button
             onClick={() => navigate("/events")}
+            className="back-to-events-btn"
             style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              background: `linear-gradient(135deg, var(--gradient-start, #667eea) 0%, var(--gradient-end, #764ba2) 100%)`,
               color: "white",
               border: "none",
               padding: "12px 24px",
@@ -263,7 +364,11 @@ const EventInfo = () => {
   };
 
   return (
-    <div className="event-info-page">
+    <div
+      className={`event-info-page ${
+        societyTheme !== "default" ? `theme-${societyTheme}` : ""
+      }`}
+    >
       <Navbar />
 
       {/* Hero Section */}
@@ -299,6 +404,11 @@ const EventInfo = () => {
               <div className="event-info-category-badge">
                 <i className="fas fa-calendar"></i>
                 {event.category || "Event"}
+                {societyTheme !== "default" && (
+                  <span className="society-indicator">
+                    {societyTheme.toUpperCase()}
+                  </span>
+                )}
               </div>
               <h1 className="event-info-title">{event.title}</h1>
               <p className="event-info-subtitle">
@@ -315,9 +425,7 @@ const EventInfo = () => {
                 </div>
                 <div className="meta-item">
                   <i className="fas fa-clock"></i>
-                  <span>
-                    {formatTime(event.time) || event.time || "Time TBA"}
-                  </span>
+                  <span>{formatTime(event)}</span>
                 </div>
                 <div className="meta-item">
                   <i className="fas fa-map-marker-alt"></i>
@@ -501,7 +609,12 @@ const EventInfo = () => {
                     <div className="info-card">
                       <i className="fa-solid fa-bangladeshi-taka-sign"></i>
                       <h4>Registration Fee</h4>
-                      <p>{event.fee || event.registration_fee || "Free"}</p>
+                      <p>
+                        {event.registrationFee ||
+                          event.fee ||
+                          event.registration_fee ||
+                          "Free"}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -543,9 +656,7 @@ const EventInfo = () => {
                     <i className="fas fa-clock"></i>
                     <div>
                       <strong>Time</strong>
-                      <span>
-                        {formatTime(event.time) || event.time || "Time TBA"}
-                      </span>
+                      <span>{formatTime(event)}</span>
                     </div>
                   </div>
                   <div className="quick-info-item">

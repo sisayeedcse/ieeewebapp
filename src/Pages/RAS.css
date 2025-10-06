@@ -349,6 +349,200 @@
     filter: drop-shadow(0 10px 20px rgba(123, 45, 142, 0.3));
 }
 
+/* Social Section */
+.ras-social {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 50%, #f8f9fb 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.ras-social::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(123, 45, 142, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(155, 74, 158, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.ras-social-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.ras-social-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.ras-social-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.ras-social-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #7B2D8E, #9B4A9E);
+    border-radius: 2px;
+}
+
+.ras-social-subtitle {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.ras-social-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.ras-social-platform {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+.ras-social-platform:hover {
+    transform: translateY(-8px);
+}
+
+.ras-social-button {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 40px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+}
+
+.ras-social-facebook {
+    background: linear-gradient(135deg, #4267B2 0%, #365899 100%);
+    color: white;
+}
+
+.ras-social-facebook:hover {
+    background: linear-gradient(135deg, #365899 0%, #2d4373 100%);
+    box-shadow: 0 15px 40px rgba(66, 103, 178, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ras-social-linkedin {
+    background: linear-gradient(135deg, #0077B5 0%, #005885 100%);
+    color: white;
+}
+
+.ras-social-linkedin:hover {
+    background: linear-gradient(135deg, #005885 0%, #004066 100%);
+    box-shadow: 0 15px 40px rgba(0, 119, 181, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ras-social-icon {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.ras-social-platform:hover .ras-social-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.ras-social-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ras-social-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.ras-social-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.ras-social-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.ras-social-platform:hover .ras-social-button::before {
+    left: 100%;
+}
+
+/* Floating decorative elements */
+.ras-social-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #7B2D8E, #9B4A9E);
+    opacity: 0.05;
+    animation: float 8s ease-in-out infinite;
+}
+
+.ras-social-decoration:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.ras-social-decoration:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 3s;
+    width: 40px;
+    height: 40px;
+}
+
+.ras-social-decoration:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 6s;
+    width: 80px;
+    height: 80px;
+}
+
 /* Team Section */
 .ras-team {
     padding: 120px 0;
@@ -697,6 +891,14 @@
     .ras-team-card {
         padding: 25px;
     }
+
+    .ras-social-content {
+        gap: 40px;
+    }
+
+    .ras-social-button {
+        padding: 22px 35px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -745,5 +947,18 @@
 
     .ras-team-position {
         font-size: 0.8rem;
+    }
+
+    .ras-social-title {
+        font-size: 2rem;
+    }
+
+    .ras-social-content {
+        gap: 30px;
+    }
+
+    .ras-social-button {
+        padding: 20px 30px;
+        font-size: 1rem;
     }
 }

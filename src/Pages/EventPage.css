@@ -551,6 +551,48 @@
     border-color: #3b82f6;
 }
 
+/* Filter count and status styles */
+.eventpage-filter-count {
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+    opacity: 0.9;
+}
+
+.eventpage-filter-status {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.eventpage-filter-active-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.eventpage-clear-filter {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.eventpage-clear-filter:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
 .eventpage-event-page-events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1585,6 +1627,7 @@ a.eventpage-event-page-overlay-btn:hover {
     0% {
         background-position: -200% 0;
     }
+
     100% {
         background-position: 200% 0;
     }
@@ -1682,22 +1725,22 @@ a.eventpage-event-page-overlay-btn:hover {
     .eventpage-pagination {
         gap: 1rem;
     }
-    
+
     .eventpage-pagination-controls {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .eventpage-pagination-btn {
         padding: 0.6rem 1rem;
         font-size: 0.85rem;
     }
-    
+
     .eventpage-pagination-numbers {
         margin: 0;
         gap: 0.125rem;
     }
-    
+
     .eventpage-pagination-number {
         width: 2.25rem;
         height: 2.25rem;
@@ -1710,7 +1753,7 @@ a.eventpage-event-page-overlay-btn:hover {
         text-align: center;
         font-size: 0.8rem;
     }
-    
+
     .eventpage-pagination-numbers {
         max-width: 100%;
         overflow-x: auto;

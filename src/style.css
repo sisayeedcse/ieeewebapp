@@ -161,6 +161,25 @@ body {
     background-color: #e2e8f0;
 }
 
+/* PES variant css */
+.navbar-pes {
+    background-color: #6e9538 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-pes .nav-link,
+.navbar-pes .navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-pes .dropdown-menu {
+    background-color: #f8fafc;
+}
+
+.navbar-pes .dropdown-item:hover {
+    background-color: #e2e8f0;
+}
+
 
 /* ===== START: Bigger Logo ===== */
 .logo-img {

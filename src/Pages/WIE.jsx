@@ -41,7 +41,7 @@ const WIE = () => {
   };
 
   const stats = [
-    { number: "2023", label: "Founded" },
+    { number: "2024", label: "Founded" },
     { number: "50+", label: "Active Members" },
     { number: "15+", label: "Events Hosted" },
     { number: "100%", label: "Empowerment" },
@@ -163,6 +163,56 @@ const WIE = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Social Section */}
+      <section className="wie-social">
+        <div className="wie-social-container">
+          <div className="wie-social-header">
+            <h2 className="wie-social-title">Connect With Us</h2>
+            <p className="wie-social-subtitle">
+              Join our empowering community and stay connected with inspiring
+              women in engineering
+            </p>
+          </div>
+
+          <div className="wie-social-content">
+            <div className="wie-social-platform">
+              <a
+                href="https://www.facebook.com/ieee.wie.pu"
+                target="_blank"
+                rel="noreferrer"
+                className="wie-social-button wie-social-facebook"
+              >
+                <i className="fab fa-facebook-f wie-social-icon"></i>
+                <div className="wie-social-text">
+                  <span className="wie-social-label">Follow us on</span>
+                  <span className="wie-social-name">Facebook</span>
+                </div>
+              </a>
+            </div>
+
+            <div className="wie-social-platform">
+              <a
+                href="https://www.linkedin.com/company/ieee-wie-pu"
+                target="_blank"
+                rel="noreferrer"
+                className="wie-social-button wie-social-linkedin"
+              >
+                <i className="fab fa-linkedin-in wie-social-icon"></i>
+                <div className="wie-social-text">
+                  <span className="wie-social-label">Connect on</span>
+                  <span className="wie-social-name">LinkedIn</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="wie-social-decoration"></div>
+          <div className="wie-social-decoration"></div>
+          <div className="wie-social-decoration"></div>
         </div>
       </section>
 

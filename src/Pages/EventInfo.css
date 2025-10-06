@@ -5,6 +5,80 @@
     background: #f8fafc;
 }
 
+/* Society Theme Variables */
+:root {
+    /* Default IEEE theme */
+    --primary-color: #0066cc;
+    --secondary-color: #004499;
+    --accent-color: #60a5fa;
+    --gradient-start: #0066cc;
+    --gradient-end: #004499;
+
+    /* CS Theme */
+    --cs-primary: #f39c12;
+    --cs-secondary: #e67e22;
+    --cs-accent: #f39c12;
+    --cs-gradient-start: #f39c12;
+    --cs-gradient-end: #e67e22;
+
+    /* WIE Theme */
+    --wie-primary: #8e44ad;
+    --wie-secondary: #9b59b6;
+    --wie-accent: #8e44ad;
+    --wie-gradient-start: #8e44ad;
+    --wie-gradient-end: #9b59b6;
+
+    /* RAS Theme */
+    --ras-primary: #7B2D8E;
+    --ras-secondary: #9B4A9E;
+    --ras-accent: #7B2D8E;
+    --ras-gradient-start: #7B2D8E;
+    --ras-gradient-end: #9B4A9E;
+
+    /* PES Theme */
+    --pes-primary: #2e7d32;
+    --pes-secondary: #388e3c;
+    --pes-accent: #4caf50;
+    --pes-gradient-start: #2e7d32;
+    --pes-gradient-end: #388e3c;
+}
+
+/* CS Theme Overrides */
+.event-info-page.theme-cs {
+    --primary-color: var(--cs-primary);
+    --secondary-color: var(--cs-secondary);
+    --accent-color: var(--cs-accent);
+    --gradient-start: var(--cs-gradient-start);
+    --gradient-end: var(--cs-gradient-end);
+}
+
+/* WIE Theme Overrides */
+.event-info-page.theme-wie {
+    --primary-color: var(--wie-primary);
+    --secondary-color: var(--wie-secondary);
+    --accent-color: var(--wie-accent);
+    --gradient-start: var(--wie-gradient-start);
+    --gradient-end: var(--wie-gradient-end);
+}
+
+/* RAS Theme Overrides */
+.event-info-page.theme-ras {
+    --primary-color: var(--ras-primary);
+    --secondary-color: var(--ras-secondary);
+    --accent-color: var(--ras-accent);
+    --gradient-start: var(--ras-gradient-start);
+    --gradient-end: var(--ras-gradient-end);
+}
+
+/* PES Theme Overrides */
+.event-info-page.theme-pes {
+    --primary-color: var(--pes-primary);
+    --secondary-color: var(--pes-secondary);
+    --accent-color: var(--pes-accent);
+    --gradient-start: var(--pes-gradient-start);
+    --gradient-end: var(--pes-gradient-end);
+}
+
 /* Hero Section */
 .event-info-hero {
     position: relative;
@@ -37,7 +111,25 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, rgba(0, 102, 204, 0.9), rgba(0, 51, 102, 0.8));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--gradient-start) 90%, transparent), color-mix(in srgb, var(--gradient-end) 80%, transparent));
     z-index: 2;
+}
+
+/* Fallback gradients for browsers that don't support color-mix */
+.event-info-page.theme-cs .event-info-hero-overlay {
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.9), rgba(230, 126, 34, 0.8));
+}
+
+.event-info-page.theme-wie .event-info-hero-overlay {
+    background: linear-gradient(135deg, rgba(142, 68, 173, 0.9), rgba(155, 89, 182, 0.8));
+}
+
+.event-info-page.theme-ras .event-info-hero-overlay {
+    background: linear-gradient(135deg, rgba(123, 45, 142, 0.9), rgba(155, 74, 158, 0.8));
+}
+
+.event-info-page.theme-pes .event-info-hero-overlay {
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(56, 142, 60, 0.8));
 }
 
 .event-info-hero-content {
@@ -59,7 +151,7 @@
 }
 
 .breadcrumb-link:hover {
-    color: #60a5fa;
+    color: var(--accent-color);
 }
 
 .event-info-breadcrumb i {
@@ -79,6 +171,16 @@
     font-weight: 500;
     margin-bottom: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.society-indicator {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-left: 0.5rem;
 }
 
 .event-info-title {
@@ -113,7 +215,7 @@
 }
 
 .meta-item i {
-    color: #60a5fa;
+    color: var(--accent-color);
 }
 
 /* Main Content */
@@ -156,7 +258,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #0066cc, #004499);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -249,7 +351,7 @@
     left: 0;
     width: 50px;
     height: 3px;
-    background: linear-gradient(135deg, #0066cc, #004499);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     border-radius: 2px;
 }
 
@@ -279,6 +381,23 @@
     font-size: 1.1rem;
 }
 
+/* Society themed highlight icons */
+.event-info-page.theme-cs .highlights-list i {
+    color: var(--cs-primary);
+}
+
+.event-info-page.theme-wie .highlights-list i {
+    color: var(--wie-primary);
+}
+
+.event-info-page.theme-ras .highlights-list i {
+    color: var(--ras-primary);
+}
+
+.event-info-page.theme-pes .highlights-list i {
+    color: var(--pes-primary);
+}
+
 /* Speakers Grid */
 .speakers-grid {
     display: grid;
@@ -306,7 +425,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 1rem;
-    border: 3px solid #0066cc;
+    border: 3px solid var(--primary-color);
 }
 
 .speaker-image img {
@@ -352,7 +471,7 @@
 .agenda-time {
     width: 120px;
     font-weight: 600;
-    color: #0066cc;
+    color: var(--primary-color);
     font-size: 0.95rem;
 }
 
@@ -367,9 +486,9 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #0066cc;
+    background: var(--primary-color);
     border: 3px solid white;
-    box-shadow: 0 0 0 2px #0066cc;
+    box-shadow: 0 0 0 2px var(--primary-color);
     position: relative;
     z-index: 2;
 }
@@ -402,7 +521,7 @@
 
 .info-card i {
     font-size: 2rem;
-    color: #0066cc;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -426,7 +545,7 @@
 }
 
 .tag {
-    background: linear-gradient(135deg, #0066cc, #004499);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 25px;
@@ -437,7 +556,24 @@
 
 .tag:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+/* Fallback hover shadows for browsers that don't support color-mix */
+.event-info-page.theme-cs .tag:hover {
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+.event-info-page.theme-wie .tag:hover {
+    box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
+}
+
+.event-info-page.theme-ras .tag:hover {
+    box-shadow: 0 5px 15px rgba(123, 45, 142, 0.3);
+}
+
+.event-info-page.theme-pes .tag:hover {
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
 }
 
 /* Sidebar */
@@ -480,7 +616,7 @@
 
 .quick-info-item i {
     width: 20px;
-    color: #0066cc;
+    color: var(--primary-color);
     font-size: 1.1rem;
 }
 
@@ -528,7 +664,7 @@
 
 .register-btn {
     width: 100%;
-    background: linear-gradient(135deg, #0066cc, #004499);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: white;
     border: none;
     padding: 1rem;
@@ -546,7 +682,24 @@
 
 .register-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+/* Fallback hover shadows for register button */
+.event-info-page.theme-cs .register-btn:hover {
+    box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
+}
+
+.event-info-page.theme-wie .register-btn:hover {
+    box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
+}
+
+.event-info-page.theme-ras .register-btn:hover {
+    box-shadow: 0 10px 30px rgba(123, 45, 142, 0.3);
+}
+
+.event-info-page.theme-pes .register-btn:hover {
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
 }
 
 /* Related Events */
@@ -721,6 +874,29 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    border-top-color: var(--primary-color) !important;
+}
+
+.back-to-events-btn {
+    transition: all 0.3s ease;
+}
+
+.back-to-events-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .event-info-article,

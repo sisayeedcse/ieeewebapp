@@ -9,26 +9,6 @@ import "./RAS.css";
 
 const rasLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691509/ras_logo_lxbqcd.png";
-const demoImg =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691406/demo_dinydt.png",
-  ras_0 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753026875/RAS_0_y9scmc.png",
-  ras_1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752859489/RAS_1_gcylyh.png",
-  ras_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753034500/RAS_2_i206si.png",
-  ras_3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753034506/RAS_3_fryq7p.png",
-  ras_4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752859489/RAS_4_wy8rzf.png",
-  ras_5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753034500/RAS_5_slhjo6.png",
-  ras_6 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830867/RAS_6_blmah1.png",
-  ras_7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830868/RAS_7_qcevze.png",
-  ras_8 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830868/RAS_8_gugltn.png";
 
 const RAS = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -62,80 +42,10 @@ const RAS = () => {
   }, [year, selectedYear]);
 
   const stats = [
-    { number: "2023", label: "Founded" },
+    { number: "2025", label: "Founded" },
     { number: "45+", label: "Active Members" },
     { number: "12+", label: "Robot Projects" },
     { number: "100%", label: "Innovation" },
-  ];
-
-  const teamMembers = [
-    {
-      name: "Tuton Chandra Mallick",
-      position: "Mentor, IEEE PU RAS 2025",
-      image: ras_0,
-      facebook: "https://www.facebook.com/tuton.c.mallick",
-      linkedin: "https://www.linkedin.com/in/tcmallick/",
-    },
-    {
-      name: "SHOVON DAS",
-      position: "CHAIR, IEEE PU RAS 2025",
-      image: ras_1,
-      facebook:
-        "https://www.facebook.com/sho.von.348030?mibextid=wwXIfr&rdid=HBLHzl3QHIIp6681&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DsMjWh7dQ%2F%3Fmibextid%3DwwXIfr",
-      linkedin: "#",
-    },
-    {
-      name: "Fahmida Aktar Priya",
-      position: "VICE-CHAIR (ACTIVITY), IEEE PU RAS 2025",
-      image: ras_2,
-      facebook: "https://www.facebook.com/fahmida.shikder.833863",
-      linkedin: "",
-    },
-    {
-      name: "VICKY NANDI",
-      position: "VICE-CHAIR (TECHNICAL), IEEE PU RAS 2025",
-      image: ras_3,
-      facebook: "#",
-      linkedin: "#",
-    },
-    {
-      name: "ANUP DIPTA",
-      position: "SECRETARY, IEEE PU RAS 2025",
-      image: ras_4,
-      facebook:
-        "https://www.facebook.com/anupdipta04?mibextid=wwXIfr&rdid=SRUmkGVjGchJVgkK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19Lx6w6CdQ%2F%3Fmibextid%3DwwXIfr",
-      linkedin: "https://www.linkedin.com/in/anup-dipta-0281962a2/",
-    },
-    {
-      name: "ARNOB MAZUMDAR",
-      position: "JOINT SECRETARY, IEEE PU RAS 2025",
-      image: ras_5,
-      facebook: "https://www.facebook.com/ab.arnob.509",
-      linkedin: "#",
-    },
-    {
-      name: "TASNIA CHOWDHRY",
-      position: "TREASURER, IEEE PU RAS 2025",
-      image: ras_6,
-      facebook:
-        "https://www.facebook.com/tasnia.chowdhury.350815?mibextid=wwXIfr&rdid=iEfuZXhvifywkivs&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DqDxg3EPU%2F%3Fmibextid%3DwwXIfr",
-      linkedin: "#",
-    },
-    {
-      name: "CHINMAY BARUA NOBO",
-      position: "ORGANIZING SECRETARY, IEEE PU RAS 2025",
-      image: ras_7,
-      facebook: "https://www.facebook.com/chinmaynobo",
-      linkedin: "https://www.linkedin.com/in/chinmaybaruanobo/",
-    },
-    {
-      name: "MUBARRAT E ISHMAM",
-      position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE PU RAS 2025",
-      image: ras_8,
-      facebook:
-        "https://www.facebook.com/labon.ya.7?mibextid=wwXIfr&rdid=519gKbcRXcZe9AO6&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1YQVsyMK7m%2F%3Fmibextid%3DwwXIfr",
-      linkedin: "https://www.linkedin.com/in/mubarrateishmum/",
-    },
   ];
 
   useEffect(() => {
@@ -251,6 +161,56 @@ const RAS = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Social Section */}
+      <section className="ras-social">
+        <div className="ras-social-container">
+          <div className="ras-social-header">
+            <h2 className="ras-social-title">Connect With Us</h2>
+            <p className="ras-social-subtitle">
+              Join our robotics community and explore the future of automation
+              and intelligent systems
+            </p>
+          </div>
+
+          <div className="ras-social-content">
+            <div className="ras-social-platform">
+              <a
+                href="https://www.facebook.com/ieee.ras.pu"
+                target="_blank"
+                rel="noreferrer"
+                className="ras-social-button ras-social-facebook"
+              >
+                <i className="fab fa-facebook-f ras-social-icon"></i>
+                <div className="ras-social-text">
+                  <span className="ras-social-label">Follow us on</span>
+                  <span className="ras-social-name">Facebook</span>
+                </div>
+              </a>
+            </div>
+
+            <div className="ras-social-platform">
+              <a
+                href="https://www.linkedin.com/company/ieee-ras-pu"
+                target="_blank"
+                rel="noreferrer"
+                className="ras-social-button ras-social-linkedin"
+              >
+                <i className="fab fa-linkedin-in ras-social-icon"></i>
+                <div className="ras-social-text">
+                  <span className="ras-social-label">Connect on</span>
+                  <span className="ras-social-name">LinkedIn</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="ras-social-decoration"></div>
+          <div className="ras-social-decoration"></div>
+          <div className="ras-social-decoration"></div>
         </div>
       </section>
 

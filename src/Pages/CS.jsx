@@ -9,24 +9,6 @@ import "./CS.css";
 
 const csLogo =
   "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691512/cs_logo_tswsbw.png";
-const cs_0 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1753026871/CS_0_ls3qps.png",
-  cs_1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760610/CS_1_ve7ec2.png",
-  cs_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752849748/CS_2_daepzw.png",
-  cs_3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760612/CS_3_a0rte0.png",
-  cs_4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760611/CS_4_wxtucf.png",
-  cs_5 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752772827/CS_5_yihcwo.png",
-  cs_6 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760614/CS_6_wwqqnj.png",
-  cs_7 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752830824/CS_8_amwvyl.png",
-  cs_8 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752760611/CS_8_hjo2vm.png";
 
 const CS = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,76 +42,10 @@ const CS = () => {
   }, [year, selectedYear]);
 
   const stats = [
-    { number: "2020", label: "Founded" },
+    { number: "2025", label: "Founded" },
     { number: "100+", label: "Active Members" },
     { number: "25+", label: "Events Hosted" },
     { number: "100%", label: "Innovation" },
-  ];
-
-  const teamMembers = [
-    {
-      name: "Kingshuk Dhar",
-      position: "Mentor, IEEE CS PU 2025",
-      image: cs_0,
-      facebook: "https://www.facebook.com/kingshuk.dhar/",
-      linkedin: "https://www.linkedin.com/in/kingshuk-dhar-91a326327/",
-    },
-    {
-      name: "MD AZMAYEN",
-      position: "CHAIR, IEEE CS PU 2025",
-      image: cs_1,
-      facebook: "https://www.facebook.com/azmayen.retike",
-      linkedin: "https://www.linkedin.com/in/md-azmayen-a95263269/",
-    },
-    {
-      name: "RAYANUL KADER CHOWDHURY ABID",
-      position: "VICE-CHAIR (ACTIVITY), IEEE CS PU 2025",
-      image: cs_2,
-      facebook: "https://www.facebook.com/profile.php?id=61568304720110",
-      linkedin: "https://www.linkedin.com/in/rayanul-kader-chowdhury/",
-    },
-    {
-      name: "MD MASHRAUUL ISLAM RAFI",
-      position: "VICE-CHAIR (TECHNICAL), IEEE CS PU 2025",
-      image: cs_3,
-      facebook: "https://www.facebook.com/Muhammadrafi.2318",
-      linkedin: "https://www.linkedin.com/in/md-mashruul-islam/",
-    },
-    {
-      name: "SAYEED IBNE SAIF",
-      position: "SECRETARY, IEEE CS PU 2025",
-      image: cs_4,
-      facebook: "https://www.facebook.com/S.I.Sayeed.official/",
-      linkedin: "https://www.linkedin.com/in/sisayeedofficial/",
-    },
-    {
-      name: "MOHAMMOD HAMED HASAN",
-      position: "JOINT SECRETARY, IEEE CS PU 2025",
-      image: cs_5,
-      facebook: "https://www.facebook.com/hamed.hasan.497550",
-      linkedin: "https://www.linkedin.com/in/devhamed/",
-    },
-    {
-      name: "ARNAB SHIKDER",
-      position: "TREASURER, IEEE CS PU 2025",
-      image: cs_6,
-      facebook: "https://www.facebook.com/arnabshikder24",
-      linkedin: "https://www.linkedin.com/in/arnabshikder/",
-    },
-    {
-      name: "MOHAMMED TOWHIDUL ISLAM",
-      position: "ORGANIZING SECRETARY, IEEE CS PU 2025",
-      image: cs_7,
-      facebook: "https://www.facebook.com/MTOWHID0064",
-      linkedin: "https://www.linkedin.com/in/mtowhidulislam06/",
-    },
-    {
-      name: "ANINDITA BARUA",
-      position: "SOCIAL MEDIA & GRAPHICS COORDINATOR, IEEE CS PU 2025",
-      image: cs_8,
-      facebook: "https://www.facebook.com/profile.php?id=100091355197426",
-      linkedin: "https://www.linkedin.com/in/anindita-barua-9078a9254/",
-    },
   ];
 
   useEffect(() => {
@@ -238,6 +154,56 @@ const CS = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Social Section */}
+      <section className="cs-social">
+        <div className="cs-social-container">
+          <div className="cs-social-header">
+            <h2 className="cs-social-title">Connect With Us</h2>
+            <p className="cs-social-subtitle">
+              Follow our journey and stay updated with the latest events,
+              achievements, and opportunities
+            </p>
+          </div>
+
+          <div className="cs-social-content">
+            <div className="cs-social-platform">
+              <a
+                href="https://www.facebook.com/ieee.cs.pu"
+                target="_blank"
+                rel="noreferrer"
+                className="cs-social-button cs-social-facebook"
+              >
+                <i className="fab fa-facebook-f cs-social-icon"></i>
+                <div className="cs-social-text">
+                  <span className="cs-social-label">Follow us on</span>
+                  <span className="cs-social-name">Facebook</span>
+                </div>
+              </a>
+            </div>
+
+            <div className="cs-social-platform">
+              <a
+                href="https://www.linkedin.com/company/ieee-cs-pu"
+                target="_blank"
+                rel="noreferrer"
+                className="cs-social-button cs-social-linkedin"
+              >
+                <i className="fab fa-linkedin-in cs-social-icon"></i>
+                <div className="cs-social-text">
+                  <span className="cs-social-label">Connect on</span>
+                  <span className="cs-social-name">LinkedIn</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="cs-social-decoration"></div>
+          <div className="cs-social-decoration"></div>
+          <div className="cs-social-decoration"></div>
         </div>
       </section>
 
