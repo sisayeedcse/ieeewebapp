@@ -87,6 +87,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+    margin-top: 70px;
 }
 
 .event-info-hero-bg {
