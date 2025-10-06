@@ -297,7 +297,7 @@ const EventInfo = () => {
         societyTheme !== "default" ? `theme-${societyTheme}` : ""
       }`}
     >
-      <Navbar />
+      <Navbar variant={societyTheme} />
 
       {/* Hero Section */}
       <section className="event-info-hero">
