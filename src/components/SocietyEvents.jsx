@@ -334,7 +334,7 @@ const SocietyEvents = ({ society, variant }) => {
                       `Join us for this exciting ${society} event!`}
                   </p>
                   <Link
-                    to={event.id ? `/event/${event.id}` : `/events`}
+                    to={event.id ? `/event/${event.id}?variant=${variant}` : `/events`}
                     className={getVariantClass("society-event-btn")}
                   >
                     <span>Learn More</span>

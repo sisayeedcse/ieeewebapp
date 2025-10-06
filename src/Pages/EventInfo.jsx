@@ -1,6 +1,6 @@
 // src/Pages/EventInfo.jsx
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
@@ -9,85 +9,21 @@ import "./EventInfo.css";
 const EventInfo = () => {
   const { eventId } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [relatedEvents, setRelatedEvents] = useState([]);
-  const [societyTheme, setSocietyTheme] = useState("default");
+  
+  // Get theme from URL query parameter
+  const variant = searchParams.get('variant');
+  const societyTheme = variant && ['wie', 'cs', 'ras', 'pes'].includes(variant.toLowerCase()) 
+    ? variant.toLowerCase() 
+    : 'default';
 
   // Get base URL from environment variable or fallback
   const BASE_URL =
     process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
-
-  // Helper function to determine society theme based on tags
-  const getSocietyTheme = (tags) => {
-    if (!tags || !Array.isArray(tags)) return "default";
-
-    const tagStrings = tags.map((tag) =>
-      typeof tag === "string"
-        ? tag.toLowerCase()
-        : (tag.text || tag.name || tag.title || "").toLowerCase()
-    );
-
-    // Check for CS (Computer Society) tags
-    if (
-      tagStrings.some(
-        (tag) =>
-          tag.includes("cs") ||
-          tag.includes("computer") ||
-          tag.includes("software") ||
-          tag.includes("programming") ||
-          tag.includes("coding")
-      )
-    ) {
-      return "cs";
-    }
-
-    // Check for WIE (Women in Engineering) tags
-    if (
-      tagStrings.some(
-        (tag) =>
-          tag.includes("wie") ||
-          tag.includes("women") ||
-          tag.includes("female") ||
-          tag.includes("diversity")
-      )
-    ) {
-      return "wie";
-    }
-
-    // Check for RAS (Robotics and Automation Society) tags
-    if (
-      tagStrings.some(
-        (tag) =>
-          tag.includes("ras") ||
-          tag.includes("robotics") ||
-          tag.includes("automation") ||
-          tag.includes("robot") ||
-          tag.includes("ai") ||
-          tag.includes("artificial intelligence")
-      )
-    ) {
-      return "ras";
-    }
-
-    // Check for PES (Power and Energy Society) tags
-    if (
-      tagStrings.some(
-        (tag) =>
-          tag.includes("pes") ||
-          tag.includes("power") ||
-          tag.includes("energy") ||
-          tag.includes("electrical") ||
-          tag.includes("grid") ||
-          tag.includes("renewable")
-      )
-    ) {
-      return "pes";
-    }
-
-    return "default";
-  };
 
   // Fetch single event data from API
   useEffect(() => {
@@ -146,15 +82,7 @@ const EventInfo = () => {
 
         if (eventData && eventData.id) {
           setEvent(eventData);
-          // Set the society theme based on event tags
-          const theme = getSocietyTheme(eventData.tags);
-          setSocietyTheme(theme);
-          console.log(
-            "🎨 Event society theme:",
-            theme,
-            "based on tags:",
-            eventData.tags
-          );
+          console.log('✅ Successfully fetched event:', eventData.title);
         } else {
           throw new Error(lastError || "Event not found");
         }
