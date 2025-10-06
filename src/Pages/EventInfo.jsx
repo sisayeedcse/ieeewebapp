@@ -430,6 +430,7 @@ const EventInfo = () => {
 
               <div className="article-content">
                 <div className="content-section">
+                  <img style={{width: "100%", borderRadius: "8px", marginBottom: "16px"}} src={event.image_url || "https://via.placeholder.com/800x400?text=Event+Image"} alt={event.title || "Event Image"} />
                   <h2>About This Event</h2>
                   <div className="content-text">
                     {event.description ? (

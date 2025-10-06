@@ -113,79 +113,40 @@ const SocietyEvents = ({ society, variant }) => {
         setLoading(true);
         setError(null);
 
-        // Try multiple API endpoints that might exist
-        const endpoints = [
-          `${BASE_URL}/api/event?limit=6`,
-          `${BASE_URL}/api/events?limit=6`,
-          `${BASE_URL}/api/events?page=1&pageSize=6`,
-        ];
+        // Use the dedicated API query for society-specific events
+        const url = `${BASE_URL}/api/event?tags=${society}&limit=3`;
 
-        let allEvents = [];
-        let lastError = null;
+        try {
+          console.log(`🔍 Fetching society events from: ${url}`);
+          const response = await fetch(url);
 
-        for (const url of endpoints) {
-          try {
-            console.log(`🔍 Fetching society events from: ${url}`);
-            const response = await fetch(url);
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log("✅ Society Events API Response:", responseData);
 
-            if (response.ok) {
-              const responseData = await response.json();
-              console.log("✅ Society Events API Response:", responseData);
-
-              // Handle different API response structures
-              if (responseData.data && Array.isArray(responseData.data)) {
-                allEvents = responseData.data;
-              } else if (Array.isArray(responseData)) {
-                allEvents = responseData;
-              } else if (
-                responseData.events &&
-                Array.isArray(responseData.events)
-              ) {
-                allEvents = responseData.events;
-              }
-
-              if (allEvents && allEvents.length > 0) {
-                console.log(
-                  `✅ Successfully fetched ${allEvents.length} events from API`
-                );
-                break; // Success, exit the loop
-              }
-            } else {
-              lastError = `HTTP ${response.status}: ${response.statusText}`;
+            // Handle different API response structures
+            let societyEvents = [];
+            if (responseData.data && Array.isArray(responseData.data)) {
+              societyEvents = responseData.data;
+            } else if (Array.isArray(responseData)) {
+              societyEvents = responseData;
+            } else if (
+              responseData.events &&
+              Array.isArray(responseData.events)
+            ) {
+              societyEvents = responseData.events;
             }
-          } catch (endpointError) {
-            lastError = endpointError.message;
-            console.warn(`⚠️ Endpoint ${url} failed:`, endpointError.message);
+
+            console.log(
+              `✅ Successfully fetched ${societyEvents.length} events for ${society} society`
+            );
+            setEvents(societyEvents);
+          } else {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
           }
-        }
-
-        if (allEvents && allEvents.length > 0) {
-          // Filter events based on society tags
-          const filteredEvents = allEvents.filter((event) => {
-            if (!event.tags) return false;
-
-            // Handle both string and array tags
-            let eventTags = [];
-            if (Array.isArray(event.tags)) {
-              eventTags = event.tags.map((tag) =>
-                typeof tag === "string"
-                  ? tag.toUpperCase()
-                  : (tag.text || tag.name || tag.title || "").toUpperCase()
-              );
-            } else if (typeof event.tags === "string") {
-              eventTags = [event.tags.toUpperCase()];
-            }
-
-            // Check if any of the event tags match the society name
-            return eventTags.includes(society.toUpperCase());
-          });
-
-          console.log(
-            `🎯 Filtered ${filteredEvents.length} events for ${society} society`
-          );
-          setEvents(filteredEvents.slice(0, 3)); // Limit to 3 events for display
-        } else {
-          throw new Error(lastError || "No events found from any API endpoint");
+        } catch (apiError) {
+          console.warn(`⚠️ API endpoint failed:`, apiError.message);
+          throw apiError;
         }
       } catch (error) {
         console.error(`❌ Error fetching ${society} events:`, error);

@@ -23,60 +23,41 @@ const EventPage = () => {
   const fetchFeaturedEvents = async () => {
     try {
       setFeaturedLoading(true);
-      // Fetch more events to ensure we get upcoming ones - try different approaches
-      const queries = [
-        `${BASE_URL}/api/event?limit=20&page=1`,
-        `${BASE_URL}/api/event?pageSize=20&page=1`,
-        `${BASE_URL}/api/event`,
-      ];
+      
+      // Use dedicated date query to get upcoming events
+      const currentDate = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+      const url = `${BASE_URL}/api/event?date=${currentDate}&limit=3&page=1`;
 
-      let data = null;
-      for (const url of queries) {
-        try {
-          const response = await fetch(url);
-          if (response.ok) {
-            data = await response.json();
-            break;
-          }
-        } catch (error) {
-          console.log(`Failed to fetch from ${url}:`, error);
-          continue;
-        }
+      console.log('Fetching featured events from:', url);
+      
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-
-      if (!data) {
-        throw new Error("All fetch attempts failed");
-      }
+      
+      const data = await response.json();
+      console.log("Featured events - API Response:", data);
 
       // Handle different response structures
       const eventsArray = data.data || data.events || data || [];
-      console.log("Featured events - Raw data:", data);
       console.log("Featured events - Events array:", eventsArray);
 
-      // Filter for future events and sort by most recently added
-      const currentDate = new Date();
-      const upcomingEvents = eventsArray
-        .filter((event) => {
-          if (!event.date) return false;
-          const eventDate = new Date(event.date);
-          return eventDate >= currentDate;
-        })
-        .sort((a, b) => {
-          // Sort by createdAt if available (most recent first)
-          if (a.createdAt && b.createdAt) {
-            return new Date(b.createdAt) - new Date(a.createdAt);
-          }
-          // Fallback: sort by id (assuming higher id means more recent)
-          if (a.id && b.id) {
-            return b.id - a.id;
-          }
-          // Final fallback: sort by event date (most recent event date first)
-          return new Date(b.date) - new Date(a.date);
-        })
-        .slice(0, 3);
+      // Sort by most recently created/added (if available)
+      const sortedEvents = eventsArray.sort((a, b) => {
+        // Sort by createdAt if available (most recent first)
+        if (a.createdAt && b.createdAt) {
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        }
+        // Fallback: sort by id (assuming higher id means more recent)
+        if (a.id && b.id) {
+          return b.id - a.id;
+        }
+        // Final fallback: sort by event date (earliest upcoming event first)
+        return new Date(a.date) - new Date(b.date);
+      });
 
-      console.log("Featured events - Recent upcoming events:", upcomingEvents);
-      setFeaturedEvents(upcomingEvents);
+      console.log("Featured events - Sorted upcoming events:", sortedEvents);
+      setFeaturedEvents(sortedEvents);
     } catch (error) {
       console.error("Error fetching featured events:", error);
       setFeaturedEvents([]);
@@ -318,7 +299,7 @@ const EventPage = () => {
           <div className="eventpage-event-page-container">
             <div className="eventpage-event-page-section-header">
               <h2 className="eventpage-event-page-section-title">
-                Featured Events
+                Upcoming  Events
               </h2>
               <p className="eventpage-event-page-section-subtitle">
                 Don't miss these upcoming flagship events designed to elevate
