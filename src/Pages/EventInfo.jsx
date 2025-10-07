@@ -435,7 +435,7 @@ const EventInfo = () => {
                   <div className="content-text">
                     {event.description ? (
                       event.description
-                        .split("\n\n")
+                        .split("\n")
                         .map((paragraph, index) => (
                           <p key={index}>{paragraph}</p>
                         ))
@@ -476,7 +476,7 @@ const EventInfo = () => {
                             <div className="speaker-image">
                               <img
                                 src={
-                                  speaker.image ||
+                                  speaker.imageUrl ||
                                   speaker.image_url ||
                                   "https://via.placeholder.com/150x150?text=Speaker"
                                 }
