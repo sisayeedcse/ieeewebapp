@@ -62,13 +62,13 @@ const ContactUs = () => {
     {
       icon: "fas fa-phone",
       title: "Call Us",
-      details: ["+880-1719142953", "+880-31-2510797"],
+      details: ["+880-1620812541", "+880-1881805332"],
       color: "#10b981",
     },
     {
       icon: "fas fa-envelope",
       title: "Email Us",
-      details: ["ieeepusb@gmail.com", "info.ieee@pu.ac.bd"],
+      details: ["ieeepusb@gmail.com"],
       color: "#f59e0b",
     },
     {
