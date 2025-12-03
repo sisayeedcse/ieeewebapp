@@ -16,8 +16,7 @@ const EventPage = () => {
   const [eventsPerPage] = useState(6); // 6 events per page
 
   // Get base URL from environment variable or fallback
-  const BASE_URL =
-    process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+  const BASE_URL = "https://ieee-event-app.vercel.app";
 
   // Fetch featured events (upcoming events)
   const fetchFeaturedEvents = async () => {
