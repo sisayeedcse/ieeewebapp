@@ -5,12 +5,10 @@ import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import "./Developer.css";
 
-const Azmayn =
+const Azmayen =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691408/dev_1_kkecag.png",
   Sayeed =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691408/dev_2_wy06zx.png",
-  Hamed =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752772874/dev_3_hv2yp4.png",
   Arnab =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691407/dev_5_pl6chd.png",
   Rafi =
@@ -18,9 +16,9 @@ const Azmayn =
 
 const developers = [
   {
-    name: "Md. Azmayn",
+    name: "Md. Azmayen",
     role: "Developer Instructor, Webmaster, IEEE PU SB & Chair, IEEE CS PU SB 2025",
-    image: Azmayn,
+    image: Azmayen,
     type: "Instructor",
     facebook: "https://www.facebook.com/azmayen.retike",
     linkedin: "https://www.linkedin.com/in/md-azmayen-a95263269/",
