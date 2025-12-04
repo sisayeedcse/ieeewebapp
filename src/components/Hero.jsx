@@ -15,7 +15,7 @@ const hero1 =
   hero5 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1764851608/cs_AI_ML_ok0vmn.png",
   hero6 =
-    "https://res.cloudinary.com/dknflcbt1/image/q_auto/upload/v1764851607/ieeeday_uvibj2.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1764851607/ieeeday_uvibj2.png";
 
 const slides = [
   {
