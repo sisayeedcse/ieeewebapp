@@ -42,9 +42,9 @@ const About = () => {
             <div className="row text-center g-3">
               {[
                 { num: "500+", label: "Active Members" },
-                { num: "15+", label: "Years of Excellence" },
+                { num: "7+", label: "Years of Active Community" },
                 { num: "50+", label: "Events Organized" },
-                { num: "10+", label: "Awards Won" },
+                { num: "5", label: "Active Technical Societies" },
               ].map((stat, i) => (
                 <div className="col-6" key={i}>
                   <div className="stat-box shadow bg-white rounded p-4">

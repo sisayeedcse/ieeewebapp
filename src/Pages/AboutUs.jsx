@@ -47,7 +47,7 @@ const AboutUs = () => {
               </div>
               <div className="aboutpage-stat-divider"></div>
               <div className="aboutpage-stat-item">
-                <span className="aboutpage-about-stat-number">4</span>
+                <span className="aboutpage-about-stat-number">5</span>
                 <span className="aboutpage-stat-subtitle">active</span>
                 <span className="aboutpage-about-stat-label">
                   Technical Societies
