@@ -5,13 +5,17 @@ import { Link } from "react-router-dom";
 import "./Hero.css";
 
 const hero1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691563/event_img_1_boqokz.png",
-  hero2 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691562/event_img_2_afxz21.png",
+  hero2 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1764852086/transforming_ideas_event_tmscpk.png",
   hero3 =
     "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691561/event_img_3_uyjcvj.png",
   hero4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691553/event_img_4_lggcqm.png";
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752691553/event_img_4_lggcqm.png",
+  hero5 =
+    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1764851608/cs_AI_ML_ok0vmn.png",
+  hero6 =
+    "https://res.cloudinary.com/dknflcbt1/image/q_auto/upload/v1764851607/ieeeday_uvibj2.png";
 
 const slides = [
   {
@@ -46,11 +50,18 @@ const slides = [
     link: "#activities",
   },
   {
-    image: hero1,
-    title: "Transforming Ideas into Reality",
-    subtitle: "Join a dynamic community driving real-world innovations.",
-    button: "Get Involved",
-    link: "#vision",
+    image: hero5,
+    title: "Artificial Intelligence & Machine Learning",
+    subtitle: "Explore the future of computing with hands-on AI/ML workshops and competitions.",
+    button: "Learn More",
+    link: "/cs",
+  },
+  {
+    image: hero6,
+    title: "Celebrating IEEE Day Worldwide",
+    subtitle: "Be part of a global celebration connecting engineers across continents.",
+    button: "Discover Events",
+    link: "/events",
   },
 ];
 
