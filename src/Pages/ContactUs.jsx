@@ -62,7 +62,7 @@ const ContactUs = () => {
     {
       icon: "fas fa-phone",
       title: "Call Us",
-      details: ["+880-1620812541", "+880-1881805332"],
+      details: ["+880-1620812541", "+880-1644238788"],
       color: "#10b981",
     },
     {
