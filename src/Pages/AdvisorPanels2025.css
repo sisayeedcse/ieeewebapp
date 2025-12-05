@@ -18,9 +18,50 @@
     font-size: 1.1rem;
     color: #64748b;
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 2rem;
     text-align: center;
     line-height: 1.6;
+}
+
+/* Year Selector Dropdown */
+.year-selector-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.year-selector {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    background: white;
+    border: 2px solid #0ea5e9;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+}
+
+.year-selector:hover {
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+}
+
+.year-selector:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* No Members Message */
+.no-members-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #64748b;
+    font-size: 1.2rem;
 }
 
 .advisor-grid {
