@@ -16,7 +16,7 @@ import Events from "./Pages/EventPage";
 import Developer from "./Pages/Developer";
 import Contact from "./Pages/ContactUs";
 import AdvisorPanels from "./Pages/AdvisorPanel";
-import AlumniPanel2025 from "./Pages/AlumniPanel2025";
+import AlumniPanel from "./Pages/AlumniPanel";
 import EventInfo from "./Pages/EventInfo";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/advisors" element={<AdvisorPanels />} />
-        <Route path="/alumni" element={<AlumniPanel2025 />} />
+        <Route path="/alumni" element={<AlumniPanel />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/events" element={<Events />} />
         <Route path="/event/:eventId" element={<EventInfo />} />

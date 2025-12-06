@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import advisorData from "../data/advisorData";
-import "./AdvisorPanels2025.css";
+import "./AdvisorPanels.css";
 
 const AdvisorPanel = () => {
   // Get available years from advisorData dynamically

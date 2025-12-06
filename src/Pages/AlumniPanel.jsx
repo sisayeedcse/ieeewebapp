@@ -1,62 +1,37 @@
-// src/Pages/AlumniPanel2025.jsx
-import React, { useEffect } from "react";
+// src/Pages/AlumniPanel.jsx
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
-import "./AlumniPanel2025.css";
+import alumniData from "../data/alumniData";
+import "./AlumniPanel.css";
 
-const Alumni_1 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752753439/alumni_1_giasyt.png",
-  Alumni_2 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752753440/alumni_2_grolwa.png",
-  Alumni_3 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752753440/alumni_3_lckspa.png",
-  Alumni_4 =
-    "https://res.cloudinary.com/dknflcbt1/image/upload/q_auto/v1752753440/alumni_4_l4jtaf.png";
+const AlumniPanel = () => {
+  // Get available years from alumniData dynamically
+  const availableYears = Object.keys(alumniData)
+    .map((year) => parseInt(year))
+    .sort((a, b) => b - a); // Sort in descending order (newest first)
 
-const alumni = [
-  {
-    img: Alumni_1,
-    name: "Anik Barua",
-    title: "Alumni Advisor",
-    position: "Chair, IEEE PU SB '23",
-    department: "IEEE Premier University Student Branch",
-    linkedin: "https://www.linkedin.com/in/iamanikbarua/",
-    facebook: "https://www.facebook.com/iamanikbaruaa",
-  },
-  {
-    img: Alumni_2,
-    name: "Mohammed Mohiuddin",
-    title: "Alumni Advisor",
-    position: "Chair, IEEE PU SB '24",
-    department: "IEEE Premier University Student Branch",
-    linkedin: "https://www.linkedin.com/in/mohiuddin2531/",
-    facebook: "https://www.facebook.com/mohiuddin2531",
-  },
-  {
-    img: Alumni_3,
-    name: "Nazia Sultana Plabon",
-    title: "Alumni Advisor",
-    position: "Secretary, IEEE PU SB '24",
-    department: "IEEE Premier University Student Branch",
-    linkedin: "https://www.linkedin.com/in/plabonnazzia/",
-    facebook: "https://www.facebook.com/plabonnazzia",
-  },
-  {
-    img: Alumni_4,
-    name: "Joy Dey",
-    title: "Alumni Advisor",
-    position: "Vice Chair (Activity), IEEE PU SB '24",
-    department: "IEEE Premier University Student Branch",
-    linkedin: "https://www.linkedin.com/in/joy-dey-899192214/",
-    facebook: "https://www.facebook.com/joydey78852/",
-  },
-];
+  // State to track which year is currently selected (default: 2025)
+  const [selectedYear, setSelectedYear] = useState(2025);
 
-const AlumniPanel2025 = () => {
+  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Get the alumni for the selected year from imported data
+  const getCurrentAlumni = () => {
+    return alumniData[selectedYear] || [];
+  };
+
+  // Handle year change from dropdown
+  const handleYearChange = (event) => {
+    setSelectedYear(parseInt(event.target.value));
+  };
+
+  // Get current alumni based on selected year
+  const currentAlumni = getCurrentAlumni();
 
   const renderAlumni = (alumniMember, index) => {
     return (
@@ -108,21 +83,44 @@ const AlumniPanel2025 = () => {
       <Navbar variant="blue" />
       <section className="alumni-section">
         <div className="container">
-          <h2>Alumni Advisory Panel 2025</h2>
+          <h2>Alumni Advisory Panel {selectedYear}</h2>
           <p className="subtitle">
             Meet our distinguished alumni advisors who provide valuable guidance
             and mentorship, leveraging their experience to support the growth of
             IEEE Premier University Student Branch.
           </p>
 
+          {/* Year Selector Dropdown */}
+          <div className="year-selector-container">
+            <select
+              className="year-selector"
+              value={selectedYear}
+              onChange={handleYearChange}
+              aria-label="Select Alumni Panel Year"
+            >
+              {availableYears.map((year) => (
+                <option key={year} value={year}>
+                  Alumni Panel {year}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div className="section-divider"></div>
 
           <div className="alumni-grid">
-            <div className="alumni-row">
-              {alumni.map((alumniMember, index) =>
-                renderAlumni(alumniMember, index)
-              )}
-            </div>
+            {/* Show content only if there are alumni for the selected year */}
+            {currentAlumni.length > 0 ? (
+              <div className="alumni-row">
+                {currentAlumni.map((alumniMember, index) =>
+                  renderAlumni(alumniMember, index)
+                )}
+              </div>
+            ) : (
+              <div className="no-members-message">
+                <p>No alumni panel data available for {selectedYear}.</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -132,4 +130,4 @@ const AlumniPanel2025 = () => {
   );
 };
 
-export default AlumniPanel2025;
+export default AlumniPanel;
