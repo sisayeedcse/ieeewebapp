@@ -122,7 +122,7 @@ const Navbar = ({ variant }) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Committiee
+                Committee
               </a>
               <ul className="dropdown-menu" aria-labelledby="membersDropdown">
                 <li>
